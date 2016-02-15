@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         // 2.设置窗口的根控制器
-        window?.rootViewController = ViewController()
+        window?.rootViewController = XMGTabBarController()
         // 3.显示窗口
         window?.makeKeyAndVisible()
         return true
