@@ -12,8 +12,13 @@ class XMGMeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // 设置导航栏标题
+        self.navigationItem.title = "我的";
+        let settingItem:UIBarButtonItem = UIBarButtonItem.ItemWithBarButtonItem("mine-setting-icon", target: self, action: "settingClick")
+        let moonItem:UIBarButtonItem = UIBarButtonItem.ItemWithBarButtonItem("mine-moon-icon", target: self, action: "moonClick")
+        
+        // 设置导航栏右边的按钮
+        self.navigationItem.rightBarButtonItems = [settingItem, moonItem];
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +27,16 @@ class XMGMeViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func settingClick()
+    {
+    printLog("")
     }
-    */
+    
+    func moonClick()
+    {
+    printLog("")
+    }
 
 }

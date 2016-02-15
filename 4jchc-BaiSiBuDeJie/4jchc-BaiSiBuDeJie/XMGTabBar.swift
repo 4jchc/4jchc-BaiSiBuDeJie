@@ -37,11 +37,11 @@ class XMGTabBar: UITabBar {
         
         // 1.设置加号按钮的位置
         plusBtn.frame.size = plusBtn.currentBackgroundImage!.size;
-        self.plusBtn.center.x = self.frame.size.width * 0.5;
-        self.plusBtn.center.y = self.frame.size.height * 0.5;
+        self.plusBtn.center.x = self.width * 0.5;
+        self.plusBtn.center.y = self.height * 0.5;
         
         // 2.设置其他tabbarButton的位置和尺寸
-        let tabbarButtonW:CGFloat = self.frame.size.width / 5
+        let tabbarButtonW:CGFloat = self.width / 5
         
         var tabbarButtonIndex:CGFloat = 0
         
@@ -53,9 +53,9 @@ class XMGTabBar: UITabBar {
             if child.isKindOfClass(Class) {
                 
                 // 设置宽度
-                child.frame.size.width = tabbarButtonW;
+                child.width = tabbarButtonW;
                 // 设置x
-                child.frame.origin.x = tabbarButtonIndex * tabbarButtonW;
+                child.x = tabbarButtonIndex * tabbarButtonW;
                 
                 // 增加索引
                 tabbarButtonIndex++;

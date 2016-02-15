@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9619704E1C71FDE600D67033 /* XMGTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619704D1C71FDE600D67033 /* XMGTabBar.swift */; };
+		961970501C720C3700D67033 /* Frame+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619704F1C720C3700D67033 /* Frame+Extension.swift */; };
+		961970531C72186600D67033 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970521C72186600D67033 /* UIBarButtonItem+Extension.swift */; };
+		961970551C721E6B00D67033 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970541C721E6B00D67033 /* UIKit+Extension.swift */; };
 		96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */; };
 		96591C9C1C71EEE2008DE4BB /* XMGTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96591C9B1C71EEE2008DE4BB /* XMGTabBarController.swift */; };
 		96591C9E1C71F65E008DE4BB /* XMGMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96591C9D1C71F65E008DE4BB /* XMGMeViewController.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		9619704D1C71FDE600D67033 /* XMGTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTabBar.swift; sourceTree = "<group>"; };
+		9619704F1C720C3700D67033 /* Frame+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Frame+Extension.swift"; path = "../Frame+Extension.swift"; sourceTree = "<group>"; };
+		961970521C72186600D67033 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		961970541C721E6B00D67033 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaiSiBuDeJie开发笔记.swift"; sourceTree = "<group>"; };
 		96591C9B1C71EEE2008DE4BB /* XMGTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTabBarController.swift; sourceTree = "<group>"; };
 		96591C9D1C71F65E008DE4BB /* XMGMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		961970511C72182200D67033 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				961970541C721E6B00D67033 /* UIKit+Extension.swift */,
+				9619704F1C720C3700D67033 /* Frame+Extension.swift */,
+				961970521C72186600D67033 /* UIBarButtonItem+Extension.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		96DB5FCB1C71CD8700B289EE = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +134,7 @@
 				96591C9F1C71F66F008DE4BB /* XMGFriendTrendsViewController.swift */,
 				96591CA11C71F688008DE4BB /* XMGNewViewController.swift */,
 				96591CA31C71F69C008DE4BB /* XMGEssenceViewController.swift */,
+				961970511C72182200D67033 /* Tool */,
 				96DB60051C71D1EC00B289EE /* 没用 */,
 			);
 			path = "4jchc-BaiSiBuDeJie";
@@ -286,9 +303,12 @@
 				96591CA41C71F69C008DE4BB /* XMGEssenceViewController.swift in Sources */,
 				9619704E1C71FDE600D67033 /* XMGTabBar.swift in Sources */,
 				96591C9C1C71EEE2008DE4BB /* XMGTabBarController.swift in Sources */,
+				961970501C720C3700D67033 /* Frame+Extension.swift in Sources */,
 				96DB5FDA1C71CD8700B289EE /* ViewController.swift in Sources */,
+				961970531C72186600D67033 /* UIBarButtonItem+Extension.swift in Sources */,
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
 				96DB5FD81C71CD8700B289EE /* AppDelegate.swift in Sources */,
+				961970551C721E6B00D67033 /* UIKit+Extension.swift in Sources */,
 				96591CA01C71F66F008DE4BB /* XMGFriendTrendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +447,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "4jchc-BaiSiBuDeJie/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "-jchc.-jchc-BaiSiBuDeJie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
