@@ -19,6 +19,8 @@ class XMGMeViewController: UIViewController {
         
         // 设置导航栏右边的按钮
         self.navigationItem.rightBarButtonItems = [settingItem, moonItem];
+        // 设置背景色
+        self.view.backgroundColor = XMGGlobalBg;
     }
 
     override func didReceiveMemoryWarning() {

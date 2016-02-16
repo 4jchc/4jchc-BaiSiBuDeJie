@@ -13,7 +13,8 @@ class XMGTabBar: UITabBar {
     var plusBtn:UIButton!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        // 设置tabbar的背景图片
+        self.backgroundImage = UIImage(named: "tabbar-light")
         // 添加一个按钮到tabbar中
         let plusBtn:UIButton = UIButton()
         plusBtn.setBackgroundImage(UIImage(named: "tabBar_publish_icon"), forState: UIControlState.Normal)

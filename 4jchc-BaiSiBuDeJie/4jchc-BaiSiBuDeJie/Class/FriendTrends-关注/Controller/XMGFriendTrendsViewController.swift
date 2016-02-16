@@ -17,7 +17,8 @@ class XMGFriendTrendsViewController: UIViewController {
 
         // 设置导航栏右边的按钮
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.ItemWithBarButtonItem("friendsRecommentIcon", target: self, action: "friendsClick")
-
+        // 设置背景色
+        self.view.backgroundColor = XMGGlobalBg;
     }
     
     func friendsClick()

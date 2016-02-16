@@ -19,7 +19,7 @@ import UIKit
     */
 
     /*
-    //MARK: 2.自定义TabBar修改位置
+    //MARK: 2. 自定义TabBar修改位置
     1.KVC换掉系统的TabBar
     setValue(newTabBar, forKey: "tabBar")
     2.init(frame: CGRect)里设置子控件的frame是没有用的要在layoutSubviews里设置
@@ -27,8 +27,12 @@ import UIKit
     */
 
     /*
-    设置导航栏
+    //MARK: 3. 设置导航栏
     1.添加Frame的扩展
     2.封装UIBarButtonItem
     3.添加自定义打印log
+    */
+
+    /*
+    //MARK: 4. 调整项目文件结构
     */
