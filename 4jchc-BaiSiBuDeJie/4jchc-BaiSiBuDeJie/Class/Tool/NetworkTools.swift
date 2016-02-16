@@ -14,7 +14,7 @@ class NetworkTools: AFHTTPSessionManager {
     
     static let tools:NetworkTools = {
         // 注意: baseURL一定要以/结尾
-        let url = NSURL(string: "https://api.weibo.com/")
+        let url = NSURL(string: "http://api.budejie.com/")
         let t = NetworkTools(baseURL: url)
         
         // 设置AFN能够接收得数据类型

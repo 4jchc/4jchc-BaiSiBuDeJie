@@ -52,8 +52,26 @@ import UIKit
     */
 
     /*
-    发送网络请求测试
+    发送网络请求
     */
 
 
+
+
+
+
+//MARK: - 第二天
+
+    /*
+    添加MJExtension设置左边的数据--获取右边list列表
+    1.获取左边list列表
+    2.当cell的selection为None时, 即使cell被选中了, 内部的子控件也不会进入高亮状态
+    在自定义cell的setSelected里设置选中的高亮状态
+    3.mj字典转模型
+    XMGRecommendCategory.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+    4.自定义Insets嵌入为64--导航栏
+    设置automatically自动地 Adjusts调整 ScrollView Insets嵌入
+    self.automaticallyAdjustsScrollViewInsets = false
+    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    */
 

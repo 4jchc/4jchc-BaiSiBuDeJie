@@ -9,17 +9,35 @@
 import UIKit
 // Recommend推荐 ViewController
 import SVProgressHUD
-
+import MJExtension
 class XMGRecommendViewController: UIViewController {
+
+    /** 左边的类别数据 */
+    var categories:NSArray?
+    
+    /** 右边的用户数据 */
+    var users:NSArray?
+
+    /** 左边的类别表格 */
+    @IBOutlet weak var categoryTableView: UITableView!
+    /** 右边的用户表格 */
+    @IBOutlet weak var userTableView: UITableView!
+    
+    
+    let XMGCategoryId:String = "category"
+    let XMGUserId:String = "user"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        // 控件的初始化
+        setupTableView()
+        
         // 显示指示器
         SVProgressHUD.showInfoWithStatus("正在加载...", maskType: SVProgressHUDMaskType.Black)
-        // 发送请求
         // 1.定义URL路径
-        let path = "oauth2/access_token"
+        let path = "api/api_open.php"
         // 2.封装参数
         let params = NSMutableDictionary()
         params["a"] = "category";
@@ -27,7 +45,16 @@ class XMGRecommendViewController: UIViewController {
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
             // 隐藏指示器
             SVProgressHUD.dismiss()
+            // 服务器返回的JSON数据
+            self.categories = XMGRecommendCategory.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+            // 刷新表格
             
+            self.categoryTableView.reloadData()
+            
+            // 默认选中首行
+            self.categoryTableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Top)
+
+            printLog("\(responseObject)")
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
@@ -35,21 +62,82 @@ class XMGRecommendViewController: UIViewController {
         
     
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // 控件的初始化
+    func setupTableView(){
+        
+        // 注册cell
+        categoryTableView.registerNib(UINib(nibName: "XMGRecommendCategoryCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: XMGCategoryId)
+        userTableView.registerNib(UINib(nibName: "XMGRecommendUserCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: XMGUserId)
+        // 设置automatically自动地 Adjusts调整 ScrollView Insets嵌入
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        self.userTableView.contentInset = self.categoryTableView.contentInset;
+        self.userTableView.rowHeight = 70;
+        
+        // 设置标题
+        self.title = "推荐关注";
+        
+        // 设置背景色
+        self.view.backgroundColor = XMGGlobalBg;
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+
+extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
+    
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (tableView == self.categoryTableView) { // 左边的类别表格
+            return self.categories?.count ?? 0
+        } else { // 右边的用户表格
+            return self.users?.count ?? 0
+        }
     }
-    */
 
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        if (tableView == self.categoryTableView) { // 左边的类别表格
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier(XMGCategoryId) as! XMGRecommendCategoryCell
+            
+            cell.category = self.categories![indexPath.row] as? XMGRecommendCategory
+            return cell
+        } else { // 右边的用户表格
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier(XMGUserId) as! XMGRecommendUserCell
+            cell.user = self.users![indexPath.row] as? XMGRecommendUser;
+            return cell;
+        }
+        
+
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+
+        let c:XMGRecommendCategory = self.categories![indexPath.row] as! XMGRecommendCategory
+
+        // 1.定义URL路径
+        let path = "api/api_open.php"
+        // 2.封装参数
+        let params = NSMutableDictionary()
+        params["a"] = "list";
+        params["c"] = "subscribe";
+        params["category_id"] = (c.id);
+        NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
+
+            // 服务器返回的JSON数据
+            self.users = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+            // 刷新表格
+            
+            self.userTableView.reloadData()
+            
+            printLog("\(responseObject)")
+            }) { (error) -> () in
+                // 显示失败信息
+                SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+        }
+    }
 }
