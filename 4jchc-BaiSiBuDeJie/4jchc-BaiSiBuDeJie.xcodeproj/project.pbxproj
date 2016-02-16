@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */; };
+		96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */; };
+		96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */; };
+		96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6F1C7300A8009090A0 /* NetworkTools.swift */; };
 		961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619705C1C72265800D67033 /* XMGEssenceViewController.swift */; };
 		9619707A1C72265800D67033 /* XMGFriendTrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */; };
 		9619707B1C72265800D67033 /* XMGMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970661C72265800D67033 /* XMGMeViewController.swift */; };
@@ -53,6 +56,9 @@
 		3B9F0C162C80641EEE3B6A9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5D05291C0ACBD0E881906816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGFriendTrendsViewController.xib; sourceTree = "<group>"; };
+		96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendViewController.swift; sourceTree = "<group>"; };
+		96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendViewController.xib; sourceTree = "<group>"; };
+		96106A6F1C7300A8009090A0 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		9619705C1C72265800D67033 /* XMGEssenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGEssenceViewController.swift; sourceTree = "<group>"; };
 		961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGFriendTrendsViewController.swift; sourceTree = "<group>"; };
 		961970661C72265800D67033 /* XMGMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 			children = (
 				961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */,
 				96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */,
+				96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */,
+				96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 		961970741C72265800D67033 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				96106A6F1C7300A8009090A0 /* NetworkTools.swift */,
 				961970751C72265800D67033 /* Frame+Extension.swift */,
 				961970851C72287100D67033 /* UIColor+Extension.swift */,
 				961970761C72265800D67033 /* UIBarButtonItem+Extension.swift */,
@@ -482,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */,
 				96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */,
 				96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */,
 				96DB5FDF1C71CD8700B289EE /* Assets.xcassets in Resources */,
@@ -563,6 +573,7 @@
 				9619707E1C72265800D67033 /* XMGTabBar.swift in Sources */,
 				9619707A1C72265800D67033 /* XMGFriendTrendsViewController.swift in Sources */,
 				961970801C72265800D67033 /* UIBarButtonItem+Extension.swift in Sources */,
+				96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */,
 				961970841C7227B900D67033 /* 常量.swift in Sources */,
 				9619707F1C72265800D67033 /* Frame+Extension.swift in Sources */,
 				96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */,
@@ -570,6 +581,7 @@
 				961970861C72287100D67033 /* UIColor+Extension.swift in Sources */,
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
 				961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */,
+				96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */,
 				96DB5FD81C71CD8700B289EE /* AppDelegate.swift in Sources */,
 				961970811C72265800D67033 /* UIKit+Extension.swift in Sources */,
 				9619707B1C72265800D67033 /* XMGMeViewController.swift in Sources */,

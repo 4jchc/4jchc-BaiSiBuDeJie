@@ -10,3 +10,22 @@ import UIKit
 
 
 let XMGGlobalBg:UIColor = UIColor.RGB(223, 223, 223)
+
+
+
+
+
+
+
+
+//MARK: - 单词
+/*
+
+Recommend推荐 ViewController
+Essence基本-精华
+Friend Trends-关注动态
+
+
+
+
+*/
