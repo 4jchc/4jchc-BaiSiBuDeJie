@@ -30,7 +30,7 @@ class XMGTabBarController: UITabBarController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTabBar()
+
         addChildViewControllers()
     }
 
@@ -38,12 +38,8 @@ class XMGTabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //设置tabbar
-    func setTabBar() {
-        
-         let newTabBar = XMGTabBar(frame: tabBar.bounds)
-        setValue(newTabBar, forKey: "tabBar")
-    }
+    
+
     //添加所有子控制器
     func addChildViewControllers() {
         
@@ -54,7 +50,8 @@ class XMGTabBarController: UITabBarController {
         addChildVc("关注", image: "tabBar_friendTrends_icon", selectedImage: "tabBar_friendTrends_click_icon",childVc: XMGFriendTrendsViewController())
         
         addChildVc("我", image: "tabBar_me_icon", selectedImage: "tabBar_me_click_icon",childVc: XMGMeViewController())
-        
+        //设置KVC设置-tabbar
+        setValue(XMGTabBar(frame: tabBar.bounds), forKey: "tabBar")
     }
 
 

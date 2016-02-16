@@ -10,6 +10,23 @@ import UIKit
 
 class XMGNavigationController: UINavigationController {
 
+
+
+    // 当第一次使用这个类的时候会调用一次
+    override class func initialize(){
+        
+        let bar:UINavigationBar = UINavigationBar.appearance()
+        bar.setBackgroundImage(UIImage(named: "navigationbarBackgroundWhite"), forBarMetrics: UIBarMetrics.Default)
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+    
+    
+    
     // 可以在这个方法中拦截所有push进来的控制器更改返回按钮
     override func pushViewController(viewController: UIViewController, animated: Bool) {
         

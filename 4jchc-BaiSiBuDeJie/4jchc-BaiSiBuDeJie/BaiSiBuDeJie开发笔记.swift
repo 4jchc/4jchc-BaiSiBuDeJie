@@ -42,5 +42,9 @@ import UIKit
     //MARK: 5. 自定义导航控制器拦截push设置返回键super的push要放在后面
     */
 
+    /*
+    //MARK: 6. 当第一次使用这个类的时候会调用一次initialize的使用
+
+    */
 
 
