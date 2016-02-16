@@ -73,5 +73,8 @@ class XMGTabBar: UITabBar {
             }*/
         }
     }
-    
+    func plusClick(){
+        
+        
+    }
 }
