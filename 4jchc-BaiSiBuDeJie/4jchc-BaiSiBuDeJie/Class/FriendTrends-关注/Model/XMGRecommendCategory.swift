@@ -17,5 +17,7 @@ class XMGRecommendCategory: NSObject {
     /** 名字 */
     var name: String = ""
     
+    /** 这个类别对应的用户数据 */
+    lazy var users:NSMutableArray? = NSMutableArray()
 
 }

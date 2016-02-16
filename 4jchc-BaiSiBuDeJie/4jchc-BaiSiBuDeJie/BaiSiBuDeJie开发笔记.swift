@@ -52,7 +52,7 @@ import UIKit
     */
 
     /*
-    发送网络请求
+    //MARK: 8. 发送网络请求
     */
 
 
@@ -63,7 +63,7 @@ import UIKit
 //MARK: - 第二天
 
     /*
-    添加MJExtension设置左边的数据--获取右边list列表
+    //MARK: 1.添加MJExtension设置左边的数据--获取右边list列表
     1.获取左边list列表
     2.当cell的selection为None时, 即使cell被选中了, 内部的子控件也不会进入高亮状态
     在自定义cell的setSelected里设置选中的高亮状态
@@ -75,3 +75,11 @@ import UIKit
     self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     */
 
+
+    /*
+    解决重复发送请求
+    1.在主模型里添加一个可变数组,每点击一个cell就会保存相应的数组.不同的cell.对应不同的数组
+    2.右边模型的数组是左边模型的指定cell来的,所以右边模型访问左边cell
+    3.左边模型对应的rou是通过--模型(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!
+    每一个左边的数据都是一个模型所以.定一个可变的数组保存对应的右边的数据
+    */

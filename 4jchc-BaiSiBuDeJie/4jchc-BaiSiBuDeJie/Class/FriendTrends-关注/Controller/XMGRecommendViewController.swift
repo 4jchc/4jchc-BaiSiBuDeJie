@@ -13,10 +13,10 @@ import MJExtension
 class XMGRecommendViewController: UIViewController {
 
     /** 左边的类别数据 */
-    var categories:NSArray?
+    var categorieS:NSArray?
     
     /** 右边的用户数据 */
-    var users:NSArray?
+   // var users:NSArray?
 
     /** 左边的类别表格 */
     @IBOutlet weak var categoryTableView: UITableView!
@@ -46,7 +46,7 @@ class XMGRecommendViewController: UIViewController {
             // 隐藏指示器
             SVProgressHUD.dismiss()
             // 服务器返回的JSON数据
-            self.categories = XMGRecommendCategory.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+            self.categorieS = XMGRecommendCategory.mj_objectArrayWithKeyValuesArray(responseObject["list"])
             // 刷新表格
             
             self.categoryTableView.reloadData()
@@ -90,9 +90,13 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == self.categoryTableView) { // 左边的类别表格
-            return self.categories?.count ?? 0
+            return self.categorieS?.count ?? 0
+            
         } else { // 右边的用户表格
-            return self.users?.count ?? 0
+            let c = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
+           
+            return c?.users!.count ?? 0
+
         }
     }
 
@@ -102,12 +106,14 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
             
             let cell = tableView.dequeueReusableCellWithIdentifier(XMGCategoryId) as! XMGRecommendCategoryCell
             
-            cell.category = self.categories![indexPath.row] as? XMGRecommendCategory
+            cell.category = self.categorieS![indexPath.row] as? XMGRecommendCategory
             return cell
         } else { // 右边的用户表格
-            
+
             let cell = tableView.dequeueReusableCellWithIdentifier(XMGUserId) as! XMGRecommendUserCell
-            cell.user = self.users![indexPath.row] as? XMGRecommendUser;
+            let c = self.categorieS![(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as! XMGRecommendCategory
+
+            cell.user = c.users![indexPath.row] as? XMGRecommendUser;
             return cell;
         }
         
@@ -117,8 +123,15 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
 
-        let c:XMGRecommendCategory = self.categories![indexPath.row] as! XMGRecommendCategory
-
+        let c:XMGRecommendCategory = self.categorieS![indexPath.row] as! XMGRecommendCategory
+        printLog("\(c.users?.count)")
+        if ((c.users?.count) != 0) {
+            // 显示曾经的数据
+            self.userTableView.reloadData()
+            
+        } else {
+        
+        
         // 1.定义URL路径
         let path = "api/api_open.php"
         // 2.封装参数
@@ -128,9 +141,12 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
         params["category_id"] = (c.id);
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
 
-            // 服务器返回的JSON数据
-            self.users = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+            // 服务器返回的JSON数据- 字典数组 -> 模型数组
+            let users:NSArray = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
             // 刷新表格
+            
+            // 添加到当前类别对应的用户数组中
+            c.users!.addObjectsFromArray(users as [AnyObject])
             
             self.userTableView.reloadData()
             
@@ -138,6 +154,7 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+        }
         }
     }
 }
