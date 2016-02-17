@@ -79,7 +79,8 @@ class XMGRecommendViewController: UIViewController {
             
             // 默认选中首行
             self.categoryTableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Top)
-            
+            // 让用户表格进入下拉刷新状态
+            self.userTableView.mj_header.beginRefreshing()
             printLog("responseObject1\(responseObject)")
             }) { (error) -> () in
                 // 显示失败信息
@@ -134,7 +135,8 @@ class XMGRecommendViewController: UIViewController {
             // 服务器返回的JSON数据- 字典数组 -> 模型数组
             let users:NSArray = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
             // 不是最后一次请求
-            if (self.params != params) {return}
+            //if (self.params != params) {return}
+            
             // 刷新表格
             // 设置当前页码为1
             category.currentPage = 1
@@ -144,16 +146,22 @@ class XMGRecommendViewController: UIViewController {
             category.users!.addObjectsFromArray(users as [AnyObject])
             // 保存总数
             category.total = responseObject["total"] as! Int
+            // 不是最后一次请求
+            if (self.params != params) {return}
+            
             self.userTableView.reloadData()
-            
             self.userTableView.mj_header.endRefreshing()
-            
             
             // 让底部控件结束刷新
             self.checkFooterState()
             }) { (error) -> () in
+
+                // 不是最后一次请求
+                if (self.params != params) {return}
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                // 让底部控件结束刷新
+                self.userTableView.mj_footer.endRefreshing()
         }
     }
     
@@ -175,8 +183,7 @@ class XMGRecommendViewController: UIViewController {
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
-            // 不是最后一次请求
-            if (self.params != params) {return}
+
             printLog("params2\(params)")
             // 服务器返回的JSON数据- 字典数组 -> 模型数组
             let users:NSArray = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
@@ -184,15 +191,20 @@ class XMGRecommendViewController: UIViewController {
             
             // 添加到当前类别对应的用户数组中
             category.users!.addObjectsFromArray(users as [AnyObject])
-            
+            // 不是最后一次请求
+            if (self.params != params) {return}
             // 刷新右边的表格
             self.userTableView.reloadData()
             
             // 让底部控件结束刷新
             self.checkFooterState()
             }) { (error) -> () in
+                // 不是最后一次请求
+                if (self.params != params) {return}
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                // 让底部控件结束刷新
+                self.userTableView.mj_footer.endRefreshing()
         }
     }
     

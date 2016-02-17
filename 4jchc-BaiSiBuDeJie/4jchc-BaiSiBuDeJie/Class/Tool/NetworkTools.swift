@@ -27,7 +27,7 @@ class NetworkTools: AFHTTPSessionManager {
         return tools
     }
     
-    
+    // NSURLSessionDataTask task
     func sendGET(url:String,params:AnyObject?,successCallback: (responseObject:AnyObject) -> (),errorCallback:(error:NSError) -> ()){
         
         

@@ -110,9 +110,21 @@ import UIKit
 
 
     /*
-    控制器销毁处理
+    //MARK: 7. 控制器销毁处理
     1.每次点击cell都要结束刷新
     2.第一次保存临时请求参数.2次判断是否相同.不同就直接返回
     3.---退出控制器就要--停止所有操作operation Queue
     NetworkTools.shareNetworkTools().operationQueue.cancelAllOperations()
     */
+
+
+    /*
+    1.一开始网络加载数据就 设置 1.默认选中首行
+    self.categoryTableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Top)
+                   2 .让用户表格进入下拉刷新状态
+    self.userTableView.mj_header.beginRefreshing()
+    2.第一次保存临时请求参数.-----2次判断是否相同.----不同就直接返回❌
+    3.数据已经加载了就存起来,不要刷新就行了
+    */
+
+
