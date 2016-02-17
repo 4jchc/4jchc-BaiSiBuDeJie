@@ -63,7 +63,7 @@ import UIKit
 //MARK: - 第二天
 
     /*
-    //MARK: 1.添加MJExtension设置左边的数据--获取右边list列表
+    //MARK: 1. 添加MJExtension设置左边的数据--获取右边list列表
     1.获取左边list列表
     2.当cell的selection为None时, 即使cell被选中了, 内部的子控件也不会进入高亮状态
     在自定义cell的setSelected里设置选中的高亮状态
@@ -77,7 +77,7 @@ import UIKit
 
 
     /*
-    解决重复发送请求
+    //MARK: 2. 解决重复发送请求
     1.在主模型里添加一个可变数组,每点击一个cell就会保存相应的数组.不同的cell.对应不同的数组
     2.右边模型的数组是左边模型的指定cell来的,所以右边模型访问左边cell
     3.左边模型对应的rou是通过--模型(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!
@@ -85,12 +85,12 @@ import UIKit
     */
 
     /*
-    加载第2页数据
+    //MARK: 3. 加载第2页数据
     1.无法加载第2页数据.page为2没纸
     */
 
     /*
-    加载数据的判断---只有1业而已记录当前的页码
+    //MARK: 4. 加载数据的判断---只有1业而已记录当前的页码
     1.记录总数和数组的个数相比-记录当前页码 判断返回的数据页数和总数,如果不相同就加载
     */
 

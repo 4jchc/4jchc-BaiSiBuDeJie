@@ -21,13 +21,9 @@ class XMGRecommendViewController: UIViewController {
         return New
     }()
   
-    
-    var categorieS:NSArray?
-        
-
- 
     /** 左边的类别数据 */
-    //var categorieS:NSArray?
+    var categorieS:NSArray?
+
     
     /** 右边的用户数据 */
      // var users:NSArray?
@@ -69,7 +65,7 @@ class XMGRecommendViewController: UIViewController {
             // 默认选中首行
             self.categoryTableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Top)
             
-            printLog("\(responseObject)")
+            printLog("responseObject1\(responseObject)")
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
@@ -106,8 +102,7 @@ class XMGRecommendViewController: UIViewController {
         
         self.userTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: Selector("loadMoreUsers"))
         
-//        self.userTableView.tableHeaderView!.hidden = true
-//        self.userTableView.tableFooterView!.hidden = true
+
     }
     
     func loadNewUsers(){
@@ -147,7 +142,7 @@ class XMGRecommendViewController: UIViewController {
             // 让底部控件结束刷新
             //[self checkFooterState];
             printLog("category.total=\(category.total)category.users?.count\(category.users?.count) ")
-            if (category.users?.count) == category.total-1{
+            if (category.users?.count) == (category.total){
                 
                 self.userTableView.mj_footer.endRefreshingWithNoMoreData()
                 
@@ -233,7 +228,7 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
                 // 保存总数
                 c.total = responseObject["total"] as! Int
                 self.userTableView.reloadData()
-                printLog("c.users?.count=\(c.users?.count)c.total\(c.total) ")
+              
                 if c.users?.count == c.total{
                     
                     self.userTableView.mj_footer.endRefreshingWithNoMoreData()
@@ -241,6 +236,7 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
                     
                     self.userTableView.mj_footer.endRefreshing()
                 }
+                printLog("responseObject2\(responseObject)")
                 printLog("\(responseObject)")
                 }) { (error) -> () in
                     // 显示失败信息
