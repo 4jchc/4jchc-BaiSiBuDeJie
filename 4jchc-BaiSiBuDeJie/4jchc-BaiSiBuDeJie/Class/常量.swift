@@ -17,7 +17,6 @@ let XMGGlobalBg:UIColor = UIColor.RGB(223, 223, 223)
 
 
 
-
 //MARK: - 单词
 /*
 
