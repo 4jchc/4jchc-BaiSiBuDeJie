@@ -117,7 +117,7 @@ class XMGRecommendViewController: UIViewController {
     func loadMoreUsers(){
         
 
-        let category = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
+        let category = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as! XMGRecommendCategory
         // 发送请求给服务器, 加载右侧的数据
         //self.params = params;
         // 1.定义URL路径
@@ -126,8 +126,8 @@ class XMGRecommendViewController: UIViewController {
         let params = NSMutableDictionary()
         params["a"] = "list";
         params["c"] = "subscribe";
-        params["category_id"] = category?.id
-        params["page"] = 1//(++category.currentPage);
+        params["category_id"] = category.id
+        params["page"] = (++category.currentPage);
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
             
             printLog("params2\(params)")
@@ -136,7 +136,7 @@ class XMGRecommendViewController: UIViewController {
             // 刷新表格
             
             // 添加到当前类别对应的用户数组中
-            category?.users!.addObjectsFromArray(users as [AnyObject])
+            category.users!.addObjectsFromArray(users as [AnyObject])
             
             // 不是最后一次请求
            // if (self.params != params) {return}
@@ -146,11 +146,17 @@ class XMGRecommendViewController: UIViewController {
             
             // 让底部控件结束刷新
             //[self checkFooterState];
-
+            printLog("category.total=\(category.total)category.users?.count\(category.users?.count) ")
+            if (category.users?.count) == category.total-1{
+                
+                self.userTableView.mj_footer.endRefreshingWithNoMoreData()
+                
+            }else{
+                self.userTableView.mj_footer.endRefreshing()
+            }
             
-            self.userTableView.mj_footer.endRefreshing()
             
-            printLog("\(responseObject)")
+            
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
@@ -215,18 +221,26 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
             params["a"] = "list";
             params["c"] = "subscribe";
             params["category_id"] = (c.id);
-            params["page"] = 1
             NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
                 printLog("params1\(params)")
                 // 服务器返回的JSON数据- 字典数组 -> 模型数组
                 let users:NSArray = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
                 // 刷新表格
-                
+                // 设置当前页码为1
+                c.currentPage = 1
                 // 添加到当前类别对应的用户数组中
                 c.users!.addObjectsFromArray(users as [AnyObject])
-                
+                // 保存总数
+                c.total = responseObject["total"] as! Int
                 self.userTableView.reloadData()
-                
+                printLog("c.users?.count=\(c.users?.count)c.total\(c.total) ")
+                if c.users?.count == c.total{
+                    
+                    self.userTableView.mj_footer.endRefreshingWithNoMoreData()
+                }else{
+                    
+                    self.userTableView.mj_footer.endRefreshing()
+                }
                 printLog("\(responseObject)")
                 }) { (error) -> () in
                     // 显示失败信息
@@ -234,4 +248,5 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
             }
         }
     }
+    
 }

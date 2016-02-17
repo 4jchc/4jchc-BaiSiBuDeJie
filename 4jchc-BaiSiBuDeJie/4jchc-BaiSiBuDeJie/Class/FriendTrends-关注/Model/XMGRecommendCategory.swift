@@ -9,7 +9,7 @@
 import UIKit
 
 class XMGRecommendCategory: NSObject {
-
+    
     /** 总数 */
     var count: Int = 0
     /** id */
@@ -19,5 +19,11 @@ class XMGRecommendCategory: NSObject {
     
     /** 这个类别对应的用户数据 */
     lazy var users:NSMutableArray? = NSMutableArray()
-
+    
+    
+    /** 总数 */
+    var total: Int = 0
+    /** 当前页码 */
+    var currentPage: Int = 0
+    
 }
