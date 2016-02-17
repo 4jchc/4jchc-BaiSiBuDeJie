@@ -119,7 +119,7 @@ import UIKit
 
 
     /*
-    1.一开始网络加载数据就 设置 1.默认选中首行
+    //MARK: 8. 1.一开始网络加载数据就 设置 1.默认选中首行
     self.categoryTableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Top)
                    2 .让用户表格进入下拉刷新状态
     self.userTableView.mj_header.beginRefreshing()
@@ -127,4 +127,11 @@ import UIKit
     3.数据已经加载了就存起来,不要刷新就行了
     */
 
-
+    /*
+    精华左边-推荐标签
+    1.纯代码写UITableViewController要写
+    tableView.delegate = self tableView.dataSource = self
+    2.完成数字为万的设置
+    3.设置cell的位置2边进5.宽度减少2倍
+    重写Frame不可以写成didset方法
+    */

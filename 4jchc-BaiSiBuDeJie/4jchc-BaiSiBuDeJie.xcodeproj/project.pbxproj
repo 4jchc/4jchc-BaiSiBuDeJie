@@ -23,7 +23,11 @@
 		961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970781C72265800D67033 /* UITabBarController+Extension.swift */; };
 		961970841C7227B900D67033 /* 常量.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970831C7227B900D67033 /* 常量.swift */; };
 		961970861C72287100D67033 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970851C72287100D67033 /* UIColor+Extension.swift */; };
+		964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */; };
+		964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */; };
 		96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */; };
+		965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */; };
+		965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */; };
 		966A53A9DDA3A93070480B18 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D05291C0ACBD0E881906816 /* Pods.framework */; };
 		9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */; };
 		9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */; };
@@ -77,7 +81,11 @@
 		961970781C72265800D67033 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		961970831C7227B900D67033 /* 常量.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "常量.swift"; sourceTree = "<group>"; };
 		961970851C72287100D67033 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagCell.swift; sourceTree = "<group>"; };
+		964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendTagCell.xib; sourceTree = "<group>"; };
 		96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BaiSiBuDeJie开发笔记.swift"; path = "../BaiSiBuDeJie开发笔记.swift"; sourceTree = "<group>"; };
+		965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagsViewController.swift; sourceTree = "<group>"; };
+		965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTag.swift; sourceTree = "<group>"; };
 		9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategory.swift; sourceTree = "<group>"; };
 		9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategoryCell.swift; sourceTree = "<group>"; };
 		9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendCategoryCell.xib; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				9619705C1C72265800D67033 /* XMGEssenceViewController.swift */,
+				965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 		9619705D1C72265800D67033 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +178,8 @@
 		9619705E1C72265800D67033 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */,
+				964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */,
 				96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */,
 				9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */,
 				96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */,
@@ -597,10 +610,13 @@
 				961970801C72265800D67033 /* UIBarButtonItem+Extension.swift in Sources */,
 				96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */,
 				961970841C7227B900D67033 /* 常量.swift in Sources */,
+				965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */,
 				9619707F1C72265800D67033 /* Frame+Extension.swift in Sources */,
+				965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */,
 				9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */,
 				96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */,
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
+				964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */,
 				961970861C72287100D67033 /* UIColor+Extension.swift in Sources */,
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
 				961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */,

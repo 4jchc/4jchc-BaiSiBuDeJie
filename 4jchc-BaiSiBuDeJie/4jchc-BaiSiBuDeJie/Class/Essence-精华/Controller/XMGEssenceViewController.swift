@@ -22,9 +22,11 @@ class XMGEssenceViewController: UIViewController {
         
     }
     
-    func tagClick()
-    {
-        printLog("")
+    func tagClick(){
+        
+        let tags = XMGRecommendTagsViewController()
+        self.navigationController?.pushViewController(tags, animated: true)
+        
     }
     
 }

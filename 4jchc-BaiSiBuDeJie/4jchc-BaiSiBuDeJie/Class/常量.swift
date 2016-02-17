@@ -24,7 +24,11 @@ Recommend推荐 ViewController
 Essence基本-精华
 Friend Trends-关注动态
 
-
+//tableView出现的时候，清除选中状态
+如果是tableViewController
+self.clearsSelectionOnViewWillAppear = YES;
+如果是viewController，在viewWillAppear方法里添加
+[self.tableView deselectRowAtIndexPath:[self.contactsTableView indexPathForSelectedRow] animated:YES];
 
 
 */

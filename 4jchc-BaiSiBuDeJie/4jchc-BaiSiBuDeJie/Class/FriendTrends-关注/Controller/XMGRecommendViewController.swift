@@ -14,13 +14,6 @@ import MJRefresh
 class XMGRecommendViewController: UIViewController {
     
     
-    
-    
-    lazy var XMGSelectedCategory:XMGRecommendCategory? = {
-        var New = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
-        return New
-    }()
-    
     /** 左边的类别数据 */
     var categorieS:NSArray?
     

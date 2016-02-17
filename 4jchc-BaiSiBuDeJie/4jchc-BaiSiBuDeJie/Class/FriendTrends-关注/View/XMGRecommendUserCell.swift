@@ -28,8 +28,18 @@ class XMGRecommendUserCell: UITableViewCell {
             
           
             self.screenNameLabel.text = user!.screen_name;
-            self.fansCountLabel.text = "\(user!.fans_count)人关注"
-      
+            
+            var subNumber:String = ""
+            if (user!.fans_count < 10000) {
+                
+                subNumber = "\(user!.fans_count)人关注"
+                
+            }else{ // 大于等于10000
+                
+                subNumber = String(format: "%.1f万人关注", CGFloat(user!.fans_count) / 10000.0)
+                
+            }
+            self.fansCountLabel.text = subNumber
             self.headerImageView.sd_setImageWithURL(NSURL(string: (user!.header)), placeholderImage: UIImage(named: "defaultUserIcon"))
             
         }
