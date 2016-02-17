@@ -34,7 +34,7 @@ class XMGRecommendViewController: UIViewController {
     @IBOutlet weak var userTableView: UITableView!
     
     
-    let XMcategoryId:String = "category"
+    let XMGcategoryId:String = "category"
     let XMGUserId:String = "user"
     
     override func viewDidLoad() {
@@ -79,7 +79,7 @@ class XMGRecommendViewController: UIViewController {
     func setupTableView(){
         
         // 注册cell
-        categoryTableView.registerNib(UINib(nibName: "XMGRecommendCategoryCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: XMcategoryId)
+        categoryTableView.registerNib(UINib(nibName: "XMGRecommendCategoryCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: XMGcategoryId)
         userTableView.registerNib(UINib(nibName: "XMGRecommendUserCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: XMGUserId)
         // 设置automatically自动地 Adjusts调整 ScrollView Insets嵌入
         self.automaticallyAdjustsScrollViewInsets = false
@@ -107,7 +107,7 @@ class XMGRecommendViewController: UIViewController {
     
     func loadNewUsers(){
         let category = self.checkCategories()!
-        //let category = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as! XMGRecommendCategory
+
         // 1.定义URL路径
         let path = "api/api_open.php"
         // 2.封装参数
@@ -122,6 +122,8 @@ class XMGRecommendViewController: UIViewController {
             // 刷新表格
             // 设置当前页码为1
             category.currentPage = 1
+            // 清除所有旧数据
+            category.users!.removeAllObjects()
             // 添加到当前类别对应的用户数组中
             category.users!.addObjectsFromArray(users as [AnyObject])
             // 保存总数
@@ -130,14 +132,9 @@ class XMGRecommendViewController: UIViewController {
             
             self.userTableView.mj_header.endRefreshing()
             
-            if (category.users?.count) == (category.total){
-                
-                self.userTableView.mj_footer.endRefreshingWithNoMoreData()
-                
-            }else{
-                self.userTableView.mj_footer.endRefreshing()
-            }
 
+            // 让底部控件结束刷新
+            self.checkFooterState()
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
@@ -148,7 +145,7 @@ class XMGRecommendViewController: UIViewController {
     func loadMoreUsers(){
         
         let category = self.checkCategories()!
-        //let category = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as! XMGRecommendCategory
+
         // 发送请求给服务器, 加载右侧的数据
         //self.params = params;
         // 1.定义URL路径
@@ -176,18 +173,7 @@ class XMGRecommendViewController: UIViewController {
             self.userTableView.reloadData()
             
             // 让底部控件结束刷新
-            //[self checkFooterState];
-            printLog("category.total=\(category.total)category.users?.count\(category.users?.count) ")
-            if (category.users?.count) == (category.total){
-                
-                self.userTableView.mj_footer.endRefreshingWithNoMoreData()
-                
-            }else{
-                self.userTableView.mj_footer.endRefreshing()
-            }
-            
-            
-            
+            self.checkFooterState()
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
@@ -199,7 +185,7 @@ class XMGRecommendViewController: UIViewController {
      ///  时刻监测footer的状态(加载完毕--显示已经加载完毕.还有数据就显示-下拉刷新)
     func checkFooterState() {
         // 拿出的是那一段
-        let category = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
+        let category = checkCategories()
         // 让底部控件结束刷新
         if (category?.users?.count) == (category?.total){// 全部数据已经加载完毕
             
@@ -212,12 +198,28 @@ class XMGRecommendViewController: UIViewController {
         // 每次刷新右边数据时, 都控制footer显示或者隐藏
         self.userTableView.tableFooterView?.hidden = (category?.users!.count == 0)
     }
-    
+    //MARK: - 监测右边的数据--获取左边的是哪一行所持有的数据
+    ///  监测右边的数据--获取左边的是哪一行所持有的数据
     func checkCategories()->XMGRecommendCategory?{
         
-        printLog("self.categoryTableView.indexPathsForSelectedRows?.last?.row)\(self.categoryTableView.indexPathsForSelectedRows?.last?.row))")
         return self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
     }
+    /*
+    //MARK: - 监测是哪个cell
+    ///  监测是哪个cell
+    func checkCell(tableView: UITableView,Identifier:String)->UITableViewCell?{
+        
+        if Identifier == XMGcategoryId{
+            
+            return tableView.dequeueReusableCellWithIdentifier(XMGcategoryId) as! XMGRecommendCategoryCell
+            
+        }else{
+            return tableView.dequeueReusableCellWithIdentifier(XMGUserId) as! XMGRecommendUserCell
+        }
+    }
+    */
+    
+    
 }
 
 extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
@@ -251,7 +253,7 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
         
         if (tableView == self.categoryTableView) { // 左边的类别表格
             
-            let cell = tableView.dequeueReusableCellWithIdentifier(XMcategoryId) as! XMGRecommendCategoryCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(XMGcategoryId) as! XMGRecommendCategoryCell
             
             cell.category = self.categorieS![indexPath.row] as? XMGRecommendCategory
             return cell
