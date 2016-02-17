@@ -104,7 +104,15 @@ import UIKit
     */
 
     /*
-    每次加载完成都要检测Footview的状态
+    //MARK: 6. 每次加载完成都要检测Footview的状态
     1.下拉刷新要删除旧数据重新加载.因为网络加载的是-页码形式无法像微博那样有最大值
     */
 
+
+    /*
+    控制器销毁处理
+    1.每次点击cell都要结束刷新
+    2.第一次保存临时请求参数.2次判断是否相同.不同就直接返回
+    3.---退出控制器就要--停止所有操作operation Queue
+    NetworkTools.shareNetworkTools().operationQueue.cancelAllOperations()
+    */

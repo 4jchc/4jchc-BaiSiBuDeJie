@@ -13,17 +13,19 @@ import MJExtension
 import MJRefresh
 class XMGRecommendViewController: UIViewController {
     
-
+    
     
     
     lazy var XMGSelectedCategory:XMGRecommendCategory? = {
         var New = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
         return New
     }()
-  
+    
     /** 左边的类别数据 */
     var categorieS:NSArray?
-
+    
+    /** 请求参数 */
+    var params:NSMutableDictionary?
     
     /** 右边的用户数据 */
      // var users:NSArray?
@@ -45,6 +47,18 @@ class XMGRecommendViewController: UIViewController {
         setupTableView()
         //  添加刷新控件
         setupRefresh()
+        
+        // 加载左侧的类别数据
+        self.loadCategories()
+        
+        
+        
+    }
+    //
+    //MARK:   加载左侧的类别数据
+    ///   加载左侧的类别数据
+    func loadCategories(){
+        
         // 显示指示器
         SVProgressHUD.showInfoWithStatus("正在加载...", maskType: SVProgressHUDMaskType.Black)
         // 1.定义URL路径
@@ -53,13 +67,14 @@ class XMGRecommendViewController: UIViewController {
         let params = NSMutableDictionary()
         params["a"] = "category";
         params["c"] = "subscribe";
+        
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
+            
             // 隐藏指示器
             SVProgressHUD.dismiss()
             // 服务器返回的JSON数据
             self.categorieS = XMGRecommendCategory.mj_objectArrayWithKeyValuesArray(responseObject["list"])
             // 刷新表格
-            
             self.categoryTableView.reloadData()
             
             // 默认选中首行
@@ -70,10 +85,7 @@ class XMGRecommendViewController: UIViewController {
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
         }
-        
-        
     }
-
     //MARK:   控件的初始化
     ///   控件的初始化
     func setupTableView(){
@@ -94,7 +106,7 @@ class XMGRecommendViewController: UIViewController {
         self.view.backgroundColor = XMGGlobalBg;
     }
     
-    //MARK: - 添加刷新控件
+    //MARK:  添加刷新控件
     ///  添加刷新控件
     func setupRefresh(){
         
@@ -102,12 +114,12 @@ class XMGRecommendViewController: UIViewController {
         
         self.userTableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: Selector("loadMoreUsers"))
         
-
+        
     }
     
     func loadNewUsers(){
         let category = self.checkCategories()!
-
+        
         // 1.定义URL路径
         let path = "api/api_open.php"
         // 2.封装参数
@@ -115,10 +127,14 @@ class XMGRecommendViewController: UIViewController {
         params["a"] = "list";
         params["c"] = "subscribe";
         params["category_id"] = (category.id);
+        //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
+        self.params = params
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
             printLog("params1\(params)")
             // 服务器返回的JSON数据- 字典数组 -> 模型数组
             let users:NSArray = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+            // 不是最后一次请求
+            if (self.params != params) {return}
             // 刷新表格
             // 设置当前页码为1
             category.currentPage = 1
@@ -132,7 +148,7 @@ class XMGRecommendViewController: UIViewController {
             
             self.userTableView.mj_header.endRefreshing()
             
-
+            
             // 让底部控件结束刷新
             self.checkFooterState()
             }) { (error) -> () in
@@ -140,12 +156,12 @@ class XMGRecommendViewController: UIViewController {
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
         }
     }
-
-
+    
+    
     func loadMoreUsers(){
         
         let category = self.checkCategories()!
-
+        
         // 发送请求给服务器, 加载右侧的数据
         //self.params = params;
         // 1.定义URL路径
@@ -156,8 +172,11 @@ class XMGRecommendViewController: UIViewController {
         params["c"] = "subscribe";
         params["category_id"] = category.id
         params["page"] = (++category.currentPage);
+        //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
+        self.params = params
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
-            
+            // 不是最后一次请求
+            if (self.params != params) {return}
             printLog("params2\(params)")
             // 服务器返回的JSON数据- 字典数组 -> 模型数组
             let users:NSArray = XMGRecommendUser.mj_objectArrayWithKeyValuesArray(responseObject["list"])
@@ -165,9 +184,6 @@ class XMGRecommendViewController: UIViewController {
             
             // 添加到当前类别对应的用户数组中
             category.users!.addObjectsFromArray(users as [AnyObject])
-            
-            // 不是最后一次请求
-           // if (self.params != params) {return}
             
             // 刷新右边的表格
             self.userTableView.reloadData()
@@ -180,9 +196,9 @@ class XMGRecommendViewController: UIViewController {
         }
     }
     
-
-     //MARK: - 时刻监测footer的状态(加载完毕--显示已经加载完毕.还有数据就显示-下拉刷新)
-     ///  时刻监测footer的状态(加载完毕--显示已经加载完毕.还有数据就显示-下拉刷新)
+    
+    //MARK: - 时刻监测footer的状态(加载完毕--显示已经加载完毕.还有数据就显示-下拉刷新)
+    ///  时刻监测footer的状态(加载完毕--显示已经加载完毕.还有数据就显示-下拉刷新)
     func checkFooterState() {
         // 拿出的是那一段
         let category = checkCategories()
@@ -192,7 +208,7 @@ class XMGRecommendViewController: UIViewController {
             self.userTableView.mj_footer.endRefreshingWithNoMoreData()
             
         }else{
-        // 还没有加载完毕
+            // 还没有加载完毕
             self.userTableView.mj_footer.endRefreshing()
         }
         // 每次刷新右边数据时, 都控制footer显示或者隐藏
@@ -208,17 +224,23 @@ class XMGRecommendViewController: UIViewController {
     //MARK: - 监测是哪个cell
     ///  监测是哪个cell
     func checkCell(tableView: UITableView,Identifier:String)->UITableViewCell?{
-        
-        if Identifier == XMGcategoryId{
-            
-            return tableView.dequeueReusableCellWithIdentifier(XMGcategoryId) as! XMGRecommendCategoryCell
-            
-        }else{
-            return tableView.dequeueReusableCellWithIdentifier(XMGUserId) as! XMGRecommendUserCell
-        }
+    
+    if Identifier == XMGcategoryId{
+    
+    return tableView.dequeueReusableCellWithIdentifier(XMGcategoryId) as! XMGRecommendCategoryCell
+    
+    }else{
+    return tableView.dequeueReusableCellWithIdentifier(XMGUserId) as! XMGRecommendUserCell
+    }
     }
     */
-    
+    //MARK: - 控制器的销毁
+    ///  控制器的销毁
+    deinit{
+        print("\(super.classForCoder)--❤️已销毁")
+        // 停止所有操作
+        NetworkTools.shareNetworkTools().operationQueue.cancelAllOperations()
+    }
     
 }
 
@@ -230,15 +252,15 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
             return self.categorieS?.count ?? 0
             
         } else { // 右边的用户表格
-
-           /* 
+            
+            /*
             let category = self.categorieS?[(self.categoryTableView.indexPathsForSelectedRows?.last?.row)!] as? XMGRecommendCategory
             if (category?.users?.count) == (category?.total){
-                
-                self.userTableView.mj_footer.endRefreshingWithNoMoreData()
-                
+            
+            self.userTableView.mj_footer.endRefreshingWithNoMoreData()
+            
             }else{
-                self.userTableView.mj_footer.endRefreshing()
+            self.userTableView.mj_footer.endRefreshing()
             }
             // 每次刷新右边数据时, 都控制footer显示或者隐藏
             self.userTableView.tableFooterView?.hidden = (category?.users!.count == 0)
@@ -270,7 +292,9 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        // 每次点击cell都要结束刷新
+        self.userTableView.mj_footer.endRefreshing()
+        self.userTableView.mj_header.endRefreshing()
         
         let c:XMGRecommendCategory = self.categorieS![indexPath.row] as! XMGRecommendCategory
         printLog("\(c.users?.count)")
@@ -282,8 +306,9 @@ extension XMGRecommendViewController: UITableViewDataSource,UITableViewDelegate{
             
             self.userTableView.reloadData()
             self.userTableView.mj_header.beginRefreshing()
-
+            
         }
     }
-    
+
+
 }
