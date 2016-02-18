@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import _jchc_____
+@testable import jchc_____
 
-class _jchc_____Tests: XCTestCase {
+class jchc_____Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_jchc_键盘处理" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,89 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5W-iN-w9f">
+                                <rect key="frame" x="197" y="155" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7Y-ir-q76">
+                                <rect key="frame" x="197" y="216" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d93-qS-oOR">
+                                <rect key="frame" x="197" y="270" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入邮箱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KO-Wm-TOd">
+                                <rect key="frame" x="272" y="207" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8bO-bO-nCR"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="utd-ed-tvW">
+                                <rect key="frame" x="272" y="261" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dTv-j8-0D9"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do0-w3-hTF">
+                                <rect key="frame" x="272" y="155" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Ake-EV-HA3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="EA6-1e-318"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="utd-ed-tvW" firstAttribute="top" secondItem="2KO-Wm-TOd" secondAttribute="bottom" constant="24" id="0cM-Uk-dov"/>
+                            <constraint firstItem="Do0-w3-hTF" firstAttribute="top" secondItem="v5W-iN-w9f" secondAttribute="top" id="59N-ie-XGc"/>
+                            <constraint firstItem="p7Y-ir-q76" firstAttribute="top" secondItem="v5W-iN-w9f" secondAttribute="bottom" constant="40" id="6i8-Lm-6pp"/>
+                            <constraint firstItem="utd-ed-tvW" firstAttribute="width" secondItem="2KO-Wm-TOd" secondAttribute="width" id="AYn-SM-8p7"/>
+                            <constraint firstItem="2KO-Wm-TOd" firstAttribute="width" secondItem="Do0-w3-hTF" secondAttribute="width" id="BWM-g9-gXw"/>
+                            <constraint firstItem="p7Y-ir-q76" firstAttribute="leading" secondItem="v5W-iN-w9f" secondAttribute="leading" id="L1f-c9-Rfr"/>
+                            <constraint firstItem="2KO-Wm-TOd" firstAttribute="top" secondItem="Do0-w3-hTF" secondAttribute="bottom" constant="22" id="LkX-zr-Pt9"/>
+                            <constraint firstItem="v5W-iN-w9f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="177" id="PXo-mR-5dq">
+                                <variation key="heightClass=regular-widthClass=compact" constant="82"/>
+                            </constraint>
+                            <constraint firstItem="utd-ed-tvW" firstAttribute="leading" secondItem="2KO-Wm-TOd" secondAttribute="leading" id="VdC-Cy-46G"/>
+                            <constraint firstItem="Do0-w3-hTF" firstAttribute="leading" secondItem="v5W-iN-w9f" secondAttribute="trailing" constant="36" id="fwJ-n9-AR4">
+                                <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                            </constraint>
+                            <constraint firstItem="d93-qS-oOR" firstAttribute="top" secondItem="p7Y-ir-q76" secondAttribute="bottom" constant="33" id="hCq-Ay-pkD"/>
+                            <constraint firstItem="v5W-iN-w9f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="135" id="nzM-Je-HSx">
+                                <variation key="heightClass=regular-widthClass=compact" constant="241"/>
+                            </constraint>
+                            <constraint firstItem="2KO-Wm-TOd" firstAttribute="leading" secondItem="Do0-w3-hTF" secondAttribute="leading" id="o62-Qd-ScK"/>
+                            <constraint firstItem="d93-qS-oOR" firstAttribute="leading" secondItem="p7Y-ir-q76" secondAttribute="leading" id="rGn-Gp-QAd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Do0-w3-hTF" secondAttribute="trailing" constant="108" id="zbz-H5-1iO">
+                                <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                            </constraint>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressField" destination="utd-ed-tvW" id="C0j-KN-xqv"/>
+                        <outlet property="emailField" destination="2KO-Wm-TOd" id="5W5-dV-tqj"/>
+                        <outlet property="nameField" destination="Do0-w3-hTF" id="4hR-go-JI6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="335" y="195"/>
         </scene>
     </scenes>
 </document>

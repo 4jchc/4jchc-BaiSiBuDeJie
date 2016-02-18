@@ -12,8 +12,9 @@
 		964C4D141C755AE300705349 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964C4D121C755AE300705349 /* Main.storyboard */; };
 		964C4D161C755AE300705349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964C4D151C755AE300705349 /* Assets.xcassets */; };
 		964C4D191C755AE300705349 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964C4D171C755AE300705349 /* LaunchScreen.storyboard */; };
-		964C4D241C755AE300705349 /* _jchc_____Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C4D231C755AE300705349 /* _jchc_____Tests.swift */; };
 		964C4D2F1C755AE300705349 /* _jchc_____UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C4D2E1C755AE300705349 /* _jchc_____UITests.swift */; };
+		964C4D3D1C7561AA00705349 /* XMGKeyboardTool.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964C4D3C1C7561AA00705349 /* XMGKeyboardTool.xib */; };
+		964C4D3F1C75656500705349 /* XMGKeyboardTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C4D3E1C75656500705349 /* XMGKeyboardTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +43,12 @@
 		964C4D181C755AE300705349 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		964C4D1A1C755AE300705349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964C4D1F1C755AE300705349 /* 4jchc-键盘处理Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-键盘处理Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		964C4D231C755AE300705349 /* _jchc_____Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_jchc_____Tests.swift"; sourceTree = "<group>"; };
 		964C4D251C755AE300705349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964C4D2A1C755AE300705349 /* 4jchc-键盘处理UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-键盘处理UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		964C4D2E1C755AE300705349 /* _jchc_____UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_jchc_____UITests.swift"; sourceTree = "<group>"; };
 		964C4D301C755AE300705349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964C4D3C1C7561AA00705349 /* XMGKeyboardTool.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGKeyboardTool.xib; sourceTree = "<group>"; };
+		964C4D3E1C75656500705349 /* XMGKeyboardTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGKeyboardTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,8 @@
 			children = (
 				964C4D0E1C755AE300705349 /* AppDelegate.swift */,
 				964C4D101C755AE300705349 /* ViewController.swift */,
+				964C4D3E1C75656500705349 /* XMGKeyboardTool.swift */,
+				964C4D3C1C7561AA00705349 /* XMGKeyboardTool.xib */,
 				964C4D121C755AE300705349 /* Main.storyboard */,
 				964C4D151C755AE300705349 /* Assets.xcassets */,
 				964C4D171C755AE300705349 /* LaunchScreen.storyboard */,
@@ -110,7 +114,6 @@
 		964C4D221C755AE300705349 /* 4jchc-键盘处理Tests */ = {
 			isa = PBXGroup;
 			children = (
-				964C4D231C755AE300705349 /* _jchc_____Tests.swift */,
 				964C4D251C755AE300705349 /* Info.plist */,
 			);
 			path = "4jchc-键盘处理Tests";
@@ -232,6 +235,7 @@
 				964C4D191C755AE300705349 /* LaunchScreen.storyboard in Resources */,
 				964C4D161C755AE300705349 /* Assets.xcassets in Resources */,
 				964C4D141C755AE300705349 /* Main.storyboard in Resources */,
+				964C4D3D1C7561AA00705349 /* XMGKeyboardTool.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				964C4D3F1C75656500705349 /* XMGKeyboardTool.swift in Sources */,
 				964C4D111C755AE300705349 /* ViewController.swift in Sources */,
 				964C4D0F1C755AE300705349 /* AppDelegate.swift in Sources */,
 			);
@@ -265,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				964C4D241C755AE300705349 /* _jchc_____Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
