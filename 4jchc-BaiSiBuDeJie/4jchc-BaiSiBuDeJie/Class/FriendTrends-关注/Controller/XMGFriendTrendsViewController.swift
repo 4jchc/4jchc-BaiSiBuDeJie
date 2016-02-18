@@ -29,6 +29,13 @@ class XMGFriendTrendsViewController: UIViewController {
     }
     
 
+    @IBAction func loginRegister(sender: AnyObject) {
+        
+
+        let login = XMGLoginRegisterViewController()
+        self.presentViewController(login, animated: true, completion: nil)
+  
+    }
 
 
 }

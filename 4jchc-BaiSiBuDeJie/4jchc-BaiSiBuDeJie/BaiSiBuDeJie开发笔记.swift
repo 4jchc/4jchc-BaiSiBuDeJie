@@ -128,10 +128,24 @@ import UIKit
     */
 
     /*
-    精华左边-推荐标签
+    //MARK: 9. 精华左边-推荐标签
     1.纯代码写UITableViewController要写
     tableView.delegate = self tableView.dataSource = self
     2.完成数字为万的设置
     3.设置cell的位置2边进5.宽度减少2倍
     重写Frame不可以写成didset方法
     */
+
+
+
+//MARK: - 第三天
+
+    /*
+    快速登录界面搭建
+    1.自定义XMGVerticalButton--实现按钮的图片在上--文字在下只要继承就行
+    2.报错-fatalError("init(coder:) has not been implemented")
+    去掉加上super.init
+    */
+
+
+

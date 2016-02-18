@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9609B7401C75F1B400AC5E3C /* XMGVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */; };
 		96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */; };
 		96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */; };
 		96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */; };
@@ -25,6 +26,8 @@
 		961970861C72287100D67033 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970851C72287100D67033 /* UIColor+Extension.swift */; };
 		964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */; };
 		964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */; };
+		964C4D421C75C9D600705349 /* XMGLoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */; };
+		964C4D431C75C9D600705349 /* XMGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964C4D411C75C9D600705349 /* XMGLoginRegisterViewController.xib */; };
 		96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */; };
 		965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */; };
 		965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */; };
@@ -65,6 +68,7 @@
 		2BEACBDAE940A95B04FC389C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3B9F0C162C80641EEE3B6A9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5D05291C0ACBD0E881906816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGVerticalButton.swift; sourceTree = "<group>"; };
 		96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGFriendTrendsViewController.xib; sourceTree = "<group>"; };
 		96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendViewController.swift; sourceTree = "<group>"; };
 		96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendViewController.xib; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		961970851C72287100D67033 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagCell.swift; sourceTree = "<group>"; };
 		964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendTagCell.xib; sourceTree = "<group>"; };
+		964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGLoginRegisterViewController.swift; sourceTree = "<group>"; };
+		964C4D411C75C9D600705349 /* XMGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BaiSiBuDeJie开发笔记.swift"; path = "../BaiSiBuDeJie开发笔记.swift"; sourceTree = "<group>"; };
 		965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagsViewController.swift; sourceTree = "<group>"; };
 		965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTag.swift; sourceTree = "<group>"; };
@@ -201,6 +207,8 @@
 				96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */,
 				96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */,
 				96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */,
+				964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */,
+				964C4D411C75C9D600705349 /* XMGLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +229,7 @@
 				9690D9FC1C7334C20048E99B /* XMGRecommendUserCell.xib */,
 				9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */,
 				9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */,
+				9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,6 +534,7 @@
 				96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */,
 				9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */,
 				96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */,
+				964C4D431C75C9D600705349 /* XMGLoginRegisterViewController.xib in Resources */,
 				96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */,
 				9690D9FE1C7334C20048E99B /* XMGRecommendUserCell.xib in Resources */,
 				96DB5FDF1C71CD8700B289EE /* Assets.xcassets in Resources */,
@@ -602,12 +612,14 @@
 			files = (
 				9690DA001C73426A0048E99B /* XMGRecommendUser.swift in Sources */,
 				9619707D1C72265800D67033 /* XMGTabBarController.swift in Sources */,
+				964C4D421C75C9D600705349 /* XMGLoginRegisterViewController.swift in Sources */,
 				9619707C1C72265800D67033 /* XMGNewViewController.swift in Sources */,
 				9690D9FD1C7334C20048E99B /* XMGRecommendUserCell.swift in Sources */,
 				96DB5FDA1C71CD8700B289EE /* ViewController.swift in Sources */,
 				9619707E1C72265800D67033 /* XMGTabBar.swift in Sources */,
 				9619707A1C72265800D67033 /* XMGFriendTrendsViewController.swift in Sources */,
 				961970801C72265800D67033 /* UIBarButtonItem+Extension.swift in Sources */,
+				9609B7401C75F1B400AC5E3C /* XMGVerticalButton.swift in Sources */,
 				96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */,
 				961970841C7227B900D67033 /* 常量.swift in Sources */,
 				965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */,

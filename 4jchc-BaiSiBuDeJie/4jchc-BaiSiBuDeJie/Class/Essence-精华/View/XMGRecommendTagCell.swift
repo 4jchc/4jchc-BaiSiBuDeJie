@@ -18,9 +18,6 @@ class XMGRecommendTagCell: UITableViewCell {
     @IBOutlet weak var subNumberLabel: UILabel!
     
     
-    
-    
-    
     var recommendTag:XMGRecommendTag?{
         
         didSet{
