@@ -10,17 +10,38 @@ import UIKit
 
 class XMGLoginRegisterViewController: UIViewController {
 
+    /** 登录框距离控制器view左边的间距 */
+    @IBOutlet weak var loginViewLeftMargin: NSLayoutConstraint!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func back(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+    @IBAction func showLoginOrRegister(sender: UIButton) {
+        // 退出键盘
+        self.view.endEditing(true)
+        if (self.loginViewLeftMargin.constant == 0) { // 显示注册界面
+            self.loginViewLeftMargin.constant = -self.view.width;
+            sender.selected = true
+            //        [button setTitle:@"已有账号?" forState:UIControlStateNormal];
+        } else { // 显示登录界面
+            self.loginViewLeftMargin.constant = 0;
+            sender.selected = false
+            //        [button setTitle:@"注册账号" forState:UIControlStateNormal];
+        }
+        
+        UIView.animateWithDuration(0.25) { () -> Void in
+            self.view.layoutIfNeeded()
+        }
+    }
+
+
 
     //MARK: 让当前控制器对应的状态栏是白色
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

@@ -16,29 +16,21 @@ class XMGTextField: UITextField {
 
 
     let XMGPlacerholderColorKeyPath = "_placeholderLabel.textColor"
-    // 可以不设置ini方法
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        
-//        super.init(coder: aDecoder)
-//        
-//    }
-    // 当第一次使用这个类的时候会调用一次
-    override class func initialize(){
+    var placeHodelColor:UIColor?{
         
-        modelInfoIvarList(UITextField.self) { ( propertyName, attrType) -> () in
-            print("getName-\(propertyName!)-(\(attrType!))")
+        didSet{
+            
+            self.setValue(placeHodelColor, forKeyPath: XMGPlacerholderColorKeyPath)
+            
+        }
+        
     }
-    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // 设置光标颜色和文字颜色一致
-        self.tintColor = UIColor.whiteColor()
+        self.tintColor = self.textColor;
 
         // KVC 设置placeholder字体颜色
         //setValue(UIColor.whiteColor(), forKeyPath: XMGPlacerholderColorKeyPath)
@@ -48,7 +40,7 @@ class XMGTextField: UITextField {
         // 设置textField边框颜色
         layer.borderColor = UIColor.whiteColor().CGColor
         // 设置textField边框的宽度
-        layer.borderWidth = 0.0
+        layer.borderWidth = 0.1
         // 设置圆角
         layer.cornerRadius = frame.size.height * 0.3
         // 不成为第一响应者
@@ -56,43 +48,12 @@ class XMGTextField: UITextField {
 
         }
     
-    
-    // MARK: 遍历一个类的所有属性
-    /// 遍历一个类的所有属性
-   class func modelInfoIvarList(modelClass:AnyClass,closure:(propertyName:String?,attrType:String?)->()){
-    
-            var count: UInt32 = 0
-            let properties:UnsafeMutablePointer<Ivar> = class_copyIvarList(modelClass, &count)
-            var tempP : objc_property_t? = nil
 
-            var cPName : UnsafePointer<Int8>? = nil
-            var pName : String? = nil
-            var attrType : NSString? = nil
-            for(var i : UInt32 = 0; i < count ; i++){
-                tempP = properties[Int(i)]
-                cPName = ivar_getName(tempP!)
-                pName = String.fromCString(cPName!)!
-                attrType = String.fromCString(property_getAttributes(tempP!))
-
-                closure(propertyName: pName, attrType: attrType as? String)
-
-            }
-            free(properties)
-
-    
-    }
-    
-    
-    
-    
-    
-    
-    
     //MARK:  当前文本框聚焦时就会调用
     override func becomeFirstResponder() -> Bool {
         
         // 修改占位文字颜色
-        setValue(UIColor(white: 1.0, alpha: 0.8), forKeyPath: XMGPlacerholderColorKeyPath)
+        setValue(self.textColor, forKeyPath: XMGPlacerholderColorKeyPath)
         return super.becomeFirstResponder()
     }
     //MARK:  当前文本框失去焦点时就会调用
@@ -102,7 +63,7 @@ class XMGTextField: UITextField {
 
         //setValue(UIColor.redColor(), forKeyPath: "_placeholderLabel.textColor")
         self.setValue(UIColor(white: 0.4, alpha: 0.8), forKeyPath: XMGPlacerholderColorKeyPath)
-        return super.becomeFirstResponder()
+        return super.resignFirstResponder()
         
     }
     /*
