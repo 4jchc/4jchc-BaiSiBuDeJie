@@ -31,4 +31,12 @@ self.clearsSelectionOnViewWillAppear = YES;
 [self.tableView deselectRowAtIndexPath:[self.contactsTableView indexPathForSelectedRow] animated:YES];
 Multiplier乘法器
 
+corner边角 Radius使...成圆角
+self.layer.cornerRadius = 5
+masks遮罩 To Bounds界线
+self.layer.masksToBounds = true
+1.user Defined定义的 Runtime运行时间 Attributes属性组
+
+NS Comparison比较 Result.Ordered有秩序的 Descending递减
+
 */

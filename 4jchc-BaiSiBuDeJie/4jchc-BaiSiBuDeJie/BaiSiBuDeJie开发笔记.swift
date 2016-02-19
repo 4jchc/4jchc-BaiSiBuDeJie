@@ -167,3 +167,15 @@ import UIKit
     //MARK: 4. 登录界面完善
     */
 
+    /*
+    //MARK: 5. 推送引导页
+    判断版本.
+    1.获取当前软件的版本号 --> info.plist
+    let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+    2.存储当前最新的版本号  iOS7以后就不用调用同步方法了
+    NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
+    3.比较当前版本号和以前版本号 2.0  1.0 NS Comparison比较 Result.Ordered有秩序的 Descending递减
+    if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending{
+    */
+
+

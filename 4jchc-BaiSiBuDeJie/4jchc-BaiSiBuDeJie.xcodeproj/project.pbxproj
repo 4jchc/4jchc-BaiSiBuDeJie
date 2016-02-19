@@ -28,6 +28,8 @@
 		964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */; };
 		964C4D421C75C9D600705349 /* XMGLoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */; };
 		964C4D431C75C9D600705349 /* XMGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964C4D411C75C9D600705349 /* XMGLoginRegisterViewController.xib */; };
+		9653366E1C7735D500CF91E0 /* XMGPushGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653366D1C7735D500CF91E0 /* XMGPushGuideView.swift */; };
+		965336701C7735EC00CF91E0 /* XMGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9653366F1C7735EC00CF91E0 /* XMGPushGuideView.xib */; };
 		96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */; };
 		965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */; };
 		965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */; };
@@ -90,6 +92,8 @@
 		964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendTagCell.xib; sourceTree = "<group>"; };
 		964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGLoginRegisterViewController.swift; sourceTree = "<group>"; };
 		964C4D411C75C9D600705349 /* XMGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		9653366D1C7735D500CF91E0 /* XMGPushGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGPushGuideView.swift; sourceTree = "<group>"; };
+		9653366F1C7735EC00CF91E0 /* XMGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPushGuideView.xib; sourceTree = "<group>"; };
 		96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BaiSiBuDeJie开发笔记.swift"; path = "../BaiSiBuDeJie开发笔记.swift"; sourceTree = "<group>"; };
 		965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagsViewController.swift; sourceTree = "<group>"; };
 		965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTag.swift; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				961970731C72265800D67033 /* XMGTabBar.swift */,
+				9653366D1C7735D500CF91E0 /* XMGPushGuideView.swift */,
+				9653366F1C7735EC00CF91E0 /* XMGPushGuideView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965336701C7735EC00CF91E0 /* XMGPushGuideView.xib in Resources */,
 				964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */,
 				96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */,
 				9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */,
@@ -632,6 +639,7 @@
 				9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */,
 				96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */,
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
+				9653366E1C7735D500CF91E0 /* XMGPushGuideView.swift in Sources */,
 				964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */,
 				961970861C72287100D67033 /* UIColor+Extension.swift in Sources */,
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,

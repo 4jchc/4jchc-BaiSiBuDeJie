@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = XMGTabBarController()
         // 3.显示窗口
         window?.makeKeyAndVisible()
+        
+        // 显示推送引导
+        XMGPushGuideView.show()
         return true
     }
 
