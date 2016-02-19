@@ -29,6 +29,6 @@ Friend Trends-关注动态
 self.clearsSelectionOnViewWillAppear = YES;
 如果是viewController，在viewWillAppear方法里添加
 [self.tableView deselectRowAtIndexPath:[self.contactsTableView indexPathForSelectedRow] animated:YES];
-
+Multiplier乘法器
 
 */

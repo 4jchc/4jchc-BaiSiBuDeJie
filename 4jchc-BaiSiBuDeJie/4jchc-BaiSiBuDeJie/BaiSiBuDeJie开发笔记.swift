@@ -147,5 +147,13 @@ import UIKit
     去掉加上super.init
     */
 
-
+    /*
+    登录界面搭建
+    设置图片圆角 
+     corner边角 Radius使...成圆角
+    self.layer.cornerRadius = 5
+     masks遮罩 To Bounds界线
+    self.layer.masksToBounds = true
+    1.在SB中设置按钮的user Defined定义的 Runtime运行时间 Attributes属性组
+    */
 
