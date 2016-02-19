@@ -178,4 +178,10 @@ import UIKit
     if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending{
     */
 
+    /*
+    精华-顶部标签内容
+    1.遍历数组添加5个按钮到view上
+    2.带alpha的颜色
+    titlesView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+    */
 
