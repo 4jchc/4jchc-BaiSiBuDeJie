@@ -141,14 +141,14 @@ import UIKit
 //MARK: - 第三天
 
     /*
-    快速登录界面搭建
+    //MARK: 1. 快速登录界面搭建
     1.自定义XMGVerticalButton--实现按钮的图片在上--文字在下只要继承就行
     2.报错-fatalError("init(coder:) has not been implemented")
     去掉加上super.init
     */
 
     /*
-    登录界面搭建
+    //MARK: 2. 登录界面搭建
     设置图片圆角 
      corner边角 Radius使...成圆角
     self.layer.cornerRadius = 5
@@ -156,4 +156,12 @@ import UIKit
     self.layer.masksToBounds = true
     1.在SB中设置按钮的user Defined定义的 Runtime运行时间 Attributes属性组
     */
+
+    /*
+    //MARK: 3. 设置自定义文本UITextField的占位符颜色和光标颜色
+    1.KVC路径是keypath.
+    */
+
+
+
 

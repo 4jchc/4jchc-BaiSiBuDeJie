@@ -103,15 +103,15 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-9o-Wjp">
                                     <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
                                 </imageView>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cgm-dP-ugX">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cgm-dP-ugX" customClass="XMGTextField" customModule="_jchc_BaiSiBuDeJie" customModuleProvider="target">
                                     <rect key="frame" x="10" y="0.0" width="246" height="46"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-iy-W5d">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-iy-W5d" customClass="XMGTextField" customModule="_jchc_BaiSiBuDeJie" customModuleProvider="target">
                                     <rect key="frame" x="10" y="46" width="246" height="46"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>

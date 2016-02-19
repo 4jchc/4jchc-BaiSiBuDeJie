@@ -52,7 +52,7 @@ func printLog<T>(message: T,
 {
     #if DEBUG
         __LINE__
-        print("\((file as NSString).lastPathComponent)[\(line)行], \(method): \(message)")
+        print("\((file as NSString).lastPathComponent)[\(line)行], \(method): 💗\(message)")
     #else
         //print("\(message)")
         

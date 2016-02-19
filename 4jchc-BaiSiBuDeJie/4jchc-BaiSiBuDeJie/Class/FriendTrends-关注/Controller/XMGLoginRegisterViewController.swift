@@ -22,9 +22,6 @@ class XMGLoginRegisterViewController: UIViewController {
     }
     
 
-
-
-    
     //MARK: 让当前控制器对应的状态栏是白色
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         
