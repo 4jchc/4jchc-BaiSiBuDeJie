@@ -24,6 +24,11 @@
 		961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970781C72265800D67033 /* UITabBarController+Extension.swift */; };
 		961970841C7227B900D67033 /* 常量.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970831C7227B900D67033 /* 常量.swift */; };
 		961970861C72287100D67033 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970851C72287100D67033 /* UIColor+Extension.swift */; };
+		9621BAFD1C781BC7001A238E /* XMGWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621BAFC1C781BC7001A238E /* XMGWordViewController.swift */; };
+		9621BAFF1C781BD8001A238E /* XMGPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621BAFE1C781BD8001A238E /* XMGPictureViewController.swift */; };
+		9621BB011C781BEA001A238E /* XMGVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621BB001C781BEA001A238E /* XMGVoiceViewController.swift */; };
+		9621BB031C781C00001A238E /* XMGVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621BB021C781C00001A238E /* XMGVideoViewController.swift */; };
+		9621BB051C781C12001A238E /* XMGAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621BB041C781C12001A238E /* XMGAllViewController.swift */; };
 		964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */; };
 		964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */; };
 		964C4D421C75C9D600705349 /* XMGLoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */; };
@@ -88,6 +93,11 @@
 		961970781C72265800D67033 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		961970831C7227B900D67033 /* 常量.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "常量.swift"; sourceTree = "<group>"; };
 		961970851C72287100D67033 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9621BAFC1C781BC7001A238E /* XMGWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGWordViewController.swift; sourceTree = "<group>"; };
+		9621BAFE1C781BD8001A238E /* XMGPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGPictureViewController.swift; sourceTree = "<group>"; };
+		9621BB001C781BEA001A238E /* XMGVoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGVoiceViewController.swift; sourceTree = "<group>"; };
+		9621BB021C781C00001A238E /* XMGVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGVideoViewController.swift; sourceTree = "<group>"; };
+		9621BB041C781C12001A238E /* XMGAllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGAllViewController.swift; sourceTree = "<group>"; };
 		964AAA6D1C74B2940011C842 /* XMGRecommendTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagCell.swift; sourceTree = "<group>"; };
 		964AAA6E1C74B2940011C842 /* XMGRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendTagCell.xib; sourceTree = "<group>"; };
 		964C4D401C75C9D600705349 /* XMGLoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGLoginRegisterViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +184,11 @@
 			isa = PBXGroup;
 			children = (
 				9619705C1C72265800D67033 /* XMGEssenceViewController.swift */,
+				9621BAFC1C781BC7001A238E /* XMGWordViewController.swift */,
+				9621BAFE1C781BD8001A238E /* XMGPictureViewController.swift */,
+				9621BB001C781BEA001A238E /* XMGVoiceViewController.swift */,
+				9621BB021C781C00001A238E /* XMGVideoViewController.swift */,
+				9621BB041C781C12001A238E /* XMGAllViewController.swift */,
 				965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */,
 			);
 			path = Controller;
@@ -503,6 +518,7 @@
 				TargetAttributes = {
 					96DB5FD31C71CD8700B289EE = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = PE2TM7382T;
 					};
 					96DB5FE71C71CD8800B289EE = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -623,6 +639,7 @@
 				9690DA001C73426A0048E99B /* XMGRecommendUser.swift in Sources */,
 				9619707D1C72265800D67033 /* XMGTabBarController.swift in Sources */,
 				964C4D421C75C9D600705349 /* XMGLoginRegisterViewController.swift in Sources */,
+				9621BAFD1C781BC7001A238E /* XMGWordViewController.swift in Sources */,
 				9619707C1C72265800D67033 /* XMGNewViewController.swift in Sources */,
 				9690D9FD1C7334C20048E99B /* XMGRecommendUserCell.swift in Sources */,
 				96DB5FDA1C71CD8700B289EE /* ViewController.swift in Sources */,
@@ -641,10 +658,14 @@
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
 				9653366E1C7735D500CF91E0 /* XMGPushGuideView.swift in Sources */,
 				964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */,
+				9621BAFF1C781BD8001A238E /* XMGPictureViewController.swift in Sources */,
 				961970861C72287100D67033 /* UIColor+Extension.swift in Sources */,
+				9621BB011C781BEA001A238E /* XMGVoiceViewController.swift in Sources */,
+				9621BB051C781C12001A238E /* XMGAllViewController.swift in Sources */,
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
 				961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */,
 				9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */,
+				9621BB031C781C00001A238E /* XMGVideoViewController.swift in Sources */,
 				96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */,
 				96DB5FD81C71CD8700B289EE /* AppDelegate.swift in Sources */,
 				961970811C72265800D67033 /* UIKit+Extension.swift in Sources */,
@@ -785,10 +806,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "4jchc-BaiSiBuDeJie/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "-jchc.-jchc-BaiSiBuDeJie";
+				PRODUCT_BUNDLE_IDENTIFIER = swift.903;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -799,9 +821,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "4jchc-BaiSiBuDeJie/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-jchc.-jchc-BaiSiBuDeJie";
+				PRODUCT_BUNDLE_IDENTIFIER = swift.903;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

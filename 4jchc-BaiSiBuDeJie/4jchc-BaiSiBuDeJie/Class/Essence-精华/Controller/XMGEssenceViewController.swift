@@ -14,6 +14,8 @@ class XMGEssenceViewController: UIViewController {
     var indicatorView:UIView?
     /** 当前选中的按钮 */
     var selectedButton:UIButton?
+    /** 顶部的所有标签 */
+    var titlesView:UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class XMGEssenceViewController: UIViewController {
         setupNav()
         // 设置顶部的标签栏
         setupTitlesView()
+        // 底部的scrollView
+        setupContentView()
         
     }
     
@@ -35,7 +39,7 @@ class XMGEssenceViewController: UIViewController {
         titlesView.height = 35;
         titlesView.y = 64;
         self.view.addSubview(titlesView)
-  
+        self.titlesView = titlesView;
         // 底部的红色指示器
         let indicatorView:UIView = UIView()
         indicatorView.backgroundColor = UIColor.redColor()
@@ -101,7 +105,22 @@ class XMGEssenceViewController: UIViewController {
         // 设置背景色
         self.view.backgroundColor = XMGGlobalBg;
     }
-    
+
+    //MARK: - 底部的scrollView
+    func setupContentView(){
+        
+        // 不要自动调整inset
+        self.automaticallyAdjustsScrollViewInsets = true
+        let contentView = UIScrollView()
+        contentView.frame = self.view.bounds;
+        // 设置内边距
+        let bottom:CGFloat = self.tabBarController!.tabBar.height;
+        let top:CGFloat = CGRectGetMaxY(self.titlesView!.frame);
+        contentView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+        self.view.insertSubview(contentView, atIndex: 0)
+        
+
+    }
     func tagClick(){
         
         let tags = XMGRecommendTagsViewController()

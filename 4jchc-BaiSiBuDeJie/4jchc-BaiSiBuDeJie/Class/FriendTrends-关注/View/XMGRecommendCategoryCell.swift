@@ -33,6 +33,7 @@ class XMGRecommendCategoryCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         // 重新调整内部textLabel的frame
+        self.textLabel?.font = UIFont.systemFontOfSize(13)
         self.textLabel!.y = 2;
         self.textLabel!.height = self.contentView.height - 2 * self.textLabel!.y;
     }

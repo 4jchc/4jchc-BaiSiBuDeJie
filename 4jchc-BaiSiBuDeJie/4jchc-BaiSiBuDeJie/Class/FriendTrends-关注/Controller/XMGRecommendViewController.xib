@@ -18,10 +18,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-4m-11V" userLabel="左侧">
-                    <rect key="frame" x="0.0" y="0.0" width="70" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="85" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="70" id="gZO-wM-3ov"/>
+                        <constraint firstAttribute="width" constant="85" id="kfS-rN-C1c"/>
                     </constraints>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -30,7 +30,7 @@
                     </connections>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BGt-hf-tEl" userLabel="右侧">
-                    <rect key="frame" x="70" y="0.0" width="530" height="600"/>
+                    <rect key="frame" x="85" y="0.0" width="515" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -41,13 +41,13 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="BGt-hf-tEl" firstAttribute="leading" secondItem="KV4-4m-11V" secondAttribute="trailing" id="9bc-dF-7OU"/>
-                <constraint firstItem="BGt-hf-tEl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HZB-4r-ArT"/>
-                <constraint firstItem="KV4-4m-11V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IV3-rN-OPx"/>
-                <constraint firstAttribute="bottom" secondItem="BGt-hf-tEl" secondAttribute="bottom" id="VCF-GE-6zH"/>
-                <constraint firstItem="KV4-4m-11V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eNl-9N-DBK"/>
-                <constraint firstAttribute="trailing" secondItem="BGt-hf-tEl" secondAttribute="trailing" id="rQC-yZ-s4f"/>
-                <constraint firstAttribute="bottom" secondItem="KV4-4m-11V" secondAttribute="bottom" id="sfX-We-fyY"/>
+                <constraint firstItem="BGt-hf-tEl" firstAttribute="leading" secondItem="KV4-4m-11V" secondAttribute="trailing" id="40G-B8-XZc"/>
+                <constraint firstAttribute="bottom" secondItem="KV4-4m-11V" secondAttribute="bottom" id="Bep-NO-3DH"/>
+                <constraint firstAttribute="bottom" secondItem="BGt-hf-tEl" secondAttribute="bottom" id="KRz-JD-46P"/>
+                <constraint firstItem="KV4-4m-11V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dJC-RL-eLy"/>
+                <constraint firstAttribute="trailing" secondItem="BGt-hf-tEl" secondAttribute="trailing" id="mb2-lc-QtI"/>
+                <constraint firstItem="BGt-hf-tEl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sxb-Dc-yzb"/>
+                <constraint firstItem="KV4-4m-11V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ylh-JB-gsa"/>
             </constraints>
             <point key="canvasLocation" x="267" y="270"/>
         </view>
