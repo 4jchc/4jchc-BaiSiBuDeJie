@@ -194,7 +194,24 @@ import UIKit
     */
 
 
-/*
-精华-底部的scrollView
-1.添加标签控制器代码
-*/
+    /*
+    //MARK: 8. 精华-底部的scrollView
+    1.添加标签控制器代码
+    */
+
+
+    /*
+    添加scrollView动画💗
+    1.当点击按钮的时候才设置红色指示器的位置
+    2.用到顶部标签内容数组下标--所以指示器的view最后添加
+    3.一页设置5个子控制器.标签是一个view加5个button通过数组的下标访问
+    scrollView代理的使用.结束滚动的时候判断是哪一个控制器
+    4.通过contentview的尺寸 / scrollView.width位置
+    Int(scrollView.contentOffset.x / scrollView.width)
+    5.设置滚动范围 self.contentView!.width
+    var offset:CGPoint = self.contentView!.contentOffset;
+    offset.x = CGFloat(button.tag)  * self.contentView!.width
+    6. 不要自动调整ScrollView Insets
+    self.automaticallyAdjustsScrollViewInsets = false
+
+    */
