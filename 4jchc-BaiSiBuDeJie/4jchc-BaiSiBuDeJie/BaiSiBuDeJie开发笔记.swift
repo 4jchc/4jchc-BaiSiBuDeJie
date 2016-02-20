@@ -179,9 +179,18 @@ import UIKit
     */
 
     /*
-    精华-顶部标签内容
+    //MARK: 6. 精华-顶部标签内容
     1.遍历数组添加5个按钮到view上
     2.带alpha的颜色
     titlesView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
     */
+
+
+    /*
+    //MARK: 7. 精华-顶部标签内容的点击
+    1.让按钮内部的label根据文字内容来计算尺寸
+    button.titleLabel!.sizeToFit()
+    2.记录当前选中的按钮状态
+    */
+
 
