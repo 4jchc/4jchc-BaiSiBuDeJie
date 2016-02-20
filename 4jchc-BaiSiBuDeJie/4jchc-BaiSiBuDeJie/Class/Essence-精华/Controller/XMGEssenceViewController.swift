@@ -183,9 +183,11 @@ extension XMGEssenceViewController:UIScrollViewDelegate {
         // 取出子控制器
         let vc:UITableViewController = self.childViewControllers[index] as! UITableViewController
         
+        // 一定要设置view的x.y.
         vc.view.x = scrollView.contentOffset.x;
         vc.view.y = 0; // 设置控制器view的y值为0(默认是20)
         vc.view.height = scrollView.height; // 设置控制器view的height值为整个屏幕的高度(默认是比屏幕高度少个20)
+        
         // 设置内边距
         let bottom:CGFloat = self.tabBarController!.tabBar.height;
         let top:CGFloat = CGRectGetMaxY(self.titlesView!.frame);

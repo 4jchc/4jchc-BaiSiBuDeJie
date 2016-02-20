@@ -201,7 +201,7 @@ import UIKit
 
 
     /*
-    添加scrollView动画💗
+    //MARK: 9. 添加scrollView动画💗
     1.当点击按钮的时候才设置红色指示器的位置
     2.用到顶部标签内容数组下标--所以指示器的view最后添加
     3.一页设置5个子控制器.标签是一个view加5个button通过数组的下标访问
@@ -213,5 +213,14 @@ import UIKit
     offset.x = CGFloat(button.tag)  * self.contentView!.width
     6. 不要自动调整ScrollView Insets
     self.automaticallyAdjustsScrollViewInsets = false
+    */
 
+    /*
+    //MARK: 10. 子控制器显示细节
+    1.结束滚动动画完毕--通过索引--加载UITableViewController的view
+    一定要设置view的x.y.
+    vc.view.x = scrollView.contentOffset.x;
+    设置控制器view的y值为0(默认是20)包含状态栏20
+    vc.view.y = 0;
+    contentOffset.x就是偏移的X轴距离
     */
