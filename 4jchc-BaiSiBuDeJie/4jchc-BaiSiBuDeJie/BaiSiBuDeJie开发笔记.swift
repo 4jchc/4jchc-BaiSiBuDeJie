@@ -224,3 +224,8 @@ import UIKit
     vc.view.y = 0;
     contentOffset.x就是偏移的X轴距离
     */
+
+
+    /*
+    //MARK: 11. 加载文字帖子数据
+    */
