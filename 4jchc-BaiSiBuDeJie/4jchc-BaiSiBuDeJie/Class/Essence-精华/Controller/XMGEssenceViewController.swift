@@ -54,17 +54,17 @@ class XMGEssenceViewController: UIViewController {
         self.indicatorView = indicatorView;
         
         // 内部的子标签
-        let titles:NSArray = ["全部", "视频", "声音", "图片", "段子"]
-        let width:CGFloat = titlesView.width / CGFloat(titles.count)
+        let width:CGFloat = titlesView.width / CGFloat(self.childViewControllers.count)
         let height:CGFloat = titlesView.height
         
-        for var i:Int = 0; i < titles.count; i++ {
+        for var i:Int = 0; i < self.childViewControllers.count; i++ {
             let button:UIButton = UIButton()
             button.tag = i
             button.height = height;
             button.width = width;
             button.x = CGFloat(i)  * width;
-            button.setTitle(titles[i] as? String, forState: UIControlState.Normal)
+            let vc:UIViewController = self.childViewControllers[i];
+            button.setTitle(vc.title, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.redColor(), forState: UIControlState.Disabled)
             button.titleLabel?.font = UIFont.systemFontOfSize(14)
@@ -143,18 +143,24 @@ class XMGEssenceViewController: UIViewController {
     func setupChildVces(){
         
         let all = XMGAllViewController()
+        all.title = "全部";
         self.addChildViewController(all)
         
         let video = XMGVideoViewController()
+        video.title = "视频";
         self.addChildViewController(video)
         
         let voice = XMGVoiceViewController()
+        voice.title = "声音";
         self.addChildViewController(voice)
         
         let picture = XMGPictureViewController()
+        picture.title = "图片";
         self.addChildViewController(picture)
         
-        self.addChildViewController(XMGWordViewController())
+        let word = XMGWordViewController()
+        word.title = "段子";
+        self.addChildViewController(word)
     }
     
     func tagClick(){
@@ -209,7 +215,6 @@ extension XMGEssenceViewController:UIScrollViewDelegate {
         scrollViewDidEndScrollingAnimation(scrollView)
         // 点击按钮
         let index:Int = Int(scrollView.contentOffset.x / scrollView.width)
-        print("***index**\(index)")
         self.titleClick(self.titlesView?.subviews[index] as! UIButton)
         
     }

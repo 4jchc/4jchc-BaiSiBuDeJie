@@ -13,7 +13,7 @@ import MJExtension
 import MJRefresh
 class XMGWordViewController: UITableViewController {
     
-    
+    let XMGTopicCellId:String = "topic"
     /** 当前页码 */
     var page: Int = 0
     /** 当加载下一页数据时需要这个参数 */
@@ -41,6 +41,13 @@ class XMGWordViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
         // 设置滚动条的内边距
         self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
+        self.tableView.backgroundColor = UIColor.clearColor()
+        
+        // 注册cell
+        self.tableView.registerNib(UINib(nibName: "XMGTopicCell", bundle: nil), forCellReuseIdentifier: XMGTopicCellId)
+
+
     }
     //MARK:  添加刷新控件
     ///  添加刷新控件
@@ -153,7 +160,7 @@ class XMGWordViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - 数据源方法
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         self.tableView.mj_footer.hidden = (self.topics.count == 0);
@@ -163,21 +170,21 @@ class XMGWordViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let ID:String = "contact"
-        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(ID as String)
-        
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: ID as String)
-        }
-        
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier(XMGTopicCellId) as! XMGTopicCell
         let topic = self.topics[indexPath.row] as! XMGTopic
-        cell!.textLabel!.text = topic.name
-        cell!.detailTextLabel!.text = topic.text
-        cell!.imageView!.sd_setImageWithURL(NSURL(string: topic.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
+        cell.textLabel?.text = topic.name
+        cell.detailTextLabel?.text = topic.text
+        cell.imageView!.sd_setImageWithURL(NSURL(string: topic.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
         
         
-        return cell!
+        return cell
     }
-    
+    // MARK: - 代理方法
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 200
+    }
+
 }
+
+

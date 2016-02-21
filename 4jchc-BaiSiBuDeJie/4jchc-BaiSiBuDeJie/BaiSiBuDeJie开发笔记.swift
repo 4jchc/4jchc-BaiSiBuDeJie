@@ -255,3 +255,10 @@ import UIKit
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     */
 
+    /*
+    1.cell取消分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
+    2.cell的内嵌--重写💗frame
+    3.数据转模型加载
+    */
+
