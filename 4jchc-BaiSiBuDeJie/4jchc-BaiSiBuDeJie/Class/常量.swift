@@ -10,7 +10,8 @@ import UIKit
 
 
 let XMGGlobalBg:UIColor = UIColor.RGB(223, 223, 223)
-
+let XMGTitilesViewH:CGFloat = 35
+let XMGTitilesViewY:CGFloat = 64;
 
 
 

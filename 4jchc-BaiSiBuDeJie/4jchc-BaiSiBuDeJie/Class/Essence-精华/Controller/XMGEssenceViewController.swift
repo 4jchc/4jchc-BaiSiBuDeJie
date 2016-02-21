@@ -40,8 +40,8 @@ class XMGEssenceViewController: UIViewController {
         let titlesView:UIView = UIView()
         titlesView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
         titlesView.width = self.view.width;
-        titlesView.height = 35;
-        titlesView.y = 64;
+        titlesView.height = XMGTitilesViewH;
+        titlesView.y = XMGTitilesViewY;
         self.view.addSubview(titlesView)
         self.titlesView = titlesView;
         // 底部的红色指示器
@@ -85,7 +85,7 @@ class XMGEssenceViewController: UIViewController {
         }
         titlesView.addSubview(indicatorView)
     }
-
+    
     func titleClick(button:UIButton){
         
         // 修改按钮状态
@@ -117,7 +117,7 @@ class XMGEssenceViewController: UIViewController {
         // 设置背景色
         self.view.backgroundColor = XMGGlobalBg;
     }
-
+    
     //MARK: - 底部的scrollView
     func setupContentView(){
         
@@ -128,46 +128,42 @@ class XMGEssenceViewController: UIViewController {
         contentView.delegate = self;
         contentView.pagingEnabled = true
         self.view.insertSubview(contentView, atIndex: 0)
-        // 设置内边距
-//        let bottom:CGFloat = self.tabBarController!.tabBar.height;
-//        let top:CGFloat = CGRectGetMaxY(self.titlesView!.frame);
-//        contentView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-
+        
         contentView.contentSize = CGSizeMake(contentView.width * CGFloat(self.childViewControllers.count), 0);
         self.contentView = contentView;
         
         // 添加第一个控制器的view
         self.scrollViewDidEndScrollingAnimation(contentView)
-
-      
-
+        
+        
+        
     }
-   
+    
     //MARK: 初始化子控制器
     func setupChildVces(){
         
         let all = XMGAllViewController()
         self.addChildViewController(all)
-
+        
         let video = XMGVideoViewController()
         self.addChildViewController(video)
         
         let voice = XMGVoiceViewController()
         self.addChildViewController(voice)
-
+        
         let picture = XMGPictureViewController()
         self.addChildViewController(picture)
- 
+        
         self.addChildViewController(XMGWordViewController())
     }
-
+    
     func tagClick(){
         
         let tags = XMGRecommendTagsViewController()
         self.navigationController?.pushViewController(tags, animated: true)
         
     }
-
+    
     
 }
 
@@ -179,11 +175,11 @@ extension XMGEssenceViewController:UIScrollViewDelegate {
         
         // 当前的索引
         let index:Int = Int(scrollView.contentOffset.x / scrollView.width)
-        print("index**\(index)\n")
+        /*
         // 取出子控制器
         let vc:UITableViewController = self.childViewControllers[index] as! UITableViewController
         
-        // 一定要设置view的x.y.
+        // 一定要设置view的x.y
         vc.view.x = scrollView.contentOffset.x;
         vc.view.y = 0; // 设置控制器view的y值为0(默认是20)
         vc.view.height = scrollView.height; // 设置控制器view的height值为整个屏幕的高度(默认是比屏幕高度少个20)
@@ -191,10 +187,18 @@ extension XMGEssenceViewController:UIScrollViewDelegate {
         // 设置内边距
         let bottom:CGFloat = self.tabBarController!.tabBar.height;
         let top:CGFloat = CGRectGetMaxY(self.titlesView!.frame);
-        
         vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
         // 设置滚动条的内边距
         vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
+        */
+        
+        // 取出子控制器💗设置 xy轴 以后有可能是不同的UIViewController而非都是UITableViewController
+        let vc:UIViewController = self.childViewControllers[index]
+        vc.view.x = scrollView.contentOffset.x;
+        vc.view.y = 0; // 设置控制器view的y值为0(默认是20)
+        vc.view.height = scrollView.height; // 设置控制器view的height值为整个屏幕的高度(默认是比屏幕高度少个20)
+        // 设置内边距让他们自己设置
+        
         scrollView.addSubview(vc.view)
         
         
@@ -207,7 +211,7 @@ extension XMGEssenceViewController:UIScrollViewDelegate {
         let index:Int = Int(scrollView.contentOffset.x / scrollView.width)
         print("***index**\(index)")
         self.titleClick(self.titlesView?.subviews[index] as! UIButton)
-       
+        
     }
     
 }

@@ -13,7 +13,7 @@ import MJExtension
 import MJRefresh
 class XMGWordViewController: UITableViewController {
     
-
+    
     /** 当前页码 */
     var page: Int = 0
     /** 当加载下一页数据时需要这个参数 */
@@ -26,10 +26,22 @@ class XMGWordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// 初始化表格
+        setupTableView()
+        /// 添加刷新控件
         setupRefresh()
-       
+        
     }
-    
+    /// 初始化表格
+    func setupTableView() {
+        
+        // 设置内边距
+        let bottom:CGFloat = self.tabBarController!.tabBar.height;
+        let top:CGFloat = XMGTitilesViewY + XMGTitilesViewH;
+        self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+        // 设置滚动条的内边距
+        self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    }
     //MARK:  添加刷新控件
     ///  添加刷新控件
     func setupRefresh(){
@@ -42,12 +54,12 @@ class XMGWordViewController: UITableViewController {
         self.tableView.mj_header.automaticallyChangeAlpha = true
         // 让用户表格进入下拉刷新状态
         self.tableView.mj_header.beginRefreshing()
-
+        
     }
     
     /// 加载新的帖子数据
     func loadNewTopics(){
-
+        
         // 结束上啦
         self.tableView.mj_footer.endRefreshing()
         // 1.定义URL路径
@@ -65,10 +77,10 @@ class XMGWordViewController: UITableViewController {
             
             // 存储maxtime
             self.maxtime = (responseObject["info"] as! NSDictionary)["maxtime"] as? String
-
+            
             // 服务器返回的JSON数据- 字典数组 -> 模型数组
             self.topics = XMGTopic.mj_objectArrayWithKeyValuesArray(responseObject["list"])
-
+            
             // 刷新表格
             self.tableView.reloadData()
             
@@ -77,7 +89,7 @@ class XMGWordViewController: UITableViewController {
             
             // 清空页码
             self.page = 0;
-
+            
             }) { (error) -> () in
                 
                 // 不是最后一次请求
@@ -99,8 +111,7 @@ class XMGWordViewController: UITableViewController {
         
         // 结束下拉
         self.tableView.mj_header.endRefreshing()
-        self.page++;
-
+        
         // 1.定义URL路径
         let path = "api/api_open.php"
         // 2.封装参数
@@ -108,7 +119,9 @@ class XMGWordViewController: UITableViewController {
         params["a"] = "list";
         params["c"] = "data";
         params["type"] = "29";
-        params["page"] = (self.page);
+        // 当前的索引
+        let page:Int = self.page + 1
+        params["page"] = page
         params["maxtime"] = self.maxtime;
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
@@ -128,9 +141,8 @@ class XMGWordViewController: UITableViewController {
             
             // 结束刷新
             self.tableView.mj_footer.endRefreshing()
-            
-            // 清空页码
-            self.page = 0;
+            // 设置页码
+            self.page = page
             }) { (error) -> () in
                 // 不是最后一次请求
                 if (self.params != params) {return}
@@ -138,14 +150,13 @@ class XMGWordViewController: UITableViewController {
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
                 // 让底部控件结束刷新
                 self.tableView.mj_footer.endRefreshing()
-                // 恢复页码
-                self.page--;
         }
     }
     
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        self.tableView.mj_footer.hidden = (self.topics.count == 0);
         return self.topics.count ?? 0
     }
     
@@ -158,7 +169,7 @@ class XMGWordViewController: UITableViewController {
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: ID as String)
         }
-
+        
         
         let topic = self.topics[indexPath.row] as! XMGTopic
         cell!.textLabel!.text = topic.name

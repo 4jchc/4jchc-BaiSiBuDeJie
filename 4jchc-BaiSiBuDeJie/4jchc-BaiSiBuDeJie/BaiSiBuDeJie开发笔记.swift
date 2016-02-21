@@ -233,7 +233,7 @@ import UIKit
 
 
     /*
-    加载文字帖子数据完善
+    //MARK: 1. 💗加载文字帖子数据完善
     1.MJ刷新控件在初始化的时候要隐藏Foot
     2.每次刷新新数据页码💗在成功加载到数据以后清0
     3.每次加载更多数据的时候要在模型里添加刚刚的模型数据
@@ -241,5 +241,17 @@ import UIKit
     4.重复的网络请求加载-只取最后一次的网络请求💗单个的cell就直接不加载数据
     如果是多个cell就先转成模型然后返回--不刷新数据
     5.上拉刷新的时候--结束下拉刷新--下拉的时候--结束上拉
+    */
+
+    /*
+    //MARK: 2. 文字帖子细节处理💗
+    1.加载更多数据-不需要一进来就++.可以设置一个临时💗的page page = self.page + 1
+    成功加载完毕的时候在赋值前一次的page就可以了..这样加载失败的时候就不用--了
+    2.scrollViewDidEndScrollingAnimation
+    取出子控制器💗设置 x y轴 以后有可能是不同的UIViewController而非都是UITableViewController
+    let vc:UIViewController = self.childViewControllers[index]
+    设置内边距让他们自己设置
+     设置滚动条的内边距scroll Indicator Insets
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     */
 

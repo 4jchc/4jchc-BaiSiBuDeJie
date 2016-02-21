@@ -18,11 +18,19 @@ class XMGVoiceViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        /// 初始化表格
+        setupTableView()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /// 初始化表格
+    func setupTableView() {
+        
+        // 设置内边距
+        let bottom:CGFloat = self.tabBarController!.tabBar.height;
+        let top:CGFloat = XMGTitilesViewY + XMGTitilesViewH;
+        self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+        // 设置滚动条的内边距
+        self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

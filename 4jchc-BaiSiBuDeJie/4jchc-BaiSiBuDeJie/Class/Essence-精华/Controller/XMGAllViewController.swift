@@ -17,6 +17,19 @@ class XMGAllViewController: UITableViewController {
         super.viewDidLoad()
 
         loadCategories()
+        /// 初始化表格
+        setupTableView()
+        
+    }
+    /// 初始化表格
+    func setupTableView() {
+        
+        // 设置内边距
+        let bottom:CGFloat = self.tabBarController!.tabBar.height;
+        let top:CGFloat = XMGTitilesViewY + XMGTitilesViewH;
+        self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+        // 设置滚动条的内边距
+        self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     }
 
     //MARK:   加载左侧的类别数据
