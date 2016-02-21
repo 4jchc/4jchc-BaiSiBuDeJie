@@ -42,10 +42,7 @@ class XMGAllViewController: UITableViewController {
 
             // 刷新表格
             self.tableView.reloadData()
-            
-            // 默认选中首行
 
-            printLog("responseObject1\(responseObject)")
             }) { (error) -> () in
                 // 显示失败信息
                 SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")

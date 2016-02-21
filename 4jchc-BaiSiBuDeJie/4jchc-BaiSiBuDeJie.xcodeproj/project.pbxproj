@@ -53,6 +53,7 @@
 		96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB5FE01C71CD8700B289EE /* LaunchScreen.storyboard */; };
 		96DB5FED1C71CD8800B289EE /* _jchc_BaiSiBuDeJieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FEC1C71CD8800B289EE /* _jchc_BaiSiBuDeJieTests.swift */; };
 		96DB5FF81C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FF71C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift */; };
+		96ED7FAC1C796B8100ACC9E3 /* XMGTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		96DB5FF31C71CD8800B289EE /* 4jchc-BaiSiBuDeJieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-BaiSiBuDeJieUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB5FF71C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_BaiSiBuDeJieUITests.swift; sourceTree = "<group>"; };
 		96DB5FF91C71CD8800B289EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,12 +186,12 @@
 			isa = PBXGroup;
 			children = (
 				9619705C1C72265800D67033 /* XMGEssenceViewController.swift */,
-				9621BAFC1C781BC7001A238E /* XMGWordViewController.swift */,
-				9621BAFE1C781BD8001A238E /* XMGPictureViewController.swift */,
-				9621BB001C781BEA001A238E /* XMGVoiceViewController.swift */,
-				9621BB021C781C00001A238E /* XMGVideoViewController.swift */,
-				9621BB041C781C12001A238E /* XMGAllViewController.swift */,
 				965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */,
+				9621BB041C781C12001A238E /* XMGAllViewController.swift */,
+				9621BB021C781C00001A238E /* XMGVideoViewController.swift */,
+				9621BB001C781BEA001A238E /* XMGVoiceViewController.swift */,
+				9621BAFE1C781BD8001A238E /* XMGPictureViewController.swift */,
+				9621BAFC1C781BC7001A238E /* XMGWordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */,
+				96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */,
 				9621BAFF1C781BD8001A238E /* XMGPictureViewController.swift in Sources */,
 				961970861C72287100D67033 /* UIColor+Extension.swift in Sources */,
+				96ED7FAC1C796B8100ACC9E3 /* XMGTopic.swift in Sources */,
 				9621BB011C781BEA001A238E /* XMGVoiceViewController.swift in Sources */,
 				9621BB051C781C12001A238E /* XMGAllViewController.swift in Sources */,
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
