@@ -40,6 +40,7 @@
 		965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */; };
 		966A53A9DDA3A93070480B18 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D05291C0ACBD0E881906816 /* Pods.framework */; };
 		966BB3EF1C7AA09E00CAD685 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */; };
+		966BB3F11C7ACD0D00CAD685 /* XMGTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BB3F01C7ACD0D00CAD685 /* XMGTopicViewController.swift */; };
 		9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */; };
 		9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */; };
 		9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */; };
@@ -112,6 +113,7 @@
 		965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagsViewController.swift; sourceTree = "<group>"; };
 		965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTag.swift; sourceTree = "<group>"; };
 		966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		966BB3F01C7ACD0D00CAD685 /* XMGTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopicViewController.swift; sourceTree = "<group>"; };
 		9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategory.swift; sourceTree = "<group>"; };
 		9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategoryCell.swift; sourceTree = "<group>"; };
 		9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendCategoryCell.xib; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				9621BB001C781BEA001A238E /* XMGVoiceViewController.swift */,
 				9621BAFE1C781BD8001A238E /* XMGPictureViewController.swift */,
 				9621BAFC1C781BC7001A238E /* XMGWordViewController.swift */,
+				966BB3F01C7ACD0D00CAD685 /* XMGTopicViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */,
 				96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */,
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
+				966BB3F11C7ACD0D00CAD685 /* XMGTopicViewController.swift in Sources */,
 				9653366E1C7735D500CF91E0 /* XMGPushGuideView.swift in Sources */,
 				964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */,
 				9621BAFF1C781BD8001A238E /* XMGPictureViewController.swift in Sources */,
