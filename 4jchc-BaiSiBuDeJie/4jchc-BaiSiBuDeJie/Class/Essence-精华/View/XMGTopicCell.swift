@@ -26,6 +26,8 @@ class XMGTopicCell: UITableViewCell {
     @IBOutlet weak var commentButton: UIButton!
     /** 新浪加V */
     @IBOutlet weak var sinaVView: UIImageView!
+    /** 帖子的文字内容 */
+    @IBOutlet weak var text_label: UILabel!
 
     
     
@@ -46,8 +48,9 @@ class XMGTopicCell: UITableViewCell {
         
         didSet{
             
-            // 设置其他控件
+            // 设置头像
             self.profileImageView.sd_setImageWithURL(NSURL(string: topic!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
+            // 设置名字
             self.nameLabel.text = topic!.name;
             // 新浪加V
             self.sinaVView.hidden = !topic!.sina_v
@@ -56,9 +59,11 @@ class XMGTopicCell: UITableViewCell {
             // 设置按钮文字
             setupButtonTitle(dingButton, count: topic!.ding, placeholder: "顶")
             setupButtonTitle(caiButton, count: topic!.cai, placeholder: "踩")
-            
             setupButtonTitle(shareButton, count: topic!.repost, placeholder: "分享")
             setupButtonTitle(commentButton, count: topic!.comment, placeholder: "评论")
+            
+            // 设置帖子的文字内容
+            self.text_label.text = topic!.text
 
         }
         
@@ -84,11 +89,10 @@ class XMGTopicCell: UITableViewCell {
         set{
             
             var frame = newValue
-            let margin:CGFloat = 10
-            frame.origin.x = margin;
-            frame.size.width -= 2 * margin;
-            frame.size.height -= margin;
-            frame.origin.y += margin;
+            frame.origin.x = XMGTopicCellMargin;
+            frame.size.width -= 2 * XMGTopicCellMargin;
+            frame.size.height -= XMGTopicCellMargin;
+            frame.origin.y += XMGTopicCellMargin;
             super.frame=frame
         }
         get{

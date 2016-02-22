@@ -10,10 +10,18 @@ import UIKit
 
 
 let XMGGlobalBg:UIColor = UIColor.RGB(223, 223, 223)
-let XMGTitilesViewH:CGFloat = 35
+
+/** 精华-顶部标题的高度 */
+let XMGTitilesViewH:CGFloat = 35;
+/** 精华-顶部标题的Y */
 let XMGTitilesViewY:CGFloat = 64;
 
-
+/** 精华-cell-间距 */
+let XMGTopicCellMargin:CGFloat = 10;
+/** 精华-cell-文字内容的Y值 */
+let XMGTopicCellTextY:CGFloat = 55;
+/** 精华-cell-底部工具条的高度 */
+let XMGTopicCellBottomBarH:CGFloat = 44;
 
 
 

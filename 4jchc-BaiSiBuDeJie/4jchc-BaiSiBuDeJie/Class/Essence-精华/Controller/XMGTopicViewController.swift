@@ -196,7 +196,18 @@ class XMGTopicViewController: UITableViewController {
     // MARK: - 代理方法
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 200
+        // 取出帖子模型
+        let topic = self.topics[indexPath.row] as! XMGTopic;
+
+        // 文字的最大尺寸
+        let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
+
+        let textH:CGFloat = (topic.text! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14)], context: nil).size.height
+
+        // cell的高度
+        let cellH:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellBottomBarH + 2 * XMGTopicCellMargin;
+        
+        return cellH;
     }
     
 }
