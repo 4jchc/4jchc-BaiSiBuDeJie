@@ -28,8 +28,13 @@ class XMGTopicCell: UITableViewCell {
     @IBOutlet weak var sinaVView: UIImageView!
     /** 帖子的文字内容 */
     @IBOutlet weak var text_label: UILabel!
-
     
+
+    lazy var pictureView:XMGTopicPictureView = {
+        let ani = XMGTopicPictureView.pictureView()
+        self.contentView.addSubview(ani)
+        return ani
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,6 +69,15 @@ class XMGTopicCell: UITableViewCell {
             
             // 设置帖子的文字内容
             self.text_label.text = topic!.text
+            
+            // 根据模型类型(帖子类型)添加对应的内容到cell的中间
+            if (topic!.type == XMGTopicType.Picture) { // 图片帖子
+                self.pictureView.topic = topic;
+                self.pictureView.frame = topic!.pictureF;
+            } else if (topic!.type == XMGTopicType.Voice) { // 声音帖子
+                //        self.voiceView.topic = topic;
+                //        self.voiceView.frame = topic.voiceF;
+            }
 
         }
         
@@ -82,7 +96,6 @@ class XMGTopicCell: UITableViewCell {
         button.setTitle(placeholder, forState: UIControlState.Normal)
         
     }
-
     
     //MARK: 重写frame来设置cell的内嵌
     override var frame:CGRect{
