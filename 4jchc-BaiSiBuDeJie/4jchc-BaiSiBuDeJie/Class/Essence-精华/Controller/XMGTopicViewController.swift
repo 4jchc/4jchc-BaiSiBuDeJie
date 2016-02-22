@@ -198,7 +198,8 @@ class XMGTopicViewController: UITableViewController {
         
         // 取出帖子模型
         let topic = self.topics[indexPath.row] as! XMGTopic;
-
+        
+        /*
         // 文字的最大尺寸
         let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
 
@@ -206,8 +207,8 @@ class XMGTopicViewController: UITableViewController {
 
         // cell的高度
         let cellH:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellBottomBarH + 2 * XMGTopicCellMargin;
-        
-        return cellH;
+        */
+        return topic.cellHeight
     }
     
 }

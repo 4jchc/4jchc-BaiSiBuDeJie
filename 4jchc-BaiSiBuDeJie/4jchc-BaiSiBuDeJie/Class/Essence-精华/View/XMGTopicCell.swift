@@ -54,7 +54,7 @@ class XMGTopicCell: UITableViewCell {
             self.nameLabel.text = topic!.name;
             // 新浪加V
             self.sinaVView.hidden = !topic!.sina_v
-            self.createTimeLabel.text = topic!.create_time;
+            self.createTimeLabel.text = topic!.create_Time;
             
             // 设置按钮文字
             setupButtonTitle(dingButton, count: topic!.ding, placeholder: "顶")
