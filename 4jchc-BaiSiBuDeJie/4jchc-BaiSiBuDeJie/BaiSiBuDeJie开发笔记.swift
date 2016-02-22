@@ -304,13 +304,17 @@ import UIKit
 
 
     /*
-    图片帖子中间的内容
+    //MARK: 3. 图片帖子中间的内容
     1.如果设置的图片尺寸是对的但是-显示错误--就取消自伸缩图片auto resizing调整 Mask屏蔽
     self.autoresizingMask = UIViewAutoresizing.None;
     */
 
 
-
+    /*
+    判断jif图片Extension扩展名
+    1.(topic!.large_image! as NSString).pathExtension图片后缀
+    2.图片裁剪--SB-clip剪贴subviews
+    */
 
 
 

@@ -23,7 +23,10 @@ let XMGTopicCellTextY:CGFloat = 55;
 /** 精华-cell-底部工具条的高度 */
 let XMGTopicCellBottomBarH:CGFloat = 44;
 
-
+/** 精华-cell-图片帖子的最大高度 */
+let XMGTopicCellPictureMaxH:CGFloat = 1000;
+/** 精华-cell-图片帖子一旦超过最大高度,就是用Break */
+let XMGTopicCellPictureBreakH:CGFloat = 250;
 
 
 //MARK: - 单词
@@ -47,5 +50,7 @@ self.layer.masksToBounds = true
 1.user Defined定义的 Runtime运行时间 Attributes属性组
 
 NS Comparison比较 Result.Ordered有秩序的 Descending递减
+
+clip剪贴subviews
 
 */

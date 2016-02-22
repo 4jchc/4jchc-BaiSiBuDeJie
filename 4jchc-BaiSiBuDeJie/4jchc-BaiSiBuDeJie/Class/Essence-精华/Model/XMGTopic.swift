@@ -58,7 +58,9 @@ class XMGTopic: NSObject {
     /****** 额外的辅助属性 ******/
      /** 图片控件的frame */
     var pictureF:CGRect = CGRect()
-    
+    /** 图片是否太大 */
+    var isBigPicture: Bool = false
+
     /** cell的高度 */// 同时计算图片的尺寸
     lazy var cellHeight:CGFloat = {
         
@@ -76,8 +78,12 @@ class XMGTopic: NSObject {
             // 图片显示出来的宽度
             let pictureW:CGFloat = maxSize.width;
             // 显示显示出来的高度
-            let pictureH:CGFloat = pictureW * self.height / self.width;
+            var pictureH:CGFloat = pictureW * self.height / self.width;
             
+            if (pictureH >= XMGTopicCellPictureMaxH) { // 图片高度过长
+                pictureH = XMGTopicCellPictureBreakH;
+                self.isBigPicture = true; // 大图
+            }
             // 计算图片控件的frame
             let pictureX:CGFloat = XMGTopicCellMargin
             let pictureY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
