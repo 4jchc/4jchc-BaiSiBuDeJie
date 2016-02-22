@@ -51,10 +51,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellDing">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellDingClick">
-                                    <color key="titleColor" patternImage="03EF982B-7DA5-4256-9F92-484BABE75B38" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="0E1BE987-ACB8-460A-A88F-210591F68A99" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-mY-70D" userLabel="分享">
@@ -62,10 +62,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellShare">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellShareClick">
-                                    <color key="titleColor" patternImage="03EF982B-7DA5-4256-9F92-484BABE75B38" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="0E1BE987-ACB8-460A-A88F-210591F68A99" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-lx-Rx9" userLabel="评论">
@@ -73,10 +73,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellComment">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellCommentClick">
-                                    <color key="titleColor" patternImage="03EF982B-7DA5-4256-9F92-484BABE75B38" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="0E1BE987-ACB8-460A-A88F-210591F68A99" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktk-FY-QZt" userLabel="踩">
@@ -84,10 +84,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="545" image="mainCellCai">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellCaiClick">
-                                    <color key="titleColor" patternImage="03EF982B-7DA5-4256-9F92-484BABE75B38" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="0E1BE987-ACB8-460A-A88F-210591F68A99" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-content-line" translatesAutoresizingMaskIntoConstraints="NO" id="BuC-0S-Wsd" userLabel="顶部分割线">
@@ -153,14 +153,23 @@
                             <constraint firstItem="xfL-mY-70D" firstAttribute="height" secondItem="moG-oa-Z6Z" secondAttribute="height" id="xBD-tc-d3s"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_AddV_authen" translatesAutoresizingMaskIntoConstraints="NO" id="adq-W1-c4H" userLabel="认证V">
+                        <rect key="frame" x="36" y="36" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="EID-lt-BsJ"/>
+                            <constraint firstAttribute="height" constant="14" id="Yxm-aX-zBM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="C1F-MT-VO6" firstAttribute="leading" secondItem="M1U-GC-KLt" secondAttribute="leading" id="0NF-tN-a60"/>
                     <constraint firstAttribute="trailingMargin" secondItem="m1d-yW-bQU" secondAttribute="trailing" constant="10" id="3aM-6e-Fko"/>
                     <constraint firstItem="e4h-bT-xdS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="88A-np-yN6"/>
                     <constraint firstItem="C1F-MT-VO6" firstAttribute="bottom" secondItem="Nbg-uh-sve" secondAttribute="bottom" id="IDS-sg-K5b"/>
+                    <constraint firstItem="adq-W1-c4H" firstAttribute="bottom" secondItem="Nbg-uh-sve" secondAttribute="bottom" constant="5" id="JgZ-up-Thx"/>
                     <constraint firstItem="M1U-GC-KLt" firstAttribute="leading" secondItem="Nbg-uh-sve" secondAttribute="trailing" constant="14" id="Q0H-3F-Hwy"/>
                     <constraint firstAttribute="trailing" secondItem="e4h-bT-xdS" secondAttribute="trailing" id="QaF-tV-AIy"/>
+                    <constraint firstItem="adq-W1-c4H" firstAttribute="trailing" secondItem="Nbg-uh-sve" secondAttribute="trailing" constant="5" id="R0T-Rb-u3h"/>
                     <constraint firstItem="m1d-yW-bQU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Uuq-Fb-lK8"/>
                     <constraint firstAttribute="bottom" secondItem="e4h-bT-xdS" secondAttribute="bottom" id="YaX-Ku-J9e"/>
                     <constraint firstItem="M1U-GC-KLt" firstAttribute="top" secondItem="Nbg-uh-sve" secondAttribute="top" id="ZCI-kZ-i30"/>
@@ -176,12 +185,13 @@
                 <outlet property="nameLabel" destination="M1U-GC-KLt" id="LyD-wu-Jsh"/>
                 <outlet property="profileImageView" destination="Nbg-uh-sve" id="j97-fk-Zt2"/>
                 <outlet property="shareButton" destination="xfL-mY-70D" id="CmG-52-Bu4"/>
+                <outlet property="sinaVView" destination="adq-W1-c4H" id="0qW-KG-Ptz"/>
             </connections>
             <point key="canvasLocation" x="427" y="129.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="03EF982B-7DA5-4256-9F92-484BABE75B38" width="256" height="256">
+        <image name="0E1BE987-ACB8-460A-A88F-210591F68A99" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4623,6 +4633,7 @@ AAQOmQAEDqEABA6kAAQOqQAEDrEABA60AAQOxgAEDskABA7OAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAAEDtA
 </mutableData>
         </image>
+        <image name="Profile_AddV_authen" width="14" height="14"/>
         <image name="cell-button-line" width="1" height="29"/>
         <image name="cell-content-line" width="299" height="1"/>
         <image name="cellFollowClickIcon" width="19" height="20"/>

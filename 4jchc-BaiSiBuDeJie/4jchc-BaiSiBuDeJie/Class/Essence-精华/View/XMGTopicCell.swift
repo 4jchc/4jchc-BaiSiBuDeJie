@@ -24,7 +24,9 @@ class XMGTopicCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     /** 评论 */
     @IBOutlet weak var commentButton: UIButton!
-    
+    /** 新浪加V */
+    @IBOutlet weak var sinaVView: UIImageView!
+
     
     
     override func awakeFromNib() {
@@ -47,7 +49,8 @@ class XMGTopicCell: UITableViewCell {
             // 设置其他控件
             self.profileImageView.sd_setImageWithURL(NSURL(string: topic!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
             self.nameLabel.text = topic!.name;
-            
+            // 新浪加V
+            self.sinaVView.hidden = !topic!.sina_v
             self.createTimeLabel.text = topic!.create_time;
             
             // 设置按钮文字

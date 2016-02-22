@@ -37,7 +37,9 @@ class XMGTopic: NSObject {
     var repost: Int = 0
     /** 评论的数量 */
     var comment: Int = 0
-    
+    /** 是否为新浪加V用户 */
+    var sina_v: Bool = false
+
     
 
 }
