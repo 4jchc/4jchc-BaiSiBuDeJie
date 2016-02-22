@@ -47,6 +47,7 @@ class XMGTopicCell: UITableViewCell {
             // 设置其他控件
             self.profileImageView.sd_setImageWithURL(NSURL(string: topic!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
             self.nameLabel.text = topic!.name;
+            
             self.createTimeLabel.text = topic!.create_time;
             
             // 设置按钮文字

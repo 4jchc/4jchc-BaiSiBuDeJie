@@ -39,6 +39,7 @@
 		965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */; };
 		965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */; };
 		966A53A9DDA3A93070480B18 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D05291C0ACBD0E881906816 /* Pods.framework */; };
+		966BB3EF1C7AA09E00CAD685 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */; };
 		9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */; };
 		9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */; };
 		9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */; };
@@ -110,6 +111,7 @@
 		96591C991C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BaiSiBuDeJie开发笔记.swift"; path = "../BaiSiBuDeJie开发笔记.swift"; sourceTree = "<group>"; };
 		965E74A81C7497BA008A8989 /* XMGRecommendTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTagsViewController.swift; sourceTree = "<group>"; };
 		965E74AA1C74990A008A8989 /* XMGRecommendTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendTag.swift; sourceTree = "<group>"; };
+		966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategory.swift; sourceTree = "<group>"; };
 		9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategoryCell.swift; sourceTree = "<group>"; };
 		9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendCategoryCell.xib; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				96106A6F1C7300A8009090A0 /* NetworkTools.swift */,
+				966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */,
 				961970751C72265800D67033 /* Frame+Extension.swift */,
 				961970851C72287100D67033 /* UIColor+Extension.swift */,
 				961970761C72265800D67033 /* UIBarButtonItem+Extension.swift */,
@@ -663,6 +666,7 @@
 				965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */,
 				9619707F1C72265800D67033 /* Frame+Extension.swift in Sources */,
 				965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */,
+				966BB3EF1C7AA09E00CAD685 /* NSDate+Extension.swift in Sources */,
 				9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */,
 				96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */,
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,

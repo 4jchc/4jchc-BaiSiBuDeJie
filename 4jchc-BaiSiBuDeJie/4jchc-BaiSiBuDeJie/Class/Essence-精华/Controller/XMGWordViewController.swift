@@ -171,12 +171,8 @@ class XMGWordViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(XMGTopicCellId) as! XMGTopicCell
-        let topic = self.topics[indexPath.row] as! XMGTopic
-        cell.textLabel?.text = topic.name
-        cell.detailTextLabel?.text = topic.text
-        cell.imageView!.sd_setImageWithURL(NSURL(string: topic.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
-        
-        
+        cell.topic = self.topics[indexPath.row] as? XMGTopic
+
         return cell
     }
     // MARK: - 代理方法

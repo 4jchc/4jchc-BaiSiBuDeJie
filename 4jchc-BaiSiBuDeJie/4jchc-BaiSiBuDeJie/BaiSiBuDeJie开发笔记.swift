@@ -256,9 +256,14 @@ import UIKit
     */
 
     /*
+    //MARK: 3. 数据转模型加载
     1.cell取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
     2.cell的内嵌--重写💗frame
-    3.数据转模型加载
     */
 
+    /*
+    //MARK: 4. 时间处理
+    1.在模型didset方法中设置时间
+    2.封装时间显示
+    */

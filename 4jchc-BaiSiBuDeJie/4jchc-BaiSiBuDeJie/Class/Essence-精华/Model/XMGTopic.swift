@@ -14,10 +14,19 @@ class XMGTopic: NSObject {
     var name: String?
     /** 头像 */
     var profile_image: String?
-    /** 发帖时间 */
-    var create_time: String?
     /** 文字内容 */
     var text: String?
+    
+    
+    /** 发帖时间 */
+    var create_time: String?{
+        
+        didSet{
+            create_time = create_time?.descriptionDate()
+        }
+        
+    }
+    
     
     
     /** 顶的数量 */
