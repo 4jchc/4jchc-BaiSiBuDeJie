@@ -141,25 +141,30 @@ class XMGEssenceViewController: UIViewController {
     
     //MARK: 初始化子控制器
     func setupChildVces(){
-        
-        let all = XMGAllViewController()
+
+        let all = XMGTopicViewController()
         all.title = "全部";
+        all.type = XMGTopicType.All;
         self.addChildViewController(all)
         
-        let video = XMGVideoViewController()
+        let video = XMGTopicViewController()
         video.title = "视频";
+        video.type = XMGTopicType.Video
         self.addChildViewController(video)
         
-        let voice = XMGVoiceViewController()
+        let voice = XMGTopicViewController()
         voice.title = "声音";
+        voice.type = XMGTopicType.Voice;
         self.addChildViewController(voice)
         
-        let picture = XMGPictureViewController()
+        let picture = XMGTopicViewController()
         picture.title = "图片";
+        picture.type = XMGTopicType.Picture;
         self.addChildViewController(picture)
         
-        let word = XMGWordViewController()
+        let word = XMGTopicViewController()
         word.title = "段子";
+        word.type = XMGTopicType.Word;
         self.addChildViewController(word)
     }
     

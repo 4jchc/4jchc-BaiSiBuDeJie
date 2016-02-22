@@ -10,16 +10,26 @@ import UIKit
 import SVProgressHUD
 import MJExtension
 import MJRefresh
+
+
+enum XMGTopicType:Int {
+    case All = 1
+    case Picture = 10
+    case Word = 29
+    case Voice = 31
+    case Video = 41
+}
+
 class XMGTopicViewController: UITableViewController {
     
 
     /** 帖子类型(交给子类去实现) */
 
-    var type: String = ""
+    var type: XMGTopicType?
         
 
         
- 
+
     
     let XMGTopicCellId:String = "topic"
     /** 当前页码 */
@@ -83,7 +93,7 @@ class XMGTopicViewController: UITableViewController {
         let params = NSMutableDictionary()
         params["a"] = "list";
         params["c"] = "data";
-        params["type"] = self.type
+        params["type"] = self.type?.rawValue
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
@@ -133,7 +143,7 @@ class XMGTopicViewController: UITableViewController {
         let params = NSMutableDictionary()
         params["a"] = "list";
         params["c"] = "data";
-        params["type"] = self.type
+        params["type"] = self.type?.rawValue
         // 当前的索引
         let page:Int = self.page + 1
         params["page"] = page

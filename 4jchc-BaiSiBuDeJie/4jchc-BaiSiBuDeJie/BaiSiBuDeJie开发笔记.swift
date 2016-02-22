@@ -278,5 +278,8 @@ import UIKit
     */
 
 
-
+    /*
+    代码重构💗
+    2.因为都是UITableViewController--只是请求参数不同,所以定义枚举带参数来确定是哪个控制器
+    */
 
