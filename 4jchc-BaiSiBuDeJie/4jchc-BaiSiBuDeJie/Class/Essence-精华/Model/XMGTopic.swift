@@ -51,8 +51,9 @@ class XMGTopic: NSObject {
     /** 大图片的URL */
     var large_image: String?
     /** 帖子的类型 */
-    var type:XMGTopicType?
-
+    //var type:XMGTopicType?
+    var type:Int = 0
+        
 
 
     /****** 额外的辅助属性 ******/
@@ -73,7 +74,7 @@ class XMGTopic: NSObject {
         // 文字部分的高度
         var CellHeight = XMGTopicCellTextY + textH + XMGTopicCellMargin;
         
-        if (self.type == XMGTopicType.Picture) { // 图片帖子
+        if (self.type == XMGTopicType.Picture.rawValue) { // 图片帖子
             
             // 图片显示出来的宽度
             let pictureW:CGFloat = maxSize.width;
@@ -90,7 +91,7 @@ class XMGTopic: NSObject {
             self.pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
             
             CellHeight += pictureH + XMGTopicCellMargin;
-        } else if (self.type == XMGTopicType.Voice) { // 声音帖子
+        } else if (self.type == XMGTopicType.Voice.rawValue) { // 声音帖子
             
         }
         

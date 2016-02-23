@@ -71,10 +71,10 @@ class XMGTopicCell: UITableViewCell {
             self.text_label.text = topic!.text
             
             // 根据模型类型(帖子类型)添加对应的内容到cell的中间
-            if (topic!.type == XMGTopicType.Picture) { // 图片帖子
+            if (topic!.type == XMGTopicType.Picture.rawValue) { // 图片帖子
                 self.pictureView.topic = topic;
                 self.pictureView.frame = topic!.pictureF;
-            } else if (topic!.type == XMGTopicType.Voice) { // 声音帖子
+            } else if (topic!.type == XMGTopicType.Voice.rawValue) { // 声音帖子
                 //        self.voiceView.topic = topic;
                 //        self.voiceView.frame = topic.voiceF;
             }

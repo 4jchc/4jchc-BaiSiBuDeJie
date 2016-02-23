@@ -44,11 +44,11 @@ class XMGTopicPictureView: UIView {
         
         didSet{
             // 设置图片
-            self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!), placeholderImage: UIImage(named: ""))
+            self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!))
             // 判断是否为gif
             let extensio:NSString = (topic!.large_image! as NSString).pathExtension
 
-            self.gifView.hidden = (extensio.lowercaseString as NSString).isEqualToString("gif")
+            self.gifView.hidden = !(extensio.lowercaseString as NSString).isEqualToString("gif")
 
             // 判断是否显示"点击查看全图"
             if (topic!.isBigPicture) { // 大图

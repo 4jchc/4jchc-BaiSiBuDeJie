@@ -311,12 +311,17 @@ import UIKit
 
 
     /*
-    判断jif图片Extension扩展名
+    //MARK: 4. 判断jif图片Extension扩展名
     1.(topic!.large_image! as NSString).pathExtension图片后缀
     2.图片裁剪--SB-clip剪贴subviews
     */
 
-
+    /*
+    图片帖子细节
+    1.基本数据类型一定要设置初始值
+    2.MJ字典转模型.swift属性不可以设置成枚举型的.
+    3.枚举获取类型加rawValue
+    */
 
 
 

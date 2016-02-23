@@ -54,7 +54,7 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellDingClick">
-                                    <color key="titleColor" patternImage="C2CA796B-D4FC-48A4-8247-D7DB348DC8E9" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="1CC74DEA-DD41-4862-A12F-D3A1BCE5E7F2" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-mY-70D" userLabel="分享">
@@ -65,7 +65,7 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellShareClick">
-                                    <color key="titleColor" patternImage="C2CA796B-D4FC-48A4-8247-D7DB348DC8E9" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="1CC74DEA-DD41-4862-A12F-D3A1BCE5E7F2" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-lx-Rx9" userLabel="评论">
@@ -76,7 +76,7 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellCommentClick">
-                                    <color key="titleColor" patternImage="C2CA796B-D4FC-48A4-8247-D7DB348DC8E9" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="1CC74DEA-DD41-4862-A12F-D3A1BCE5E7F2" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktk-FY-QZt" userLabel="踩">
@@ -87,7 +87,7 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted" image="mainCellCaiClick">
-                                    <color key="titleColor" patternImage="C2CA796B-D4FC-48A4-8247-D7DB348DC8E9" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="1CC74DEA-DD41-4862-A12F-D3A1BCE5E7F2" colorSpace="pattern"/>
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-content-line" translatesAutoresizingMaskIntoConstraints="NO" id="BuC-0S-Wsd" userLabel="顶部分割线">
@@ -201,7 +201,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="C2CA796B-D4FC-48A4-8247-D7DB348DC8E9" width="256" height="256">
+        <image name="1CC74DEA-DD41-4862-A12F-D3A1BCE5E7F2" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4580,7 +4580,7 @@ ohscgAWABoAJEADSIAohIl8QFE5TVElGRlJlcHJlc2VudGF0aW9ugAeACE8SAAQNHk1NACoABAAIdXiB
 AgAAAREABAAAAAIABADGARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEAgAAAARcABAAAAAIA
 BAC+ARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAQABADOh3MABwAADEgABADWAAAAAAAIAAgA
 CAAIAAIAAAACAAAAAAAIAAIACAABAAEAAQABAAAMSExpbm8CEAAAbW50clJHQiBYWVogB84AAgAJAAYA
-MQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAA
+MQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARY3BydAAAAVAAAAAzZGVzYwAAAYQA
 AABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAUYlhZWgAAAkAA
 AAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACGdmlldwAAA9QAAAAkbHVtaQAAA/gA
