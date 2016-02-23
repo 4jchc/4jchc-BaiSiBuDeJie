@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import DACircularProgress
 class XMGTopicPictureView: UIView {
     
     /** 图片 */
@@ -19,6 +19,8 @@ class XMGTopicPictureView: UIView {
     /** 查看大图按钮 */
     @IBOutlet weak var seeBigButton: UIButton!
     
+    /** 进度条控件 */
+    @IBOutlet weak var progressView: DALabeledCircularProgressView!
     
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -38,18 +40,31 @@ class XMGTopicPictureView: UIView {
     override func awakeFromNib() {
         // 取消自动调整伸缩
         self.autoresizingMask = UIViewAutoresizing.None;
+        self.progressView.roundedCorners = 2;
+       self.progressView.progressLabel.textColor = UIColor.redColor()
     }
     
     var topic:XMGTopic?{
         
         didSet{
-            // 设置图片
-            self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!))
+            
+            // 设置图片带进度
+            self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: { [weak self] (receivedSize, expectedSize) -> Void in
+                
+                self!.progressView.hidden = false
+                let progress:CGFloat =  CGFloat(receivedSize)/CGFloat(expectedSize)
+                self!.progressView.setProgress(progress, animated: false)
+                self!.progressView.progressLabel.text = String(format: "%.0f%%", progress * CGFloat(100))
+                
+                }) { [weak self] (image, error, cacheType, imageURL) -> Void in
+                    self!.progressView.hidden = true
+            }
+            
             // 判断是否为gif
             let extensio:NSString = (topic!.large_image! as NSString).pathExtension
-
+            
             self.gifView.hidden = !(extensio.lowercaseString as NSString).isEqualToString("gif")
-
+            
             // 判断是否显示"点击查看全图"
             if (topic!.isBigPicture) { // 大图
                 self.seeBigButton.hidden = false
