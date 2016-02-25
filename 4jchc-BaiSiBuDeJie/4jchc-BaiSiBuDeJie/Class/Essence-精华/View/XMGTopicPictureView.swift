@@ -62,15 +62,34 @@ class XMGTopicPictureView: UIView {
         
         didSet{
             
+            // 立马显示最新的进度值(防止因为网速慢, 导致显示的是其他图片的下载进度)
+            self.progressView.setProgress(self.topic!.pictureProgress, animated: true)
             // 设置图片带进度
             self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: { [weak self] (receivedSize, expectedSize) -> Void in
                 
                 self!.progressView.hidden = false
-                let progress:CGFloat =  CGFloat(receivedSize)/CGFloat(expectedSize)
-                self!.progressView.setProgress(progress, animated: false)
+                self!.topic!.pictureProgress =  CGFloat(receivedSize)/CGFloat(expectedSize)
+                self!.progressView.setProgress(self!.topic!.pictureProgress, animated: false)
                 
                 }) { [weak self] (image, error, cacheType, imageURL) -> Void in
                     self!.progressView.hidden = true
+                    
+                    // 如果是大图片, 才需要进行绘图处理
+                    if (self!.topic!.isBigPicture == false) {return}
+                    
+                    // 开启图形上下文
+                    UIGraphicsBeginImageContextWithOptions(self!.topic!.pictureF.size, true, 0.0);
+                    
+                    let width:CGFloat = self!.topic!.pictureF.size.width
+                    let height:CGFloat  = width * image.size.height / image.size.width;
+                    
+                    image.drawInRect(CGRectMake(0, 0, width, height))
+                    // 获得图片
+                    self!.imageView.image  = UIGraphicsGetImageFromCurrentImageContext()
+                    
+                    // 关闭上下文
+                    UIGraphicsEndImageContext();
+ 
             }
         
             

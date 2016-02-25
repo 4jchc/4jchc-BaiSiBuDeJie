@@ -12,7 +12,7 @@ class XMGShowPictureViewController: UIViewController {
 
     /** 帖子 */
     var topic:XMGTopic!
-
+    @IBOutlet weak var progressView: XMGProgressView!
     @IBOutlet weak var scrollView: UIScrollView!
     var imageView:UIImageView?
 
@@ -44,7 +44,20 @@ class XMGShowPictureViewController: UIViewController {
             imageView.size = CGSizeMake(pictureW, pictureH);
             imageView.centerY = screenH * 0.5;
         }
-        imageView.sd_setImageWithURL(NSURL(string: self.topic.large_image!))
+        // 立马显示最新的进度值(防止因为网速慢, 导致显示的是其他图片的下载进度)
+        self.progressView.setProgress(self.topic.pictureProgress, animated: true)
+
+        // 设置图片带进度
+        self.imageView!.sd_setImageWithURL(NSURL(string: self.topic.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: { [weak self] (receivedSize, expectedSize) -> Void in
+            
+            self!.progressView.hidden = false
+            let progress:CGFloat =  CGFloat(receivedSize)/CGFloat(expectedSize)
+            self!.progressView.setProgress(progress, animated: false)
+            self!.progressView.progressLabel.text = String(format: "%.0f%%", progress * CGFloat(100))
+            }) { [weak self] (image, error, cacheType, imageURL) -> Void in
+                self!.progressView.hidden = true
+        }
+ 
 
     }
 
@@ -61,7 +74,12 @@ class XMGShowPictureViewController: UIViewController {
     //MARK:  保存图片到相册
     ///  保存图片到相册
     @IBAction func save() {
-        
+        if (self.imageView!.image == nil) {
+            
+            SVProgressHUD.showErrorWithStatus("图片并没下载完毕!", maskType: SVProgressHUDMaskType.Black)
+     
+            return;
+        }
         let image = self.imageView!.image
         UIImageWriteToSavedPhotosAlbum(image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
         

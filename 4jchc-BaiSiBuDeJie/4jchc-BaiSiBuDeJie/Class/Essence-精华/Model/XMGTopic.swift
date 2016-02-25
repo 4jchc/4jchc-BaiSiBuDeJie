@@ -61,6 +61,10 @@ class XMGTopic: NSObject {
     var pictureF:CGRect = CGRect()
     /** 图片是否太大 */
     var isBigPicture: Bool = false
+    
+    /** 图片的下载进度 */
+    var pictureProgress:CGFloat = CGFloat()
+
 
     /** cell的高度 */// 同时计算图片的尺寸
     lazy var cellHeight:CGFloat = {

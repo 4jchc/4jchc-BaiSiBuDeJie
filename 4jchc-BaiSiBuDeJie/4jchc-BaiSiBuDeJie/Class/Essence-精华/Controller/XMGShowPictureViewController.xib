@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XMGShowPictureViewController" customModule="_jchc_BaiSiBuDeJie" customModuleProvider="target">
             <connections>
+                <outlet property="progressView" destination="iMB-g2-J7v" id="V2K-dc-5nh"/>
                 <outlet property="scrollView" destination="EKt-Tb-ury" id="xiB-4G-xr6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,9 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ZQ-IZ-aCh">
-                    <rect key="frame" x="180" y="236" width="240" height="128"/>
-                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKt-Tb-ury">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </scrollView>
@@ -33,6 +31,14 @@
                         <action selector="back" destination="-1" eventType="touchUpInside" id="ljR-BP-XmF"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMB-g2-J7v" userLabel="进度条" customClass="XMGProgressView" customModule="_jchc_BaiSiBuDeJie" customModuleProvider="target">
+                    <rect key="frame" x="250" y="250" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="BG3-HW-b4A"/>
+                        <constraint firstAttribute="width" constant="100" id="Erl-e9-0JV"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNM-cg-olu" userLabel="保存">
                     <rect key="frame" x="490" y="530" width="70" height="30"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -61,6 +67,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="iNM-cg-olu" secondAttribute="trailing" constant="40" id="7Xb-YO-0tR"/>
                 <constraint firstAttribute="bottom" secondItem="EKt-Tb-ury" secondAttribute="bottom" id="Ae4-eu-5xC"/>
+                <constraint firstItem="iMB-g2-J7v" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BYg-er-rrJ"/>
                 <constraint firstAttribute="trailing" secondItem="EKt-Tb-ury" secondAttribute="trailing" id="DJg-Hj-ZTO"/>
                 <constraint firstItem="EKt-Tb-ury" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LkL-9Y-a1f"/>
                 <constraint firstAttribute="bottom" secondItem="iNM-cg-olu" secondAttribute="bottom" constant="40" id="Nwj-jp-Dui"/>
@@ -71,12 +78,9 @@
                 <constraint firstItem="EKt-Tb-ury" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cbj-wB-Amk"/>
                 <constraint firstItem="Xd1-8V-l3B" firstAttribute="width" secondItem="iNM-cg-olu" secondAttribute="width" id="ihg-Oi-C9I"/>
                 <constraint firstItem="Xd1-8V-l3B" firstAttribute="height" secondItem="iNM-cg-olu" secondAttribute="height" id="lAV-SS-Jzf"/>
+                <constraint firstItem="iMB-g2-J7v" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uEd-Wi-Pim"/>
             </constraints>
         </view>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rKm-fL-b2n">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </imageView>
     </objects>
     <resources>
         <image name="show_image_back_icon" width="35" height="35"/>
