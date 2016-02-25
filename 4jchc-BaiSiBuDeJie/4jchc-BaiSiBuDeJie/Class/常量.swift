@@ -28,7 +28,31 @@ let XMGTopicCellPictureMaxH:CGFloat = 1000;
 /** 精华-cell-图片帖子一旦超过最大高度,就是用Break */
 let XMGTopicCellPictureBreakH:CGFloat = 250;
 
+let XMGScreenW = UIScreen.mainScreen().bounds.size.width
+let XMGScreenH = UIScreen.mainScreen().bounds.size.height
 
+
+var IS_IPAD: Bool {
+get {
+    if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+}
+
+var IS_IPHONE: Bool {
+get {
+    if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+}
 //MARK: - 单词
 /*
 

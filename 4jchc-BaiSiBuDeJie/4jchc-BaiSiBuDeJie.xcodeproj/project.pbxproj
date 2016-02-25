@@ -49,6 +49,8 @@
 		96A8959C1C76BDF900D18324 /* XMGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8959B1C76BDF900D18324 /* XMGTextField.swift */; };
 		96B7AA8E1C7EA28F007AC158 /* XMGShowPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7AA8C1C7EA28F007AC158 /* XMGShowPictureViewController.swift */; };
 		96B7AA8F1C7EA28F007AC158 /* XMGShowPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B7AA8D1C7EA28F007AC158 /* XMGShowPictureViewController.xib */; };
+		96B7AA941C7ED954007AC158 /* XMGPublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7AA921C7ED954007AC158 /* XMGPublishViewController.swift */; };
+		96B7AA951C7ED954007AC158 /* XMGPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B7AA931C7ED954007AC158 /* XMGPublishViewController.xib */; };
 		96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C001BA1C72C21F0014F47D /* XMGNavigationController.swift */; };
 		96DB5FD81C71CD8700B289EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FD71C71CD8700B289EE /* AppDelegate.swift */; };
 		96DB5FDA1C71CD8700B289EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FD91C71CD8700B289EE /* ViewController.swift */; };
@@ -123,6 +125,8 @@
 		96A8959B1C76BDF900D18324 /* XMGTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTextField.swift; sourceTree = "<group>"; };
 		96B7AA8C1C7EA28F007AC158 /* XMGShowPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGShowPictureViewController.swift; sourceTree = "<group>"; };
 		96B7AA8D1C7EA28F007AC158 /* XMGShowPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGShowPictureViewController.xib; sourceTree = "<group>"; };
+		96B7AA921C7ED954007AC158 /* XMGPublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGPublishViewController.swift; sourceTree = "<group>"; };
+		96B7AA931C7ED954007AC158 /* XMGPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPublishViewController.xib; sourceTree = "<group>"; };
 		96C001BA1C72C21F0014F47D /* XMGNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGNavigationController.swift; sourceTree = "<group>"; };
 		96DB5FD41C71CD8700B289EE /* 4jchc-BaiSiBuDeJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "4jchc-BaiSiBuDeJie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB5FD71C71CD8700B289EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -351,6 +355,8 @@
 			children = (
 				961970701C72265800D67033 /* XMGTabBarController.swift */,
 				96C001BA1C72C21F0014F47D /* XMGNavigationController.swift */,
+				96B7AA921C7ED954007AC158 /* XMGPublishViewController.swift */,
+				96B7AA931C7ED954007AC158 /* XMGPublishViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 				96B7AA8F1C7EA28F007AC158 /* XMGShowPictureViewController.xib in Resources */,
 				964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */,
 				96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */,
+				96B7AA951C7ED954007AC158 /* XMGPublishViewController.xib in Resources */,
 				9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */,
 				96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */,
 				964C4D431C75C9D600705349 /* XMGLoginRegisterViewController.xib in Resources */,
@@ -678,6 +685,7 @@
 				9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */,
 				96C001BB1C72C21F0014F47D /* XMGNavigationController.swift in Sources */,
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
+				96B7AA941C7ED954007AC158 /* XMGPublishViewController.swift in Sources */,
 				968A6F0D1C7B081E009D337A /* XMG.swift in Sources */,
 				966BB3F11C7ACD0D00CAD685 /* XMGTopicViewController.swift in Sources */,
 				9653366E1C7735D500CF91E0 /* XMGPushGuideView.swift in Sources */,

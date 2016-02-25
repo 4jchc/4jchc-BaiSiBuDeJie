@@ -19,7 +19,7 @@ class XMGTabBar: UITabBar {
         let plusBtn:UIButton = UIButton()
         plusBtn.setBackgroundImage(UIImage(named: "tabBar_publish_icon"), forState: UIControlState.Normal)
         plusBtn.setBackgroundImage(UIImage(named: "tabBar_publish_click_icon"), forState: UIControlState.Highlighted)
-        plusBtn.addTarget(self, action: "plusClick", forControlEvents: UIControlEvents.TouchUpInside)
+        plusBtn.addTarget(self, action: "publishClick", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.addSubview(plusBtn)
         self.plusBtn = plusBtn
@@ -27,7 +27,13 @@ class XMGTabBar: UITabBar {
         
     }
     
-    
+    func publishClick(){
+        
+        //拿到根控制器来弹出控制器
+        let publish = XMGPublishViewController()
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(publish, animated: true, completion: nil)
+
+    }
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

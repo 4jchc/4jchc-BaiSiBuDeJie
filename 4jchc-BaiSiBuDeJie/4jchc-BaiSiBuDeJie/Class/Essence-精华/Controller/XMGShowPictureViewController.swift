@@ -19,10 +19,6 @@ class XMGShowPictureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 屏幕尺寸
-        let screenW = UIScreen.mainScreen().bounds.size.width
-        let screenH = UIScreen.mainScreen().bounds.size.height
-        
         // 添加图片
         let imageView:UIImageView = UIImageView()
         imageView.userInteractionEnabled = true
@@ -34,15 +30,15 @@ class XMGShowPictureViewController: UIViewController {
         
         
         // 图片尺寸
-        let pictureW = screenW
+        let pictureW = XMGScreenW
         let pictureH = pictureW * self.topic.height / self.topic.width;
 
-        if (pictureH > screenH) { // 图片显示高度超过一个屏幕, 需要滚动查看
+        if (pictureH > XMGScreenH) { // 图片显示高度超过一个屏幕, 需要滚动查看
             imageView.frame = CGRectMake(0, 0, pictureW, pictureH);
             self.scrollView.contentSize = CGSizeMake(0, pictureH);
         } else {
             imageView.size = CGSizeMake(pictureW, pictureH);
-            imageView.centerY = screenH * 0.5;
+            imageView.centerY = XMGScreenH * 0.5;
         }
         // 立马显示最新的进度值(防止因为网速慢, 导致显示的是其他图片的下载进度)
         self.progressView.setProgress(self.topic.pictureProgress, animated: true)
