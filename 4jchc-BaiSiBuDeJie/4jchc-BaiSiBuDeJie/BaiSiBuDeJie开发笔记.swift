@@ -330,12 +330,16 @@ import UIKit
     */
 
     /*
-    DACircularProgress框架的隔离
+    //MARK: 7. DACircularProgress框架的隔离
     1.自定义类继承DACircularProgress
     */
 
 
-
+    /*
+    图片太小-设置约束和高度就行.然后图片是aspect fit合适.自动改变宽高比
+    1.给图片添加监听器--取消点击按钮的userInteractionEnabled为NO这样整个图片都会接受点击
+    2.添加图片查看器
+    */
 
 
 

@@ -24,7 +24,7 @@ class XMGProgressView: DALabeledCircularProgressView {
         // 替换
         progressLabel.text = text.stringByReplacingOccurrencesOfString("-", withString: "")
     }
-
+    
 
 
 }

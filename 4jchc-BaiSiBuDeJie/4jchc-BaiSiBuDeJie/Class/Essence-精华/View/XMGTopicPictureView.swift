@@ -40,9 +40,24 @@ class XMGTopicPictureView: UIView {
     override func awakeFromNib() {
         // 取消自动调整伸缩
         self.autoresizingMask = UIViewAutoresizing.None;
+        // 给图片添加监听器
+        self.imageView.userInteractionEnabled = true
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showPicture")
+        self.imageView.addGestureRecognizer(tap)
+       
 
     }
     
+    func showPicture(){
+
+        let showPicture:XMGShowPictureViewController = XMGShowPictureViewController()
+        showPicture.topic = self.topic;
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(showPicture, animated: true, completion: nil)
+        
+
+    }
+    
+
     var topic:XMGTopic?{
         
         didSet{
