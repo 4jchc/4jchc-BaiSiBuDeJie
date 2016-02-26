@@ -10,6 +10,23 @@ import UIKit
 import pop
 class XMGPublishView: UIView {
     
+   static var window_:UIWindow!
+    
+    static func show(){
+        
+        // 创建窗口
+        window_ = UIWindow()
+        window_.frame = ScreenBounds
+        window_.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+        window_.hidden = false
+
+        
+        // 添加发布界面
+        let publishView:XMGPublishView = XMGPublishView.publishView()
+        publishView.frame = window_.bounds;
+        window_.addSubview(publishView)
+
+    }
     
     static func publishView()->XMGPublishView{
 
@@ -22,7 +39,10 @@ class XMGPublishView: UIView {
   
         
         // 让view不能被点击
-        XMGRootView.userInteractionEnabled = false
+        //XMGRootView.userInteractionEnabled = false
+        
+        // 不能被点击
+        self.userInteractionEnabled = false
 
         
         // 数据
@@ -98,7 +118,7 @@ class XMGPublishView: UIView {
             
             print("动画结束")
             // 标语动画执行完毕, 恢复点击事件
-            XMGRootView.userInteractionEnabled = true
+            //XMGRootView.userInteractionEnabled = true
             self.userInteractionEnabled = true
         }
         sloganView.pop_addAnimation(anim, forKey: nil)
@@ -132,7 +152,7 @@ class XMGPublishView: UIView {
     ///  先执行退出动画, 动画完毕后执行completionBlock
     func cancelWithCompletionBlock(completionBlock:(()->())?){
         // 不能被点击
-        XMGRootView.userInteractionEnabled = false
+        //XMGRootView.userInteractionEnabled = false
         // 让控制器的view不能被点击
         self.userInteractionEnabled = false
         let beginIndex:Int = 1//2
@@ -152,12 +172,15 @@ class XMGPublishView: UIView {
 
             // 监听最后一个动画
             if (i == self.subviews.count - 1) {
-                anim.completionBlock = { [unowned self] (anim, finished) in
+                anim.completionBlock = { (anim, finished) in
                     
                     print("动画结束")
                     // 标语动画执行完毕, 恢复点击事件
-                    XMGRootView.userInteractionEnabled = true
-                    self.removeFromSuperview()
+                    //XMGRootView.userInteractionEnabled = true
+                    // 销毁窗口
+                    
+                    XMGPublishView.window_ = nil;
+                    //self.removeFromSuperview()
                     // 执行传进来的completionBlock参数
                     if (completionBlock != nil) {
                         completionBlock!();

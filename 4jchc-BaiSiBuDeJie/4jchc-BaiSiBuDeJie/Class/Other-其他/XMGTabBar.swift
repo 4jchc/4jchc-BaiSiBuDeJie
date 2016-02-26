@@ -29,11 +29,26 @@ class XMGTabBar: UITabBar {
     
     func publishClick(){
         
-        //拿到根控制器来弹出控制器
+        //拿到根控制器来弹出控制器  半透明--view
+        /*
         let publish = XMGPublishView.publishView()
         let window:UIWindow = UIApplication.sharedApplication().keyWindow!
         publish.frame = window.bounds;
+        //window.rootViewController?.view.addSubview(publish)
         window.addSubview(publish)
+        */
+        /*
+        // 窗口级别         半透明--UIWindow
+        // UIWindowLevelNormal < UIWindowLevelStatusBar < UIWindowLevelAlert
+        let window:UIWindow = UIWindow()
+        window.frame = CGRectMake(0, 0, 375, 20);
+        window.backgroundColor = UIColor.redColor()
+        window.windowLevel = UIWindowLevelStatusBar;
+        window.hidden = false
+        */
+
+
+        XMGPublishView.show()
     
 
     }
