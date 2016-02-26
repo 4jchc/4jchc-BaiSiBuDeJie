@@ -30,8 +30,11 @@ class XMGTabBar: UITabBar {
     func publishClick(){
         
         //拿到根控制器来弹出控制器
-        let publish = XMGPublishViewController()
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(publish, animated: true, completion: nil)
+        let publish = XMGPublishView.publishView()
+        let window:UIWindow = UIApplication.sharedApplication().keyWindow!
+        publish.frame = window.bounds;
+        window.addSubview(publish)
+    
 
     }
     required init(coder aDecoder: NSCoder) {

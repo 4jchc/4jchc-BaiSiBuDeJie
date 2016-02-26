@@ -1,5 +1,5 @@
 //
-//  XMGPublishViewController.swift
+//  XMGPublishView.swift
 //  4jchc-BaiSiBuDeJie
 //
 //  Created by 蒋进 on 16/2/25.
@@ -8,16 +8,21 @@
 
 import UIKit
 import pop
-class XMGPublishViewController: UIViewController {
+class XMGPublishView: UIView {
     
     
+    static func publishView()->XMGPublishView{
+
+        return NSBundle.mainBundle().loadNibNamed("XMGPublishView", owner: nil, options: nil).first as! XMGPublishView
+            
+
+    }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+  
         
-        // 让控制器的view不能被点击
-        self.view.userInteractionEnabled = false
+        // 让view不能被点击
+        XMGRootView.userInteractionEnabled = false
 
         
         // 数据
@@ -42,7 +47,7 @@ class XMGPublishViewController: UIViewController {
             button.tag = i;
             button.addTarget(self, action: "buttonClick:", forControlEvents: UIControlEvents.TouchUpInside)
             
-            self.view.addSubview(button)
+            self.addSubview(button)
             button.setTitle(titles[i] as? String, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.titleLabel?.font = UIFont.systemFontOfSize(14)
@@ -74,7 +79,7 @@ class XMGPublishViewController: UIViewController {
         let sloganView:UIImageView = UIImageView(image: UIImage(named: "app_slogan"))
         sloganView.y = XMGScreenH * 0.2;
         sloganView.centerX = XMGScreenW * 0.5;
-        self.view.addSubview(sloganView)
+        self.addSubview(sloganView)
         
         // 标语动画
         let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPViewCenter)
@@ -93,7 +98,8 @@ class XMGPublishViewController: UIViewController {
             
             print("动画结束")
             // 标语动画执行完毕, 恢复点击事件
-            self.view.userInteractionEnabled = true
+            XMGRootView.userInteractionEnabled = true
+            self.userInteractionEnabled = true
         }
         sloganView.pop_addAnimation(anim, forKey: nil)
 
@@ -125,13 +131,14 @@ class XMGPublishViewController: UIViewController {
     //MARK:  先执行退出动画, 动画完毕后执行completionBlock
     ///  先执行退出动画, 动画完毕后执行completionBlock
     func cancelWithCompletionBlock(completionBlock:(()->())?){
-        
+        // 不能被点击
+        XMGRootView.userInteractionEnabled = false
         // 让控制器的view不能被点击
-        self.view.userInteractionEnabled = false
-        let beginIndex:Int = 2
-        for var i:Int = beginIndex; i < self.view.subviews.count; i++ {
+        self.userInteractionEnabled = false
+        let beginIndex:Int = 1//2
+        for var i:Int = beginIndex; i < self.subviews.count; i++ {
             
-            let subview:UIView = self.view.subviews[i];
+            let subview:UIView = self.subviews[i];
 
             // 基本动画
             let anim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewCenter)
@@ -144,11 +151,13 @@ class XMGPublishViewController: UIViewController {
             subview.pop_addAnimation(anim, forKey: nil)
 
             // 监听最后一个动画
-            if (i == self.view.subviews.count - 1) {
+            if (i == self.subviews.count - 1) {
                 anim.completionBlock = { [unowned self] (anim, finished) in
                     
                     print("动画结束")
-                    self.dismissViewControllerAnimated(false, completion: nil)
+                    // 标语动画执行完毕, 恢复点击事件
+                    XMGRootView.userInteractionEnabled = true
+                    self.removeFromSuperview()
                     // 执行传进来的completionBlock参数
                     if (completionBlock != nil) {
                         completionBlock!();

@@ -34,6 +34,7 @@ let XMGScreenH = UIScreen.mainScreen().bounds.size.height
 let XMGAnimationDelay:CGFloat = 0.1;
 let XMGSpringFactor:CGFloat = 10
 
+let XMGRootView:UIView = UIApplication.sharedApplication().keyWindow!.rootViewController!.view
 
 
 var IS_IPAD: Bool {
