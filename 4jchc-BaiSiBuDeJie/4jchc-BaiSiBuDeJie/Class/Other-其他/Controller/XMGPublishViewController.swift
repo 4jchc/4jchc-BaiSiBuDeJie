@@ -98,13 +98,69 @@ class XMGPublishViewController: UIViewController {
         sloganView.pop_addAnimation(anim, forKey: nil)
 
     }
-    
-    
+    func buttonClick(button:UIButton){
+        
+        cancelWithCompletionBlock { () -> () in
+            if (button.tag == 0) {
+                
+                print("发视频");
+            } else if (button.tag == 1) {
+                print("发图片");
+            }
+        }
+
+    }
+
     
     @IBAction func cancel(sender: AnyObject) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        cancelWithCompletionBlock(nil)
     }
+    
+    
+    
+    
+    
+
+    //MARK:  先执行退出动画, 动画完毕后执行completionBlock
+    ///  先执行退出动画, 动画完毕后执行completionBlock
+    func cancelWithCompletionBlock(completionBlock:(()->())?){
+        
+        // 让控制器的view不能被点击
+        self.view.userInteractionEnabled = false
+        let beginIndex:Int = 2
+        for var i:Int = beginIndex; i < self.view.subviews.count; i++ {
+            
+            let subview:UIView = self.view.subviews[i];
+
+            // 基本动画
+            let anim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewCenter)
+            let centerY:CGFloat = subview.centerY + XMGScreenH;
+
+            // 动画的执行节奏(一开始很慢, 后面很快)
+            //        anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+            anim.toValue = NSValue(CGPoint: CGPointMake(subview.centerX, centerY))
+            anim.beginTime = CACurrentMediaTime() + Double(XMGAnimationDelay * CGFloat(i - beginIndex))
+            subview.pop_addAnimation(anim, forKey: nil)
+
+            // 监听最后一个动画
+            if (i == self.view.subviews.count - 1) {
+                anim.completionBlock = { [unowned self] (anim, finished) in
+                    
+                    print("动画结束")
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                    // 执行传进来的completionBlock参数
+                    if (completionBlock != nil) {
+                        completionBlock!();
+                    }
+
+                }
+            }
+        }
+
+
+    }
+
     
     /**
      pop和Core Animation的区别
@@ -116,6 +172,7 @@ class XMGPublishViewController: UIViewController {
      */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
+        cancelWithCompletionBlock(nil)
         /*
         let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPViewCenter)
         anim.springBounciness = 20;

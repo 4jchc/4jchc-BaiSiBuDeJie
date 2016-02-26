@@ -359,8 +359,10 @@ import UIKit
     */
 
     /*
-    使用pop实现弹出动画
+    MARK: 2. 使用pop实现弹出动画
     1.闭包的使用[unowned self]在参数前加这个
     */
 
-
+    /*
+    使用pop实现退出动画
+    */
