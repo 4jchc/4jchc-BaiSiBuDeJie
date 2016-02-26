@@ -7,8 +7,11 @@
 //
 
 import UIKit
-
+import pop
 class XMGPublishViewController: UIViewController {
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +69,41 @@ class XMGPublishViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        /**
+        pop和Core Animation的区别
+        1.Core Animation的动画只能添加到layer上
+        2.pop的动画能添加到任何对象
+        3.pop的底层并非基于Core Animation, 是基于CADisplayLink
+        4.Core Animation的动画仅仅是表象, 并不会真正修改对象的frame\size等值
+        5.pop的动画实时修改对象的属性, 真正地修改了对象的属性
+        */
+        /*
+        let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPViewCenter)
+        anim.springBounciness = 20;
+        anim.springSpeed = 20;
+        anim.fromValue =  NSValue(CGPoint: CGPointMake(100, 100))
+        anim.toValue = NSValue(CGPoint: CGPointMake(200, 200))
+        //[self.sloganView pop_addAnimation:anim forKey:nil];
+        */
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
+        /*
+        let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+        anim.beginTime = CACurrentMediaTime() + 1.0;
+        anim.springBounciness = 20;
+        anim.springSpeed = 20;
+        
+        anim.fromValue = (self.sloganView.layer.position.y);
+        anim.toValue = (300);
+        anim.completionBlock = { [unowned self] (anim, finished) in
+        
+        print("动画结束")
+        
+        }
+        [self.sloganView.layer pop_addAnimation:anim forKey:nil];
+        
+            */
+           }
 
 }
