@@ -358,6 +358,9 @@ import UIKit
     MARK: 1. 安装pop pop的简单使用
     */
 
-
+    /*
+    使用pop实现弹出动画
+    1.闭包的使用[unowned self]在参数前加这个
+    */
 
 

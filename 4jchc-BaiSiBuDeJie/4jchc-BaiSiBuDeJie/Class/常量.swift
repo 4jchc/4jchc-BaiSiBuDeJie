@@ -31,6 +31,10 @@ let XMGTopicCellPictureBreakH:CGFloat = 250;
 let XMGScreenW = UIScreen.mainScreen().bounds.size.width
 let XMGScreenH = UIScreen.mainScreen().bounds.size.height
 
+let XMGAnimationDelay:CGFloat = 0.1;
+let XMGSpringFactor:CGFloat = 10
+
+
 
 var IS_IPAD: Bool {
 get {
