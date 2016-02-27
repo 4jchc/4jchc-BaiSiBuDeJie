@@ -14,6 +14,8 @@
 		96B6649C1C812A830069AD9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B6649A1C812A830069AD9A /* LaunchScreen.storyboard */; };
 		96B664A71C812A830069AD9A /* _jchc_XMGStatusBarHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B664A61C812A830069AD9A /* _jchc_XMGStatusBarHUDTests.swift */; };
 		96B664B21C812A830069AD9A /* _jchc_XMGStatusBarHUDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B664B11C812A830069AD9A /* _jchc_XMGStatusBarHUDUITests.swift */; };
+		96B664C91C814FE40069AD9A /* XMGStatusBarHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96B664C81C814FE40069AD9A /* XMGStatusBarHUD.bundle */; };
+		96B664CB1C81502A0069AD9A /* XMGStatusBarHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B664CA1C81502A0069AD9A /* XMGStatusBarHUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		96B664AD1C812A830069AD9A /* 4jchc-XMGStatusBarHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-XMGStatusBarHUDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B664B11C812A830069AD9A /* _jchc_XMGStatusBarHUDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_XMGStatusBarHUDUITests.swift; sourceTree = "<group>"; };
 		96B664B31C812A830069AD9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96B664C81C814FE40069AD9A /* XMGStatusBarHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XMGStatusBarHUD.bundle; sourceTree = "<group>"; };
+		96B664CA1C81502A0069AD9A /* XMGStatusBarHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGStatusBarHUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		96B664901C812A830069AD9A /* 4jchc-XMGStatusBarHUD */ = {
 			isa = PBXGroup;
 			children = (
+				96B664BF1C814F2B0069AD9A /* XMGStatusBarHUD */,
 				96B664911C812A830069AD9A /* AppDelegate.swift */,
 				96B664931C812A830069AD9A /* ViewController.swift */,
 				96B664951C812A830069AD9A /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				96B664B31C812A830069AD9A /* Info.plist */,
 			);
 			path = "4jchc-XMGStatusBarHUDUITests";
+			sourceTree = "<group>";
+		};
+		96B664BF1C814F2B0069AD9A /* XMGStatusBarHUD */ = {
+			isa = PBXGroup;
+			children = (
+				96B664C81C814FE40069AD9A /* XMGStatusBarHUD.bundle */,
+				96B664CA1C81502A0069AD9A /* XMGStatusBarHUD.swift */,
+			);
+			path = XMGStatusBarHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B664C91C814FE40069AD9A /* XMGStatusBarHUD.bundle in Resources */,
 				96B6649C1C812A830069AD9A /* LaunchScreen.storyboard in Resources */,
 				96B664991C812A830069AD9A /* Assets.xcassets in Resources */,
 				96B664971C812A830069AD9A /* Main.storyboard in Resources */,
@@ -257,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B664941C812A830069AD9A /* ViewController.swift in Sources */,
+				96B664CB1C81502A0069AD9A /* XMGStatusBarHUD.swift in Sources */,
 				96B664921C812A830069AD9A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

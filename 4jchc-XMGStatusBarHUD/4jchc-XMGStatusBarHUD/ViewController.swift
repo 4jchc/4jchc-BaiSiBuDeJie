@@ -21,5 +21,32 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func message(sender: AnyObject){
+        
+        XMGStatusBarHUD.showMessage("没有什么事!!!!", image: UIImage(named: "check"))
+
+    }
+    
+    @IBAction func hide(sender: AnyObject) {
+        
+        XMGStatusBarHUD.hide()
+        
+    }
+    
+    @IBAction func loading(sender: AnyObject){
+        XMGStatusBarHUD.showLoading("正在加载中...")
+        
+    }
+    @IBAction func error(sender: AnyObject){
+        
+        XMGStatusBarHUD.showError("加载失败!")
+    }
+    @IBAction func success(sender: AnyObject){
+        
+        XMGStatusBarHUD.showSuccess("加载成功!")
+        
+        
+    }
+
 }
 
