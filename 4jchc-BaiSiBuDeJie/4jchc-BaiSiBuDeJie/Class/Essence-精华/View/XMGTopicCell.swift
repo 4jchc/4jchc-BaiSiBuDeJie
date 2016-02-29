@@ -29,13 +29,21 @@ class XMGTopicCell: UITableViewCell {
     /** 帖子的文字内容 */
     @IBOutlet weak var text_label: UILabel!
     
-
+    /** 图片帖子中间的内容 */
     lazy var pictureView:XMGTopicPictureView = {
         let ani = XMGTopicPictureView.pictureView()
         self.contentView.addSubview(ani)
         return ani
     }()
+    /** 声音帖子中间的内容 */
+    lazy var voiceView:XMGTopicVoiceView = {
+        
+        let ani = XMGTopicVoiceView.voiceView()
+        self.contentView.addSubview(ani)
+        return ani
+    }()
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -75,8 +83,8 @@ class XMGTopicCell: UITableViewCell {
                 self.pictureView.topic = topic;
                 self.pictureView.frame = topic!.pictureF;
             } else if (topic!.type == XMGTopicType.Voice.rawValue) { // 声音帖子
-                //        self.voiceView.topic = topic;
-                //        self.voiceView.frame = topic.voiceF;
+                self.voiceView.topic = topic;
+                self.voiceView.frame = topic!.voiceF;
             }
 
         }

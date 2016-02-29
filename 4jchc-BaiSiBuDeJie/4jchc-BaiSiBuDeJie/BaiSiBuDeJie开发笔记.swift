@@ -364,5 +364,12 @@ import UIKit
     */
 
     /*
-    使用pop实现退出动画
+    MARK: 3. 使用pop实现退出动画
+    */
+
+    /*
+    精华声音帖子
+    1.加载xib报错.文件名有符号-不能使用NSStringFromClass(self)
+    自定义帖子的view在判断加载那部分的viw
+    2.模型里面💗计算cell高度和中间图片的高度
     */

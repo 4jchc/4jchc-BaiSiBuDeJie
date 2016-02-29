@@ -54,7 +54,15 @@ class XMGTopic: NSObject {
     //var type:XMGTopicType?
     var type:Int = 0
         
+    /** 音频时长 */
+    var voicetime: Int = 0
+   
+    /** 播放次数 */
+    var playcount: Int = 0
 
+    
+    
+    
 
     /****** 额外的辅助属性 ******/
      /** 图片控件的frame */
@@ -64,6 +72,9 @@ class XMGTopic: NSObject {
     
     /** 图片的下载进度 */
     var pictureProgress:CGFloat = CGFloat()
+    
+    /** 声音控件的frame */
+    var voiceF:CGRect = CGRect()
 
 
     /** cell的高度 */// 同时计算图片的尺寸
@@ -96,6 +107,19 @@ class XMGTopic: NSObject {
             
             CellHeight += pictureH + XMGTopicCellMargin;
         } else if (self.type == XMGTopicType.Voice.rawValue) { // 声音帖子
+            
+            // 图片显示出来的宽度
+            let voiceW:CGFloat = maxSize.width;
+            // 显示显示出来的高度
+            var voiceH:CGFloat = voiceW * self.height / self.width;
+
+            // 计算图片控件的frame
+            let voiceX:CGFloat = XMGTopicCellMargin
+            let voiceY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+            self.voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+              CellHeight += voiceH + XMGTopicCellMargin;
+            
+            
             
         }
         

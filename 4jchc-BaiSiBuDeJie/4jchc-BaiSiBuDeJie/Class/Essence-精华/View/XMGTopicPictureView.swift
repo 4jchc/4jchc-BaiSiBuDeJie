@@ -81,7 +81,7 @@ class XMGTopicPictureView: UIView {
                     UIGraphicsBeginImageContextWithOptions(self!.topic!.pictureF.size, true, 0.0);
                     
                     let width:CGFloat = self!.topic!.pictureF.size.width
-                    let height:CGFloat  = width * image.size.height / image.size.width;
+                    let height:CGFloat  = width * (image?.size.height)! / (image?.size.width)!;
                     
                     image.drawInRect(CGRectMake(0, 0, width, height))
                     // 获得图片
