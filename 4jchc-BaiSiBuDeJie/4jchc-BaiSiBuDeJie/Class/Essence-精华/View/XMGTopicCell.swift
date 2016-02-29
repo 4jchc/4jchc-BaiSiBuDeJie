@@ -43,7 +43,14 @@ class XMGTopicCell: UITableViewCell {
         return ani
     }()
     
-
+    /** 视频帖子中间的内容 */
+    lazy var videoView:XMGTopicVideoView = {
+        
+        let ani = XMGTopicVideoView.videoView()
+        self.contentView.addSubview(ani)
+        return ani
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -80,12 +87,32 @@ class XMGTopicCell: UITableViewCell {
             
             // 根据模型类型(帖子类型)添加对应的内容到cell的中间
             if (topic!.type == XMGTopicType.Picture.rawValue) { // 图片帖子
+                self.pictureView.hidden = false
                 self.pictureView.topic = topic;
                 self.pictureView.frame = topic!.pictureF;
+                
+                self.voiceView.hidden = true
+                self.videoView.hidden = true
             } else if (topic!.type == XMGTopicType.Voice.rawValue) { // 声音帖子
+                self.voiceView.hidden = false
                 self.voiceView.topic = topic;
                 self.voiceView.frame = topic!.voiceF;
+                
+                self.pictureView.hidden = true
+                self.videoView.hidden = true
+            } else if (topic!.type == XMGTopicType.Video.rawValue) { // 视频帖子
+                self.videoView.hidden = false
+                self.videoView.topic = topic;
+                self.videoView.frame = topic!.videoF;
+                
+                self.voiceView.hidden = true
+                self.pictureView.hidden = true
+            } else { // 段子帖子
+                self.videoView.hidden = true
+                self.voiceView.hidden = true
+                self.pictureView.hidden = true
             }
+            
 
         }
         

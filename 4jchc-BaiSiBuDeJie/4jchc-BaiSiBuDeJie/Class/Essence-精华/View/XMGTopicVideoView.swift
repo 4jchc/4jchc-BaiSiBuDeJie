@@ -1,5 +1,5 @@
 //
-//  XMGTopicVoiceView.swift
+//  XMGTopicVideoView.swift
 //  4jchc-BaiSiBuDeJie
 //
 //  Created by 蒋进 on 16/2/29.
@@ -8,19 +8,18 @@
 
 import UIKit
 
-class XMGTopicVoiceView: UIView {
-    
-    
+class XMGTopicVideoView: UIView {
+
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var voicelengthLabel: UILabel!
+    @IBOutlet weak var videolengthLabel: UILabel!
     @IBOutlet weak var playcountLabel: UILabel!
     
     
     
     /// 加载XIB
-    static func voiceView()->XMGTopicVoiceView {
-
-        return NSBundle.mainBundle().loadNibNamed("XMGTopicVoiceView", owner: nil, options: nil).first as! XMGTopicVoiceView
+    static func videoView()->XMGTopicVideoView {
+        
+        return NSBundle.mainBundle().loadNibNamed("XMGTopicVideoView", owner: nil, options: nil).first as! XMGTopicVideoView
         
         
     }
@@ -57,17 +56,15 @@ class XMGTopicVoiceView: UIView {
             
             // 时长
             // 当前的索引
-            let minute:Int = (topic!.voicetime / 60)
+            let minute:Int = (topic!.videotime / 60)
             // 当前的索引
-            let second:Int = topic!.voicetime % 60;
+            let second:Int = topic!.videotime % 60;
             
-            self.voicelengthLabel.text = String(format: "%02zd:%02zd", minute, second)
+            self.videolengthLabel.text = String(format: "%02zd:%02zd", minute, second)
             
             
         }
         
     }
-    
-    
-    
+
 }

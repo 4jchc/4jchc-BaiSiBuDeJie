@@ -42,6 +42,8 @@
 		968A6F111C7B0DD7009D337A /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A6F101C7B0DD7009D337A /* XMGTopicPictureView.xib */; };
 		968AA0591C83D4C30022175C /* XMGTopicVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AA0581C83D4C30022175C /* XMGTopicVoiceView.swift */; };
 		968AA05B1C83D4CE0022175C /* XMGTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968AA05A1C83D4CE0022175C /* XMGTopicVoiceView.xib */; };
+		968AA05D1C840A130022175C /* XMGTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968AA05C1C840A130022175C /* XMGTopicVideoView.xib */; };
+		968AA05F1C840A1F0022175C /* XMGTopicVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AA05E1C840A1F0022175C /* XMGTopicVideoView.swift */; };
 		9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */; };
 		9690D9F91C731AAC0048E99B /* XMGRecommendCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */; };
 		9690D9FA1C731AAC0048E99B /* XMGRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */; };
@@ -120,6 +122,8 @@
 		968A6F101C7B0DD7009D337A /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		968AA0581C83D4C30022175C /* XMGTopicVoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopicVoiceView.swift; sourceTree = "<group>"; };
 		968AA05A1C83D4CE0022175C /* XMGTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicVoiceView.xib; sourceTree = "<group>"; };
+		968AA05C1C840A130022175C /* XMGTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicVideoView.xib; sourceTree = "<group>"; };
+		968AA05E1C840A1F0022175C /* XMGTopicVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopicVideoView.swift; sourceTree = "<group>"; };
 		9690D9F51C7316070048E99B /* XMGRecommendCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategory.swift; sourceTree = "<group>"; };
 		9690D9F71C731AAC0048E99B /* XMGRecommendCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendCategoryCell.swift; sourceTree = "<group>"; };
 		9690D9F81C731AAC0048E99B /* XMGRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendCategoryCell.xib; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				96632E7D1C7C54BF00E40F23 /* XMGProgressView.swift */,
 				968AA0581C83D4C30022175C /* XMGTopicVoiceView.swift */,
 				968AA05A1C83D4CE0022175C /* XMGTopicVoiceView.xib */,
+				968AA05E1C840A1F0022175C /* XMGTopicVideoView.swift */,
+				968AA05C1C840A130022175C /* XMGTopicVideoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 				968A6F111C7B0DD7009D337A /* XMGTopicPictureView.xib in Resources */,
 				96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */,
 				9690D9FE1C7334C20048E99B /* XMGRecommendUserCell.xib in Resources */,
+				968AA05D1C840A130022175C /* XMGTopicVideoView.xib in Resources */,
 				96DB5FDF1C71CD8700B289EE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,6 +701,7 @@
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
 				968AA0591C83D4C30022175C /* XMGTopicVoiceView.swift in Sources */,
 				96B7AA941C7ED954007AC158 /* XMGPublishViewController.swift in Sources */,
+				968AA05F1C840A1F0022175C /* XMGTopicVideoView.swift in Sources */,
 				968A6F0D1C7B081E009D337A /* XMG.swift in Sources */,
 				966BB3F11C7ACD0D00CAD685 /* XMGTopicViewController.swift in Sources */,
 				9653366E1C7735D500CF91E0 /* XMGPushGuideView.swift in Sources */,

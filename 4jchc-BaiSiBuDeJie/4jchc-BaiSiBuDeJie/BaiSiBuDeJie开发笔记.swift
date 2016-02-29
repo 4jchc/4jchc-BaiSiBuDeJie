@@ -368,8 +368,14 @@ import UIKit
     */
 
     /*
-    精华声音帖子
+    MARK: 4. 精华声音帖子
     1.加载xib报错.文件名有符号-不能使用NSStringFromClass(self)
     自定义帖子的view在判断加载那部分的viw
     2.模型里面💗计算cell高度和中间图片的高度
     */
+
+    /*
+    MARK: 5. 视频帖子
+    1.cell重用有不需要的要隐藏
+    */
+

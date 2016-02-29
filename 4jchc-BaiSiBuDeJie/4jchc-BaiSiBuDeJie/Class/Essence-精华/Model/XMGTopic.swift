@@ -56,7 +56,8 @@ class XMGTopic: NSObject {
         
     /** 音频时长 */
     var voicetime: Int = 0
-   
+    /** 视频时长 */
+    var videotime: Int = 0
     /** 播放次数 */
     var playcount: Int = 0
 
@@ -76,7 +77,9 @@ class XMGTopic: NSObject {
     /** 声音控件的frame */
     var voiceF:CGRect = CGRect()
 
-
+    /** 视频控件的frame */
+    var videoF:CGRect = CGRect()
+    
     /** cell的高度 */// 同时计算图片的尺寸
     lazy var cellHeight:CGFloat = {
         
@@ -118,10 +121,22 @@ class XMGTopic: NSObject {
             let voiceY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
             self.voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
               CellHeight += voiceH + XMGTopicCellMargin;
+ 
+        }else if (self.type == XMGTopicType.Video.rawValue) { // 视频帖子
             
+            // 图片显示出来的宽度
+            let videoW:CGFloat = maxSize.width;
+            // 显示显示出来的高度
+            var videoH:CGFloat = videoW * self.height / self.width;
             
-            
+            // 计算图片控件的frame
+            let videoX:CGFloat = XMGTopicCellMargin
+            let videoY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+            self.videoF = CGRectMake(videoX, videoY, videoW, videoH);
+            CellHeight += videoH + XMGTopicCellMargin;
+
         }
+        
         
         // 底部工具条的高度
         CellHeight += XMGTopicCellBottomBarH + XMGTopicCellMargin;
