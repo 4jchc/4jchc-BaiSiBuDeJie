@@ -387,5 +387,15 @@ import UIKit
     2.评论view的底部于--文字的底部应该没有间隙
     */
 
+    /*
+    MARK: 7. 搭建评论基本界面
+    0. 取消cell选中时的颜色
+    1. 点击cell加载评论页面
+    2. 键盘通知的使用
+    键盘显示\隐藏完毕的frame
+    let frame:CGRect = note.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue
+    3. 动画时间
+    let duration:Double = note.userInfo![UIKeyboardAnimationDurationUserInfoKey]!.doubleValue
+    */
 
 

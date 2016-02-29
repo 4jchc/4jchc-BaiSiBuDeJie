@@ -210,5 +210,14 @@ class XMGTopicViewController: UITableViewController {
         */
         return topic.cellHeight
     }
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // 弹出带Nav
+        let commentVc = XMGCommentViewController()
+
+        //commentVc.topic = self.topics[indexPath.row];
+        self.navigationController?.pushViewController(commentVc, animated: true)
+        
+    }
+
 }
