@@ -60,9 +60,18 @@ class XMGTopic: NSObject {
     var videotime: Int = 0
     /** 播放次数 */
     var playcount: Int = 0
-
+    /** 最热评论(期望这个数组中存放的是XMGComment模型) */
+    //var top_cmt:NSArray?
     
-    
+   var top_cmt:NSArray?{
+        
+        didSet{
+            
+            printLog("\(top_cmt)")
+            
+        }
+        
+    }
     
 
     /****** 额外的辅助属性 ******/
@@ -137,15 +146,33 @@ class XMGTopic: NSObject {
 
         }
         
+        // 如果有最热评论
+        let cmt = self.top_cmt?.firstObject as? XMGComment
+        
+        if ((cmt) != nil) {
+            
+            let content:NSString = NSString(format: "%@ : %@", cmt!.user!.username!, cmt!.content!)
+            // 文字的最大尺寸
+
+            let contentH:CGFloat = (content).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(13)], context: nil).size.height
+            
+            CellHeight += XMGTopicCellTopCmtTitleH + contentH + XMGTopicCellMargin;
+        }
         
         // 底部工具条的高度
         CellHeight += XMGTopicCellBottomBarH + XMGTopicCellMargin;
 
         return CellHeight
     }()
-
-
     
+    
+    // 告诉mj数组里对应的是什么模型
+    override static func mj_objectClassInArray() -> [NSObject : AnyObject]! {
+        
+        return ["top_cmt" : XMGComment.classForCoder()]
+    }
+
+    // 替换属性名
     override static func mj_replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
         
         return [

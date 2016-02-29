@@ -79,7 +79,10 @@ class XMGTopicPictureView: UIView {
                     
                     // 开启图形上下文
                     UIGraphicsBeginImageContextWithOptions(self!.topic!.pictureF.size, true, 0.0);
-                    
+                    if image == nil{
+                        
+                        return
+                    }
                     let width:CGFloat = self!.topic!.pictureF.size.width
                     let height:CGFloat  = width * (image?.size.height)! / (image?.size.width)!;
                     

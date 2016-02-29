@@ -29,6 +29,16 @@ class XMGTopicCell: UITableViewCell {
     /** 帖子的文字内容 */
     @IBOutlet weak var text_label: UILabel!
     
+    
+    /** 最热评论的内容 */
+    @IBOutlet weak var topCmtContentLabel: UILabel!
+   
+    /** 最热评论的整体 */
+    
+    @IBOutlet weak var topCmtView: UIView!
+
+    
+    
     /** 图片帖子中间的内容 */
     lazy var pictureView:XMGTopicPictureView = {
         let ani = XMGTopicPictureView.pictureView()
@@ -112,7 +122,17 @@ class XMGTopicCell: UITableViewCell {
                 self.voiceView.hidden = true
                 self.pictureView.hidden = true
             }
-            
+            // 处理最热评论
+            // 如果有最热评论
+            let cmt = topic!.top_cmt?.firstObject as? XMGComment
+            printLog("\(cmt)")
+            if ((cmt) != nil) {
+                self.topCmtView.hidden = false
+                self.topCmtContentLabel.text = String(format: "%@ : %@", cmt!.user!.username!, cmt!.content!)
+
+            } else {
+                self.topCmtView.hidden = true
+            }
 
         }
         

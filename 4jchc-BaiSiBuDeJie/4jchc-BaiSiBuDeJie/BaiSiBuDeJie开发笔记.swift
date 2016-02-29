@@ -379,3 +379,13 @@ import UIKit
     1.cell重用有不需要的要隐藏
     */
 
+    /*
+    MARK: 6. 增加评论xib view的尺寸是根据uilable的尺寸而改变
+    1. MJ--替换数组模型不可以写成字符串.也许是因为我的文件名有符号
+    override static func mj_objectClassInArray() -> [NSObject : AnyObject]!
+    return ["top_cmt" : XMGComment.classForCoder()
+    2.评论view的底部于--文字的底部应该没有间隙
+    */
+
+
+

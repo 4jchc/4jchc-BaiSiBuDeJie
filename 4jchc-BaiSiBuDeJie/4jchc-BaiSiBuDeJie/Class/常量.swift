@@ -35,6 +35,15 @@ let XMGAnimationDelay:CGFloat = 0.1;
 let XMGSpringFactor:CGFloat = 10
 
 
+/** XMGUser模型-性别属性值 */
+let XMGUserSexMale:NSString = "m";
+let XMGUserSexFemale:NSString = "f";
+
+
+/** 精华-cell-最热评论标题的高度 */
+let XMGTopicCellTopCmtTitleH:CGFloat = 20
+
+
 
 var IS_IPAD: Bool {
 get {
