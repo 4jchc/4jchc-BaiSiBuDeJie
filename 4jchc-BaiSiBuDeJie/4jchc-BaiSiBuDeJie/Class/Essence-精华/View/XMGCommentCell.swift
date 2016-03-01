@@ -21,6 +21,8 @@ class XMGCommentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.backgroundView = UIImageView(image: UIImage(named: "mainCellBackground"))
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -51,4 +53,19 @@ class XMGCommentCell: UITableViewCell {
         }
         
     }
+    //MARK: 重写frame来设置cell的内嵌
+    override var frame:CGRect{
+        set{
+            
+            var frame = newValue
+            frame.origin.x = XMGTopicCellMargin;
+            frame.size.width -= 2 * XMGTopicCellMargin;
+
+            super.frame=frame
+        }
+        get{
+            return super.frame
+        }
+    }
+
 }

@@ -23,5 +23,16 @@ class XMGComment: NSObject {
 
     /** 用户 */
     var user:XMGUser?
+    
+    /** id */
+    var ID: String?
+    
+    // 替换属性名
+    override static func mj_replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
+        
+        return [
+
+            "ID" : "id"]
+    }
 
 }

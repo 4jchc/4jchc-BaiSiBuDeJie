@@ -9,6 +9,8 @@
 import UIKit
 import MJRefresh
 import SVProgressHUD
+import AFNetworking
+
 class XMGCommentViewController: UIViewController {
     
     let XMGCommentId:String = "comment"
@@ -28,6 +30,20 @@ class XMGCommentViewController: UIViewController {
     var latestComments:NSMutableArray=[]
     /** 保存帖子的top_cmt */
     var saved_top_cmt:XMGComment?
+
+    /** 保存当前的页码 */
+    var page: Int = 0
+    
+    /** 管理者 */
+    var _manager:NetworkTools?
+    var manageR:NetworkTools {
+        get{
+            if _manager == nil {
+                _manager = NetworkTools.shareNetworkTools()
+            }
+            return _manager!
+        }
+    }
 
     
     override func viewDidLoad() {
@@ -77,13 +93,76 @@ class XMGCommentViewController: UIViewController {
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: Selector("loadNewComments"))
         self.tableView.mj_header.beginRefreshing()
         
-       // self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: Selector("loadMoreUsers"))
-        
+        self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: Selector("loadMoreComments"))
+        self.tableView.mj_footer.hidden = true
         
     }
+    func loadMoreComments(){
+        
+        // 结束之前的所有请求
+        manageR.tasks.forEach { $0.cancel() }
+            
+        // 页码
+        let page = self.page + 1;
+        // 1.定义URL路径
+        let path = "api/api_open.php"
+        // 2.封装参数
+        let params = NSMutableDictionary()
+        params["a"] = "dataList";
+        params["c"] = "comment";
+        params["data_id"] = self.topic.ID;
+        params["page"] = (page);
+        let cmt = self.latestComments.lastObject as! XMGComment
+        params["lastcid"] = cmt.ID;
+        
+        //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
+        self.params = params
+        weak var weakSelf = self
+        manageR.sendGET(path, params: params, successCallback: { (responseObject) -> () in
+            // 单个的cell就直接不加载数据
+            // 如果是多个cell就先转成模型然后返回--不刷新数据
+            
+            // 页码
+            self.page = page;
+            if let weakSelf = weakSelf {
+                
+                if (weakSelf.params != params) {return}
+                
+                
+                // 控制footer的状态
+                let total:Int = responseObject["total"] as! Int
+                
+                if (weakSelf.latestComments.count >= total) { // 全部加载完毕
+                    weakSelf.tableView.mj_footer.hidden = true
+                } else {
+                    // 结束刷新
+                    weakSelf.tableView.mj_footer.endRefreshing()
+
+                }
+                
+                // 刷新表格
+                weakSelf.tableView.reloadData()
+                
+            }
+        
+            }) { (error) -> () in
+                
+                if let weakSelf = weakSelf {
+                    
+                    // 不是最后一次请求
+                    if (weakSelf.params != params) {return}
+                    // 显示失败信息
+                    SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                    // 结束刷新
+                    weakSelf.tableView.mj_footer.endRefreshing()
+                }
+        }
+    }
+    
     
     func loadNewComments(){
-        
+        // 结束之前的所有请求
+        manageR.tasks.forEach { $0.cancel() }
         // 1.定义URL路径
         let path = "api/api_open.php"
         // 2.封装参数
@@ -96,14 +175,15 @@ class XMGCommentViewController: UIViewController {
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
         weak var weakSelf = self
-        NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
+        manageR.sendGET(path, params: params, successCallback: { (responseObject) -> () in
             // 单个的cell就直接不加载数据
             // 如果是多个cell就先转成模型然后返回--不刷新数据
             
             if let weakSelf = weakSelf {
             
                 if (weakSelf.params != params) {return}
-                
+                // 页码
+                weakSelf.page = 1;
                 // 最热评论
                 (responseObject as! NSDictionary).writeToFile("/Users/jiangjin/Desktop/duanzi💗.plist", atomically: true)
                 
@@ -117,17 +197,21 @@ class XMGCommentViewController: UIViewController {
                 
                 // 结束刷新
                 weakSelf.tableView.mj_header.endRefreshing()
+                // 控制footer的状态
+                // 控制footer的状态
+                let total:Int = responseObject["total"] as! Int
+                
+                if (weakSelf.latestComments.count >= total) { // 全部加载完毕
+                    weakSelf.tableView.mj_footer.hidden = true
+                }
             
             }
-            
-
-
             }) { (error) -> () in
                 
                 if let weakSelf = weakSelf {
                 
                     // 不是最后一次请求
-                    if (weakSelf.params != params) {return}
+                    //if (weakSelf.params != params) {return}
                     // 显示失败信息
                     SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
                     // 让底部控件结束刷新
@@ -153,7 +237,11 @@ class XMGCommentViewController: UIViewController {
         
         // 注册cell
         self.tableView.registerNib(UINib(nibName: "XMGCommentCell", bundle: nil), forCellReuseIdentifier: XMGCommentId)
+        // 去掉分割线
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
         
+        // 内边距
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, XMGTopicCellMargin, 0);
 
 
     }
@@ -204,6 +292,8 @@ class XMGCommentViewController: UIViewController {
 //            self.topic.setValue(0, forKey: "cellHeighT")
 //
 //        }
+        //TODO:AFN 取消所有任务
+        self.manageR.invalidateSessionCancelingTasks(true)
     }
     
     
@@ -219,7 +309,8 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
         // 当前的索引
         let hotCount:Int = self.hotComments.count;
         let latestCount:Int = self.latestComments.count;
-
+        // 隐藏尾部控件
+        tableView.mj_footer?.hidden = (latestCount == 0);
         if (hotCount != 0) {
             
             return 2; // 有"最热评论" + "最新评论" 2组
