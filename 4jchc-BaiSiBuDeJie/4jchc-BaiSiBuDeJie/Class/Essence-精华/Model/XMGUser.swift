@@ -15,7 +15,7 @@ class XMGUser: NSObject {
     var username: String?
 
     /** 性别 */
-    var sex: String?
+    var sex: NSString?
 
     /** 头像 */
     var profile_image: String?

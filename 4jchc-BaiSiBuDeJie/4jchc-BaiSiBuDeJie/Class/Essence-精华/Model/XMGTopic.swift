@@ -64,8 +64,8 @@ class XMGTopic: NSObject {
     /** 播放次数 */
     var playcount: Int = 0
     /** 最热评论(期望这个数组中存放的是XMGComment模型) */
-    var top_cmt:NSArray?
-    
+    //var top_cmt:NSArray?
+    var top_cmt:XMGComment?
 
     
 
@@ -162,7 +162,7 @@ class XMGTopic: NSObject {
                 }
                 
                 // 如果有最热评论
-                let cmt = self.top_cmt?.firstObject as? XMGComment
+                let cmt = self.top_cmt
                 
                 if ((cmt) != nil) {
                     
@@ -298,6 +298,7 @@ class XMGTopic: NSObject {
             "small_image" : "image0",
             "large_image" : "image1",
             "ID" : "id",
+            "top_cmt" : "top_cmt[0]",
             "middle_image" : "image2"]
     }
 

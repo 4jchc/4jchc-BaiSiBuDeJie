@@ -412,3 +412,20 @@ import UIKit
     self.topic.setValue(0, forKey: "cellHeighT")
     4.吧cell的高度设置成Get形式就会不断访问.所以不用吧清掉的值付回去
     */
+
+
+    /*
+    💗自定义评论cell
+    因为模型top_cmt的数组只有一个字典所以通过MJ可以直接吧数组映射为字典
+    1.   更改MJ映射  "top_cmt" : "top_cmt[0]",   var top_cmt:XMGComment?
+    2.自定义评论cell-💗自动计算cell高度
+    // cell的高度设置estimated估计的 RowHeight估计的Dimension尺寸
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    */
+
+
+
+
+
+

@@ -55,6 +55,8 @@
 		9690D9FE1C7334C20048E99B /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690D9FC1C7334C20048E99B /* XMGRecommendUserCell.xib */; };
 		9690DA001C73426A0048E99B /* XMGRecommendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9FF1C73426A0048E99B /* XMGRecommendUser.swift */; };
 		969C57D51C857B7F00CF8428 /* XMGCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C57D41C857B7F00CF8428 /* XMGCommentHeaderView.swift */; };
+		969C57D81C85ADB400CF8428 /* XMGCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C57D61C85ADB400CF8428 /* XMGCommentCell.swift */; };
+		969C57D91C85ADB400CF8428 /* XMGCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 969C57D71C85ADB400CF8428 /* XMGCommentCell.xib */; };
 		96A8959C1C76BDF900D18324 /* XMGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8959B1C76BDF900D18324 /* XMGTextField.swift */; };
 		96B7AA8E1C7EA28F007AC158 /* XMGShowPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7AA8C1C7EA28F007AC158 /* XMGShowPictureViewController.swift */; };
 		96B7AA8F1C7EA28F007AC158 /* XMGShowPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B7AA8D1C7EA28F007AC158 /* XMGShowPictureViewController.xib */; };
@@ -140,6 +142,8 @@
 		9690D9FC1C7334C20048E99B /* XMGRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendUserCell.xib; sourceTree = "<group>"; };
 		9690D9FF1C73426A0048E99B /* XMGRecommendUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendUser.swift; sourceTree = "<group>"; };
 		969C57D41C857B7F00CF8428 /* XMGCommentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGCommentHeaderView.swift; sourceTree = "<group>"; };
+		969C57D61C85ADB400CF8428 /* XMGCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGCommentCell.swift; sourceTree = "<group>"; };
+		969C57D71C85ADB400CF8428 /* XMGCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGCommentCell.xib; sourceTree = "<group>"; };
 		96A8959B1C76BDF900D18324 /* XMGTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTextField.swift; sourceTree = "<group>"; };
 		96B7AA8C1C7EA28F007AC158 /* XMGShowPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGShowPictureViewController.swift; sourceTree = "<group>"; };
 		96B7AA8D1C7EA28F007AC158 /* XMGShowPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGShowPictureViewController.xib; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 				968AA05E1C840A1F0022175C /* XMGTopicVideoView.swift */,
 				968AA05C1C840A130022175C /* XMGTopicVideoView.xib */,
 				969C57D41C857B7F00CF8428 /* XMGCommentHeaderView.swift */,
+				969C57D61C85ADB400CF8428 /* XMGCommentCell.swift */,
+				969C57D71C85ADB400CF8428 /* XMGCommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				96ED7FB01C799D2F00ACC9E3 /* XMGTopicCell.xib in Resources */,
 				965336701C7735EC00CF91E0 /* XMGPushGuideView.xib in Resources */,
 				96B7AA8F1C7EA28F007AC158 /* XMGShowPictureViewController.xib in Resources */,
+				969C57D91C85ADB400CF8428 /* XMGCommentCell.xib in Resources */,
 				964AAA701C74B2940011C842 /* XMGRecommendTagCell.xib in Resources */,
 				96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */,
 				96B7AA951C7ED954007AC158 /* XMGPublishViewController.xib in Resources */,
@@ -730,6 +737,7 @@
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
 				961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */,
 				9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */,
+				969C57D81C85ADB400CF8428 /* XMGCommentCell.swift in Sources */,
 				96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */,
 				96ED7FAF1C799D2F00ACC9E3 /* XMGTopicCell.swift in Sources */,
 				968A6F0F1C7B0DCC009D337A /* XMGTopicPictureView.swift in Sources */,

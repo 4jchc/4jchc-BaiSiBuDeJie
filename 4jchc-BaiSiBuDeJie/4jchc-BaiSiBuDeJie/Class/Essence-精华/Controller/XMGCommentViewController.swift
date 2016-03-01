@@ -11,6 +11,7 @@ import MJRefresh
 import SVProgressHUD
 class XMGCommentViewController: UIViewController {
     
+    let XMGCommentId:String = "comment"
     /** 帖子模型 */
     var topic:XMGTopic!
     /** 上一次的请求参数 */
@@ -26,7 +27,7 @@ class XMGCommentViewController: UIViewController {
     /** 最新评论 */
     var latestComments:NSMutableArray=[]
     /** 保存帖子的top_cmt */
-    var saved_top_cmt:NSArray = []
+    var saved_top_cmt:XMGComment?
 
     
     override func viewDidLoad() {
@@ -146,6 +147,15 @@ class XMGCommentViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
         self.tableView.backgroundColor = XMGGlobalBg;
+        // cell的高度设置estimated估计的 RowHeight估计的
+        self.tableView.estimatedRowHeight = 44;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
+        // 注册cell
+        self.tableView.registerNib(UINib(nibName: "XMGCommentCell", bundle: nil), forCellReuseIdentifier: XMGCommentId)
+        
+
+
     }
     
     
@@ -252,17 +262,14 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-
-        let ID:String = "contact"
-        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(ID)
+        let cell:XMGCommentCell = tableView.dequeueReusableCellWithIdentifier(XMGCommentId)! as! XMGCommentCell
         
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: ID)
-        }
-        let comment:XMGComment = commentInIndexPath(indexPath)
-        cell!.textLabel!.text = comment.content
-        return cell!
+        cell.comment = commentInIndexPath(indexPath)
+        
+        return cell
     }
+    
+    
 }
 
 

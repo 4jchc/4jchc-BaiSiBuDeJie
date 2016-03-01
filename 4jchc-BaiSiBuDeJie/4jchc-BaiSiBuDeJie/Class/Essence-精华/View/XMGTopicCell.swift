@@ -127,7 +127,7 @@ class XMGTopicCell: UITableViewCell {
             }
             // 处理最热评论
             // 如果有最热评论
-            let cmt = topic!.top_cmt?.firstObject as? XMGComment
+            let cmt = topic!.top_cmt
            
             if ((cmt) != nil) {
                 self.topCmtView.hidden = false
