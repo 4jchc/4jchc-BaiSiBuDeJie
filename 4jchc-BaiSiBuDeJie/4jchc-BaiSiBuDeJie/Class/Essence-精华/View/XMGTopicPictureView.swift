@@ -57,42 +57,53 @@ class XMGTopicPictureView: UIView {
 
     }
     
-
     var topic:XMGTopic?{
         
         didSet{
             
+        weak var weakSelf = self
+        
+        
             // 立马显示最新的进度值(防止因为网速慢, 导致显示的是其他图片的下载进度)
             self.progressView.setProgress(self.topic!.pictureProgress, animated: true)
             // 设置图片带进度
-            self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: { [weak self] (receivedSize, expectedSize) -> Void in
+            self.imageView.sd_setImageWithURL(NSURL(string: topic!.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: {  (receivedSize, expectedSize) -> Void in
+                //TODO:会报错
                 
-                self!.progressView.hidden = false
-                self!.topic!.pictureProgress =  CGFloat(receivedSize)/CGFloat(expectedSize)
-                self!.progressView.setProgress(self!.topic!.pictureProgress, animated: false)
+                if let weakSelf = weakSelf {
+                    weakSelf.progressView.hidden = false
+                    weakSelf.topic!.pictureProgress =  CGFloat(receivedSize)/CGFloat(expectedSize)
+                    weakSelf.progressView.setProgress((weakSelf.topic!.pictureProgress), animated: false)
+                }
                 
-                }) { [weak self] (image, error, cacheType, imageURL) -> Void in
-                    self!.progressView.hidden = true
+
+                
+                }) {(image, error, cacheType, imageURL) -> Void in
                     
-                    // 如果是大图片, 才需要进行绘图处理
-                    if (self!.topic!.isBigPicture == false) {return}
-                    
-                    // 开启图形上下文
-                    UIGraphicsBeginImageContextWithOptions(self!.topic!.pictureF.size, true, 0.0);
-                    if image == nil{
+                    if let weakSelf = weakSelf {
                         
-                        return
+                        weakSelf.progressView.hidden = true
+                        
+                        // 如果是大图片, 才需要进行绘图处理
+                        if (weakSelf.topic!.isBigPicture == false) {return}
+                        
+                        // 开启图形上下文
+                        UIGraphicsBeginImageContextWithOptions((weakSelf.topic!.pictureF.size), true, 0.0);
+                        if image == nil{
+                            
+                            return
+                        }
+                        let width:CGFloat = (weakSelf.topic!.pictureF.size.width)
+                        let height:CGFloat  = width * (image?.size.height)! / (image?.size.width)!;
+                        
+                        image.drawInRect(CGRectMake(0, 0, width, height))
+                        // 获得图片
+                        weakSelf.imageView.image  = UIGraphicsGetImageFromCurrentImageContext()
+                        
+                        // 关闭上下文
+                        UIGraphicsEndImageContext();
                     }
-                    let width:CGFloat = self!.topic!.pictureF.size.width
-                    let height:CGFloat  = width * (image?.size.height)! / (image?.size.width)!;
-                    
-                    image.drawInRect(CGRectMake(0, 0, width, height))
-                    // 获得图片
-                    self!.imageView.image  = UIGraphicsGetImageFromCurrentImageContext()
-                    
-                    // 关闭上下文
-                    UIGraphicsEndImageContext();
- 
+
             }
         
             
@@ -113,3 +124,8 @@ class XMGTopicPictureView: UIView {
     }
     
 }
+
+
+
+
+

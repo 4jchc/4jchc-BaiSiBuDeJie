@@ -54,6 +54,7 @@
 		9690D9FD1C7334C20048E99B /* XMGRecommendUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9FB1C7334C20048E99B /* XMGRecommendUserCell.swift */; };
 		9690D9FE1C7334C20048E99B /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690D9FC1C7334C20048E99B /* XMGRecommendUserCell.xib */; };
 		9690DA001C73426A0048E99B /* XMGRecommendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690D9FF1C73426A0048E99B /* XMGRecommendUser.swift */; };
+		969C57D51C857B7F00CF8428 /* XMGCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969C57D41C857B7F00CF8428 /* XMGCommentHeaderView.swift */; };
 		96A8959C1C76BDF900D18324 /* XMGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8959B1C76BDF900D18324 /* XMGTextField.swift */; };
 		96B7AA8E1C7EA28F007AC158 /* XMGShowPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7AA8C1C7EA28F007AC158 /* XMGShowPictureViewController.swift */; };
 		96B7AA8F1C7EA28F007AC158 /* XMGShowPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B7AA8D1C7EA28F007AC158 /* XMGShowPictureViewController.xib */; };
@@ -138,6 +139,7 @@
 		9690D9FB1C7334C20048E99B /* XMGRecommendUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendUserCell.swift; sourceTree = "<group>"; };
 		9690D9FC1C7334C20048E99B /* XMGRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendUserCell.xib; sourceTree = "<group>"; };
 		9690D9FF1C73426A0048E99B /* XMGRecommendUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendUser.swift; sourceTree = "<group>"; };
+		969C57D41C857B7F00CF8428 /* XMGCommentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGCommentHeaderView.swift; sourceTree = "<group>"; };
 		96A8959B1C76BDF900D18324 /* XMGTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTextField.swift; sourceTree = "<group>"; };
 		96B7AA8C1C7EA28F007AC158 /* XMGShowPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGShowPictureViewController.swift; sourceTree = "<group>"; };
 		96B7AA8D1C7EA28F007AC158 /* XMGShowPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGShowPictureViewController.xib; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				968AA05A1C83D4CE0022175C /* XMGTopicVoiceView.xib */,
 				968AA05E1C840A1F0022175C /* XMGTopicVideoView.swift */,
 				968AA05C1C840A130022175C /* XMGTopicVideoView.xib */,
+				969C57D41C857B7F00CF8428 /* XMGCommentHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				9609B7401C75F1B400AC5E3C /* XMGVerticalButton.swift in Sources */,
 				96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */,
 				961970841C7227B900D67033 /* 常量.swift in Sources */,
+				969C57D51C857B7F00CF8428 /* XMGCommentHeaderView.swift in Sources */,
 				965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */,
 				9619707F1C72265800D67033 /* Frame+Extension.swift in Sources */,
 				965E74A91C7497BA008A8989 /* XMGRecommendTagsViewController.swift in Sources */,

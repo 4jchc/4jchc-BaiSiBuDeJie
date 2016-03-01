@@ -398,4 +398,8 @@ import UIKit
     let duration:Double = note.userInfo![UIKeyboardAnimationDurationUserInfoKey]!.doubleValue
     */
 
-
+    /*
+    MARK: 8.评论的header显示
+    1.💗header会不断修改frame所以重写frame方法要重新设置
+    2.没有完成头视图的大小
+    */

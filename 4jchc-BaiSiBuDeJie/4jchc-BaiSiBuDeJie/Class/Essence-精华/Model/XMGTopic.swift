@@ -9,7 +9,8 @@
 import UIKit
 
 class XMGTopic: NSObject {
-    
+    /** id */
+    var ID: String?
     /** 名称 */
     var name: String?
     /** 头像 */
@@ -61,17 +62,9 @@ class XMGTopic: NSObject {
     /** 播放次数 */
     var playcount: Int = 0
     /** 最热评论(期望这个数组中存放的是XMGComment模型) */
-    //var top_cmt:NSArray?
+    var top_cmt:NSArray?
     
-   var top_cmt:NSArray?{
-        
-        didSet{
-            
-            printLog("\(top_cmt)")
-            
-        }
-        
-    }
+
     
 
     /****** 额外的辅助属性 ******/
@@ -178,6 +171,7 @@ class XMGTopic: NSObject {
         return [
             "small_image" : "image0",
             "large_image" : "image1",
+            "ID" : "id",
             "middle_image" : "image2"]
     }
 

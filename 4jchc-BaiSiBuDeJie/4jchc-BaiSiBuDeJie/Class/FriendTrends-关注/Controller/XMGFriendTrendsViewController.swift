@@ -23,7 +23,7 @@ class XMGFriendTrendsViewController: UIViewController {
     
     func friendsClick()
     {
-        printLog("")
+        
         let composeVC = XMGRecommendViewController()
         self.navigationController?.pushViewController(composeVC, animated: true)
     }

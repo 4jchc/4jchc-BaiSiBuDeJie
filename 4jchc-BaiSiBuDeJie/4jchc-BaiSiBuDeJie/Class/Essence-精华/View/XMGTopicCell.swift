@@ -32,13 +32,16 @@ class XMGTopicCell: UITableViewCell {
     
     /** 最热评论的内容 */
     @IBOutlet weak var topCmtContentLabel: UILabel!
-   
+    
     /** 最热评论的整体 */
     
     @IBOutlet weak var topCmtView: UIView!
-
-    
-    
+    /** 加载XIB */
+    static func cell()->XMGTopicCell {
+        
+        return NSBundle.mainBundle().loadNibNamed("XMGTopicCell", owner: nil, options: nil).first as! XMGTopicCell
+        
+    }
     /** 图片帖子中间的内容 */
     lazy var pictureView:XMGTopicPictureView = {
         let ani = XMGTopicPictureView.pictureView()
@@ -125,21 +128,21 @@ class XMGTopicCell: UITableViewCell {
             // 处理最热评论
             // 如果有最热评论
             let cmt = topic!.top_cmt?.firstObject as? XMGComment
-            printLog("\(cmt)")
+           
             if ((cmt) != nil) {
                 self.topCmtView.hidden = false
                 self.topCmtContentLabel.text = String(format: "%@ : %@", cmt!.user!.username!, cmt!.content!)
-
+                
             } else {
                 self.topCmtView.hidden = true
             }
-
+            
         }
         
     }
     //MARK: 按钮的文字分为3种情况
     func setupButtonTitle(button:UIButton,count:Int,var placeholder:String){
-
+        
         if (count > 10000) {
             placeholder = String(format: "%.1f万", (Double(count) / 10000.0))
             
@@ -156,15 +159,61 @@ class XMGTopicCell: UITableViewCell {
     override var frame:CGRect{
         set{
             
-            var frame = newValue
-            frame.origin.x = XMGTopicCellMargin;
-            frame.size.width -= 2 * XMGTopicCellMargin;
-            frame.size.height -= XMGTopicCellMargin;
-            frame.origin.y += XMGTopicCellMargin;
-            super.frame=frame
+            
+            if self.topic?.cellHeight != nil{
+  
+
+                var frame = newValue
+                frame.origin.x = XMGTopicCellMargin;
+                frame.size.width -= 2 * XMGTopicCellMargin;
+                
+                //frame.size.height -= XMGTopicCellMargin;
+                frame.size.height = self.topic!.cellHeight - XMGTopicCellMargin;
+                
+                frame.origin.y += XMGTopicCellMargin
+                printLog("self.topic!.cellHeight---\(self.topic!.cellHeight)frame.origin.y-\(frame.origin.y)")
+                super.frame=frame
+                printLog("打印了")
+                
+            }
+            
+            
         }
         get{
             return super.frame
         }
     }
+    @IBAction func more(sender: AnyObject) {
+        
+
+        // 危险操作:弹框提醒
+        // 1.UIAlertView
+        // 2.UIActionSheet
+        // iOS8开始:UIAlertController == UIAlertView + UIActionSheet
+        let alert:UIAlertController = UIAlertController(title: "亲要收藏吗?", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        // 添加按钮
+        alert.addAction(UIAlertAction(title: "举报", style: UIAlertActionStyle.Destructive, handler:nil))
+        alert.addAction(UIAlertAction(title: "收藏", style: UIAlertActionStyle.Default, handler:nil))
+        alert.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler:nil))
+        // ipad没有这个取消按钮
+        //alert.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        alert.modalPresentationStyle = .Popover
+        
+        if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad) {
+     
+            alert.popoverPresentationController!.sourceView = sender as? UIView
+            alert.popoverPresentationController!.sourceRect = sender.bounds
+            //拿到根控制器来弹出控制器
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        else{
+            //拿到根控制器来弹出控制器
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+        }
+
+    }
+
 }

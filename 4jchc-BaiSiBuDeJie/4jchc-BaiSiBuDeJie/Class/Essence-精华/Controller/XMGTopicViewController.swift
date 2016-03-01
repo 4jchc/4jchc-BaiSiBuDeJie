@@ -215,7 +215,7 @@ class XMGTopicViewController: UITableViewController {
         // 弹出带Nav
         let commentVc = XMGCommentViewController()
 
-        //commentVc.topic = self.topics[indexPath.row];
+        commentVc.topic = self.topics[indexPath.row] as! XMGTopic;
         self.navigationController?.pushViewController(commentVc, animated: true)
         
     }

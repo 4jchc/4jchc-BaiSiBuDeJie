@@ -42,16 +42,23 @@ class XMGShowPictureViewController: UIViewController {
         }
         // 立马显示最新的进度值(防止因为网速慢, 导致显示的是其他图片的下载进度)
         self.progressView.setProgress(self.topic.pictureProgress, animated: true)
+        
+        weak var weakSelf = self
 
         // 设置图片带进度
-        self.imageView!.sd_setImageWithURL(NSURL(string: self.topic.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: { [weak self] (receivedSize, expectedSize) -> Void in
-            
-            self?.progressView.hidden = false
+        self.imageView!.sd_setImageWithURL(NSURL(string: self.topic.large_image!),placeholderImage: nil, options: .CacheMemoryOnly, progress: { (receivedSize, expectedSize) -> Void in
+            if let weakSelf = weakSelf {
+                
+            weakSelf.progressView.hidden = false
             let progress:CGFloat =  CGFloat(receivedSize)/CGFloat(expectedSize)
-            self?.progressView.setProgress(progress, animated: false)
-            self?.progressView.progressLabel.text = String(format: "%.0f%%", progress * CGFloat(100))
-            }) { [weak self] (image, error, cacheType, imageURL) -> Void in
-                self!.progressView.hidden = true
+            weakSelf.progressView.setProgress(progress, animated: false)
+            weakSelf.progressView.progressLabel.text = String(format: "%.0f%%", progress * CGFloat(100))
+            }
+            }) { (image, error, cacheType, imageURL) -> Void in
+                 if let weakSelf = weakSelf {
+                    
+                weakSelf.progressView.hidden = true
+                }
         }
  
 
