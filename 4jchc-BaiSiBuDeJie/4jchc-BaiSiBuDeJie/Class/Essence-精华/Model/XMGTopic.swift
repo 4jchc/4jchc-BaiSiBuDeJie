@@ -25,8 +25,10 @@ class XMGTopic: NSObject {
         
         get{
             return self.create_time?.descriptionDate()
+            
         }
     }
+
     
 
     /** 顶的数量 */
@@ -82,81 +84,205 @@ class XMGTopic: NSObject {
     /** 视频控件的frame */
     var videoF:CGRect = CGRect()
     
+    /*
+    var create_time: String?
+    var create_Time: String? {
+    
+    get{
+    return self.create_time?.descriptionDate()
+    }
+    }
+    */
+
+
+    // 这个是模型的会不断访问
+    var cellHeighT:CGFloat = 0
+    
+    // 访问这个
+    var cellHeight:CGFloat? {
+        
+        get{
+            
+            if self.cellHeighT == 0{
+                
+                
+                
+                // 文字的最大尺寸
+                let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
+                
+                let textH:CGFloat = (self.text! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14)], context: nil).size.height
+                
+                // 根据段子的类型来计算cell的高度
+                // 文字部分的高度
+                var CellHeight = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+                
+                if (self.type == XMGTopicType.Picture.rawValue) { // 图片帖子
+                    
+                    // 图片显示出来的宽度
+                    let pictureW:CGFloat = maxSize.width;
+                    // 显示显示出来的高度
+                    var pictureH:CGFloat = pictureW * self.height / self.width;
+                    
+                    if (pictureH >= XMGTopicCellPictureMaxH) { // 图片高度过长
+                        pictureH = XMGTopicCellPictureBreakH;
+                        self.isBigPicture = true; // 大图
+                    }
+                    // 计算图片控件的frame
+                    let pictureX:CGFloat = XMGTopicCellMargin
+                    let pictureY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+                    self.pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+                    
+                    CellHeight += pictureH + XMGTopicCellMargin;
+                } else if (self.type == XMGTopicType.Voice.rawValue) { // 声音帖子
+                    
+                    // 图片显示出来的宽度
+                    let voiceW:CGFloat = maxSize.width;
+                    // 显示显示出来的高度
+                    let voiceH:CGFloat = voiceW * self.height / self.width;
+                    
+                    // 计算图片控件的frame
+                    let voiceX:CGFloat = XMGTopicCellMargin
+                    let voiceY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+                    self.voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+                    CellHeight += voiceH + XMGTopicCellMargin;
+                    
+                }else if (self.type == XMGTopicType.Video.rawValue) { // 视频帖子
+                    
+                    // 图片显示出来的宽度
+                    let videoW:CGFloat = maxSize.width;
+                    // 显示显示出来的高度
+                    let videoH:CGFloat = videoW * self.height / self.width;
+                    
+                    // 计算图片控件的frame
+                    let videoX:CGFloat = XMGTopicCellMargin
+                    let videoY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+                    self.videoF = CGRectMake(videoX, videoY, videoW, videoH);
+                    CellHeight += videoH + XMGTopicCellMargin;
+                    
+                }
+                
+                // 如果有最热评论
+                let cmt = self.top_cmt?.firstObject as? XMGComment
+                
+                if ((cmt) != nil) {
+                    
+                    let content:NSString = NSString(format: "%@ : %@", cmt!.user!.username!, cmt!.content!)
+                    // 文字的最大尺寸
+                    
+                    let contentH:CGFloat = (content).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(13)], context: nil).size.height
+                    
+                    CellHeight += XMGTopicCellTopCmtTitleH + contentH + XMGTopicCellMargin;
+                }
+                
+                // 底部工具条的高度
+                CellHeight += XMGTopicCellBottomBarH + XMGTopicCellMargin;
+                self.cellHeighT = CellHeight
+                return CellHeight
+
+            }else{
+                
+                return self.cellHeighT
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    /*
     /** cell的高度 */// 同时计算图片的尺寸
     lazy var cellHeight:CGFloat = {
-        
-        // 文字的最大尺寸
-        let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
-        
-        let textH:CGFloat = (self.text! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14)], context: nil).size.height
-        
-        // 根据段子的类型来计算cell的高度
-        // 文字部分的高度
-        var CellHeight = XMGTopicCellTextY + textH + XMGTopicCellMargin;
-        
-        if (self.type == XMGTopicType.Picture.rawValue) { // 图片帖子
-            
-            // 图片显示出来的宽度
-            let pictureW:CGFloat = maxSize.width;
-            // 显示显示出来的高度
-            var pictureH:CGFloat = pictureW * self.height / self.width;
-            
-            if (pictureH >= XMGTopicCellPictureMaxH) { // 图片高度过长
-                pictureH = XMGTopicCellPictureBreakH;
-                self.isBigPicture = true; // 大图
-            }
-            // 计算图片控件的frame
-            let pictureX:CGFloat = XMGTopicCellMargin
-            let pictureY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
-            self.pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
-            
-            CellHeight += pictureH + XMGTopicCellMargin;
-        } else if (self.type == XMGTopicType.Voice.rawValue) { // 声音帖子
-            
-            // 图片显示出来的宽度
-            let voiceW:CGFloat = maxSize.width;
-            // 显示显示出来的高度
-            var voiceH:CGFloat = voiceW * self.height / self.width;
-
-            // 计算图片控件的frame
-            let voiceX:CGFloat = XMGTopicCellMargin
-            let voiceY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
-            self.voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
-              CellHeight += voiceH + XMGTopicCellMargin;
- 
-        }else if (self.type == XMGTopicType.Video.rawValue) { // 视频帖子
-            
-            // 图片显示出来的宽度
-            let videoW:CGFloat = maxSize.width;
-            // 显示显示出来的高度
-            var videoH:CGFloat = videoW * self.height / self.width;
-            
-            // 计算图片控件的frame
-            let videoX:CGFloat = XMGTopicCellMargin
-            let videoY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
-            self.videoF = CGRectMake(videoX, videoY, videoW, videoH);
-            CellHeight += videoH + XMGTopicCellMargin;
-
-        }
-        
-        // 如果有最热评论
-        let cmt = self.top_cmt?.firstObject as? XMGComment
-        
-        if ((cmt) != nil) {
-            
-            let content:NSString = NSString(format: "%@ : %@", cmt!.user!.username!, cmt!.content!)
-            // 文字的最大尺寸
-
-            let contentH:CGFloat = (content).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(13)], context: nil).size.height
-            
-            CellHeight += XMGTopicCellTopCmtTitleH + contentH + XMGTopicCellMargin;
-        }
-        
-        // 底部工具条的高度
-        CellHeight += XMGTopicCellBottomBarH + XMGTopicCellMargin;
-
-        return CellHeight
+    
+    if  self.cellHeighT == 0{
+    
+    
+    // 文字的最大尺寸
+    let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
+    
+    let textH:CGFloat = (self.text! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14)], context: nil).size.height
+    
+    // 根据段子的类型来计算cell的高度
+    // 文字部分的高度
+    var CellHeight = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+    
+    if (self.type == XMGTopicType.Picture.rawValue) { // 图片帖子
+    
+    // 图片显示出来的宽度
+    let pictureW:CGFloat = maxSize.width;
+    // 显示显示出来的高度
+    var pictureH:CGFloat = pictureW * self.height / self.width;
+    
+    if (pictureH >= XMGTopicCellPictureMaxH) { // 图片高度过长
+    pictureH = XMGTopicCellPictureBreakH;
+    self.isBigPicture = true; // 大图
+    }
+    // 计算图片控件的frame
+    let pictureX:CGFloat = XMGTopicCellMargin
+    let pictureY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+    self.pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+    
+    CellHeight += pictureH + XMGTopicCellMargin;
+    } else if (self.type == XMGTopicType.Voice.rawValue) { // 声音帖子
+    
+    // 图片显示出来的宽度
+    let voiceW:CGFloat = maxSize.width;
+    // 显示显示出来的高度
+    var voiceH:CGFloat = voiceW * self.height / self.width;
+    
+    // 计算图片控件的frame
+    let voiceX:CGFloat = XMGTopicCellMargin
+    let voiceY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+    self.voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+    CellHeight += voiceH + XMGTopicCellMargin;
+    
+    }else if (self.type == XMGTopicType.Video.rawValue) { // 视频帖子
+    
+    // 图片显示出来的宽度
+    let videoW:CGFloat = maxSize.width;
+    // 显示显示出来的高度
+    var videoH:CGFloat = videoW * self.height / self.width;
+    
+    // 计算图片控件的frame
+    let videoX:CGFloat = XMGTopicCellMargin
+    let videoY:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+    self.videoF = CGRectMake(videoX, videoY, videoW, videoH);
+    CellHeight += videoH + XMGTopicCellMargin;
+    
+    }
+    
+    // 如果有最热评论
+    let cmt = self.top_cmt?.firstObject as? XMGComment
+    
+    if ((cmt) != nil) {
+    
+    let content:NSString = NSString(format: "%@ : %@", cmt!.user!.username!, cmt!.content!)
+    // 文字的最大尺寸
+    
+    let contentH:CGFloat = (content).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(13)], context: nil).size.height
+    
+    CellHeight += XMGTopicCellTopCmtTitleH + contentH + XMGTopicCellMargin;
+    }
+    
+    // 底部工具条的高度
+    CellHeight += XMGTopicCellBottomBarH + XMGTopicCellMargin;
+    self.cellHeighT = CellHeight
+    return CellHeight
+    
+    
+    }else{
+    
+    return self.cellHeighT
+    }
+    
     }()
+    
+    
+    */
+    
+
+    
     
     
     // 告诉mj数组里对应的是什么模型

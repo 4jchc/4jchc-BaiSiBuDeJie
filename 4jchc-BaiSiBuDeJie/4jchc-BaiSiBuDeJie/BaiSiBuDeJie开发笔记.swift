@@ -399,7 +399,16 @@ import UIKit
     */
 
     /*
-    MARK: 8.评论的header显示
+    MARK: 8. 评论的header显示
     1.💗header会不断修改frame所以重写frame方法要重新设置
     2.没有完成头视图的大小
+    */
+
+    /*
+    MARK: 9. 💗评论页面的header取消之前的第一条评论
+    1.先保存最热帖子数据然后清空,在控制器销毁的时候在赋值回去.
+    2.💗KVC赋值被付值一定要有初始值
+    3.用KVC清除之前保存的数据cell的尺寸.在GET方法中会重复调用.发现保存的值没有就会重新加载.
+    self.topic.setValue(0, forKey: "cellHeighT")
+    4.吧cell的高度设置成Get形式就会不断访问.所以不用吧清掉的值付回去
     */

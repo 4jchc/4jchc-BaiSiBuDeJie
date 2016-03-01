@@ -25,7 +25,9 @@ class XMGCommentViewController: UIViewController {
     
     /** 最新评论 */
     var latestComments:NSMutableArray=[]
-    
+    /** 保存帖子的top_cmt */
+    var saved_top_cmt:NSArray = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +41,12 @@ class XMGCommentViewController: UIViewController {
         // 创建header
         let header:UIView = UIView()
         
-        //        // 清空top_cmt
-        //        if (self.topic.top_cmt.count) {
-        //            self.saved_top_cmt = self.topic.top_cmt;
-        //            self.topic.top_cmt = nil;
-        //            [self.topic setValue:@0 forKeyPath:"cellHeight"];
-        //        }
+        // 清空top_cmt
+        if (self.topic.top_cmt != nil) {
+            self.saved_top_cmt = self.topic.top_cmt!;
+            self.topic.top_cmt = nil;
+            self.topic.setValue(0, forKey: "cellHeighT")
+        }
         /*
         // 不要自动调整ScrollView Insets
         self.automaticallyAdjustsScrollViewInsets = true
@@ -59,10 +61,10 @@ class XMGCommentViewController: UIViewController {
         
         let cell:XMGTopicCell = XMGTopicCell.cell()
         cell.topic = self.topic
-        cell.size = CGSizeMake(XMGScreenW, self.topic.cellHeight);
+        cell.size = CGSizeMake(XMGScreenW, self.topic.cellHeight!);
         header.addSubview(cell)
         
-        header.height = self.topic.cellHeight
+        header.height = self.topic.cellHeight!
         printLog("header.height=\(header.height)\n \(header.frame)")
         self.tableView.tableHeaderView = header;
     }
@@ -92,31 +94,45 @@ class XMGCommentViewController: UIViewController {
         
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
+        weak var weakSelf = self
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
             // 单个的cell就直接不加载数据
             // 如果是多个cell就先转成模型然后返回--不刷新数据
-            if (self.params != params) {return}
             
-            // 最热评论
+            if let weakSelf = weakSelf {
             
-            self.hotComments = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["hot"])
+                if (weakSelf.params != params) {return}
+                
+                // 最热评论
+                (responseObject as! NSDictionary).writeToFile("/Users/jiangjin/Desktop/duanzi💗.plist", atomically: true)
+                
+                weakSelf.hotComments = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["hot"])
+                
+                // 最新评论
+                weakSelf.latestComments = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["data"])
+                
+                // 刷新表格
+                weakSelf.tableView.reloadData()
+                
+                // 结束刷新
+                weakSelf.tableView.mj_header.endRefreshing()
             
-            // 最新评论
-            self.latestComments = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["data"])
+            }
             
-            // 刷新表格
-            self.tableView.reloadData()
-            
-            // 结束刷新
-            self.tableView.mj_header.endRefreshing()
+
 
             }) { (error) -> () in
-                // 不是最后一次请求
-                if (self.params != params) {return}
-                // 显示失败信息
-                SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
-                // 让底部控件结束刷新
-                self.tableView.mj_header.endRefreshing()
+                
+                if let weakSelf = weakSelf {
+                
+                    // 不是最后一次请求
+                    if (weakSelf.params != params) {return}
+                    // 显示失败信息
+                    SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                    // 让底部控件结束刷新
+                    weakSelf.tableView.mj_header.endRefreshing()
+                }
+
         }
     }
     
@@ -171,6 +187,13 @@ class XMGCommentViewController: UIViewController {
     {
         // 移除通知
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        // 恢复帖子的top_cmt
+//        if (self.saved_top_cmt.count != 0) {
+//            
+//            self.topic.top_cmt = self.saved_top_cmt;
+//            self.topic.setValue(0, forKey: "cellHeighT")
+//
+//        }
     }
     
     
@@ -184,14 +207,14 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // 当前的索引
-        let hotCount:Int? = self.hotComments.count;
-        let latestCount:Int? = self.latestComments.count;
+        let hotCount:Int = self.hotComments.count;
+        let latestCount:Int = self.latestComments.count;
 
-        if (hotCount != nil) {
+        if (hotCount != 0) {
             
             return 2; // 有"最热评论" + "最新评论" 2组
         }
-        if (latestCount != nil) {
+        if (latestCount != 0) {
             
             return 1; // 有"最新评论" 1 组
         }
@@ -200,14 +223,14 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let hotCount:Int? = self.hotComments.count;
-        let latestCount:Int? = self.latestComments.count;
+        let hotCount:Int = self.hotComments.count;
+        let latestCount:Int = self.latestComments.count;
         if (section == 0) {
-            return (hotCount != nil ? hotCount : latestCount)!
+            return hotCount != 0 ? hotCount : latestCount
         }
         
         // 非第0组
-        return latestCount!
+        return latestCount
     }
     
     

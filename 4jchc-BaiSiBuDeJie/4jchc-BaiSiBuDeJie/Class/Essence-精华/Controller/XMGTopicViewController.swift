@@ -208,7 +208,7 @@ class XMGTopicViewController: UITableViewController {
         // cell的高度
         let cellH:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellBottomBarH + 2 * XMGTopicCellMargin;
         */
-        return topic.cellHeight
+        return topic.cellHeight!
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
