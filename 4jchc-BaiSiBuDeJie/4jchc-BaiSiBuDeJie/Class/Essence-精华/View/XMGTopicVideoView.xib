@@ -32,14 +32,14 @@
                     <rect key="frame" x="187" y="173" width="36" height="17"/>
                     <color key="backgroundColor" white="0.0" alpha="0.65519935344827585" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" white="0.0" alpha="0.55398706896551719" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSu-zf-oIC" userLabel="播放次数">
                     <rect key="frame" x="187" y="0.0" width="36" height="17"/>
                     <color key="backgroundColor" white="0.0" alpha="0.65519935344827585" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" white="0.0" alpha="0.55398706896551719" colorSpace="calibratedWhite"/>
                 </label>
             </subviews>

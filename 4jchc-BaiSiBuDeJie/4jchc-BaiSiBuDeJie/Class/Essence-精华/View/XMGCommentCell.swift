@@ -16,8 +16,8 @@ class XMGCommentCell: UITableViewCell {
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var voiceButton: UIButton!
 
-    //@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,13 +41,12 @@ class XMGCommentCell: UITableViewCell {
             self.usernameLabel.text = comment!.user!.username;
             self.likeCountLabel.text = String(format: "%zd",comment!.like_count)
             
-//            if (comment.voiceuri.length) {
-//                self.voiceButton.hidden = false
-//                
-//                //[self.voiceButton setTitle:[NSString stringWithFormat:@"%zd''", comment.voicetime] forState:UIControlStateNormal];
-//            } else {
-//                self.voiceButton.hidden = true
-//            }
+            if (comment!.voiceuri!.length > 0) {
+                self.voiceButton.hidden = false
+                self.voiceButton.setTitle("\(comment!.voicetime)''", forState: .Normal)
+            } else {
+                self.voiceButton.hidden = true
+            }
             
         }
         

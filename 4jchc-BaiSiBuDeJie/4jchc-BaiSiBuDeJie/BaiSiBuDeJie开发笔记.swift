@@ -415,7 +415,7 @@ import UIKit
 
 
     /*
-    💗自定义评论cell
+    MARK: 10. 💗自定义评论cell
     因为模型top_cmt的数组只有一个字典所以通过MJ可以直接吧数组映射为字典
     1.   更改MJ映射  "top_cmt" : "top_cmt[0]",   var top_cmt:XMGComment?
     2.自定义评论cell-💗自动计算cell高度
@@ -424,7 +424,10 @@ import UIKit
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     */
 
-
+    /*
+    评论的音频显示处理
+    1.重写NSLayoutConstraint的--description.有错误会打印identifier
+    */
 
 
 

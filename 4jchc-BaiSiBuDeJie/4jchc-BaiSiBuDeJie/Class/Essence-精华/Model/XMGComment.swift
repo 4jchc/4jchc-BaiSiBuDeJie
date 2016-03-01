@@ -12,6 +12,8 @@ class XMGComment: NSObject {
     
     /** 音频文件的时长 */
     var voicetime: Int = 0
+    /** 音频文件的路径 */
+    var voiceuri: NSString?
 
     /** 评论的文字内容 */
     var content: String?

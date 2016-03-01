@@ -66,6 +66,21 @@ get {
     }
 }
 }
+
+
+extension NSLayoutConstraint {
+    
+    //重写description.有错误会打印identifier
+    override public var description: String {
+        let id = identifier ?? ""
+        return "id: \(id), constant: \(constant)" //you may print whatever you want here
+}
+}
+
+
+
+
+
 //MARK: - 单词
 /*
 
