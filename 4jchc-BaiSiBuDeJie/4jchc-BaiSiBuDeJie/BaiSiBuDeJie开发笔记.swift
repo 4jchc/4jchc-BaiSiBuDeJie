@@ -447,17 +447,17 @@ import UIKit
 
 
     /*
-    scrollview滚动处理
+    MARK: 14. scrollview滚动处理
     1.自定义窗口
     2.转换坐标CGRectIntersectsRect(UIApplication.sharedApplication().keyWindow!.bounds, subview.frame)
     */
 //MARK: - 第七天
 
 
-/*修改状态栏
-Plist---View controller-based status bar appearance
-1.<#多行注释#>
-2.<#多行注释#>
-3.<#多行注释#>
-*/
+    /*
+    MARK: 1. 修改状态栏❌scrollview滚动处理没有完成
+    Plist---View controller-based status bar appearance
+    1.添加编辑菜单-UIMenuController
+    2.没有完成菜单展示和回滚到顶部的自定义uiwindow
+    */
 

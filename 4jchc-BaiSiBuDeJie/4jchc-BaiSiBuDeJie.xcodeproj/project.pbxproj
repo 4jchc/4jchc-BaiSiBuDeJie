@@ -70,6 +70,7 @@
 		96DB5FED1C71CD8800B289EE /* _jchc_BaiSiBuDeJieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FEC1C71CD8800B289EE /* _jchc_BaiSiBuDeJieTests.swift */; };
 		96DB5FF81C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FF71C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift */; };
 		96E1CF3F1C86994A0085FE49 /* XMGTopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1CF3E1C86994A0085FE49 /* XMGTopWindow.swift */; };
+		96E1CF7D1C86F9350085FE49 /* UiwindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1CF7C1C86F9350085FE49 /* UiwindViewController.swift */; };
 		96ED7FAC1C796B8100ACC9E3 /* XMGTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */; };
 		96ED7FAF1C799D2F00ACC9E3 /* XMGTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED7FAD1C799D2F00ACC9E3 /* XMGTopicCell.swift */; };
 		96ED7FB01C799D2F00ACC9E3 /* XMGTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED7FAE1C799D2F00ACC9E3 /* XMGTopicCell.xib */; };
@@ -164,6 +165,7 @@
 		96DB5FF71C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_BaiSiBuDeJieUITests.swift; sourceTree = "<group>"; };
 		96DB5FF91C71CD8800B289EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1CF3E1C86994A0085FE49 /* XMGTopWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopWindow.swift; sourceTree = "<group>"; };
+		96E1CF7C1C86F9350085FE49 /* UiwindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiwindViewController.swift; sourceTree = "<group>"; };
 		96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopic.swift; sourceTree = "<group>"; };
 		96ED7FAD1C799D2F00ACC9E3 /* XMGTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopicCell.swift; sourceTree = "<group>"; };
 		96ED7FAE1C799D2F00ACC9E3 /* XMGTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicCell.xib; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				96DB5FD71C71CD8700B289EE /* AppDelegate.swift */,
+				96E1CF7C1C86F9350085FE49 /* UiwindViewController.swift */,
 				96DB5FD91C71CD8700B289EE /* ViewController.swift */,
 				96DB5FDE1C71CD8700B289EE /* Images.xcassets */,
 				96DB5FE01C71CD8700B289EE /* LaunchScreen.storyboard */,
@@ -749,6 +752,7 @@
 				96632E7E1C7C54BF00E40F23 /* XMGProgressView.swift in Sources */,
 				96DB5FD81C71CD8700B289EE /* AppDelegate.swift in Sources */,
 				961970811C72265800D67033 /* UIKit+Extension.swift in Sources */,
+				96E1CF7D1C86F9350085FE49 /* UiwindViewController.swift in Sources */,
 				9619707B1C72265800D67033 /* XMGMeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

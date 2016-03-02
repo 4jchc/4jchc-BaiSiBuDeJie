@@ -316,7 +316,26 @@ class XMGCommentViewController: UIViewController {
         //TODO:AFN 取消所有任务会报错
         //self.manager.invalidateSessionCancelingTasks(true)
     }
+    // 将自己的文字复制到粘贴板
+    func ding(menu: AnyObject?) {
+        // 当前的索引
+        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow!
+        printLog("\(commentInIndexPath(indexPath).content)-\(__FUNCTION__)")
+        
+    }
     
+    // 将自己的文字复制到粘贴板
+    func replay(sender: AnyObject?) {
+        // 当前的索引
+        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow!
+        printLog("\(commentInIndexPath(indexPath).content)-\(__FUNCTION__)")
+    }
+    
+    func report(sender: AnyObject?) {
+        // 当前的索引
+        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow!
+        printLog("\(commentInIndexPath(indexPath).content)-\(__FUNCTION__)")
+    }
     
 }
 extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
@@ -324,6 +343,7 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         
         self.view.endEditing(true)
+        UIMenuController.sharedMenuController().setMenuVisible(true, animated: true)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -373,6 +393,7 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
         
         let cell:XMGCommentCell = tableView.dequeueReusableCellWithIdentifier(XMGCommentId)! as! XMGCommentCell
         
@@ -381,6 +402,40 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // 1.label要成为第一响应者(作用是:告诉UIMenuController支持哪些操作, 这些操作如何处理)
+        // 被点击的cell
+
+        
+        // 2.显示MenuController
+        let menu:UIMenuController = UIMenuController.sharedMenuController()
+        // 添加MenuItem
+        printLog("menu.menuVisible=\(menu.menuVisible)")
+        if menu.menuVisible == true{
+            
+            menu.setMenuVisible(false, animated: true)
+        }else{
+
+            
+            let cell:XMGCommentCell = tableView.cellForRowAtIndexPath(indexPath) as! XMGCommentCell
+            // 出现一个第一响应者
+            cell.becomeFirstResponder()
+            
+            let ding = UIMenuItem(title: "复制", action: Selector("ding:"))
+            let replay = UIMenuItem(title: "剪切", action: Selector("replay:"))
+            let report = UIMenuItem(title: "粘贴", action: Selector("report:"))
+            
+            menu.menuItems = [ding, replay, report]
+            // targetRect: MenuController需要指向的矩形框
+            // targetView: targetRect会以targetView的左上角为坐标原点
+            let rect:CGRect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
+            menu.setTargetRect(rect, inView: cell)
+            
+            menu.setMenuVisible(true, animated: true)
+             menu.update()
+            
+        }
+    }
     
 }
 

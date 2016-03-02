@@ -30,7 +30,7 @@ class XMGTabBarController: UITabBarController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         addChildViewControllers()
     }
 

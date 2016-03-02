@@ -22,10 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 2.设置窗口的根控制器
         window?.rootViewController = XMGTabBarController()
         // 3.显示窗口
+        
         window?.makeKeyAndVisible()
         
         // 显示推送引导
         XMGPushGuideView.show()
+        // 添加一个window, 点击这个window, 可以让屏幕上的scrollView滚到最顶部
+        XMGTopWindow.show( )
+        
         return true
     }
 
@@ -41,12 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+                
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        // 添加一个window, 点击这个window, 可以让屏幕上的scrollView滚到最顶部
-        XMGTopWindow.show()
+        
+        
+
     }
 
     func applicationWillTerminate(application: UIApplication) {

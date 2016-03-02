@@ -17,7 +17,22 @@ class XMGCommentCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var voiceButton: UIButton!
+    
+    
+    /// 让label有资格成为第一响应者
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
 
+    /**
+     * label能执行哪些操作(比如copy, paste等等)
+     * @return  YES:支持这种操作
+     */
+    override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+        //super.canPerformAction(action, withSender: sender)
+        return false
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
