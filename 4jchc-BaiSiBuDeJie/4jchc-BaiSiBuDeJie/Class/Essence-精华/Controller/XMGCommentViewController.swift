@@ -35,17 +35,12 @@ class XMGCommentViewController: UIViewController {
     var page: Int = 0
     
     /** 管理者 */
-    var _manager:NetworkTools?
-    var manageR:NetworkTools {
-        get{
-            if _manager == nil {
-                _manager = NetworkTools.shareNetworkTools()
-            }
-            return _manager!
+    var manager: NetworkTools! {
+        get {
+            return NetworkTools.shareNetworkTools()
         }
-    }
 
-    
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBasic()
@@ -100,8 +95,8 @@ class XMGCommentViewController: UIViewController {
     func loadMoreComments(){
         
         // 结束之前的所有请求
-        manageR.tasks.forEach { $0.cancel() }
-            
+        manager.tasks.forEach { $0.cancel() }
+
         // 页码
         let page = self.page + 1;
         // 1.定义URL路径
@@ -118,10 +113,13 @@ class XMGCommentViewController: UIViewController {
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
         weak var weakSelf = self
-        manageR.sendGET(path, params: params, successCallback: { (responseObject) -> () in
+        manager.sendGET(path, params: params, successCallback: { (responseObject) -> () in
             // 单个的cell就直接不加载数据
             // 如果是多个cell就先转成模型然后返回--不刷新数据
-            
+            // 最新评论
+
+            let newComments:NSArray = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["data"])
+            self.latestComments.addObjectsFromArray(newComments as [AnyObject])
             // 页码
             self.page = page;
             if let weakSelf = weakSelf {
@@ -130,14 +128,21 @@ class XMGCommentViewController: UIViewController {
                 
                 
                 // 控制footer的状态
-                let total:Int = responseObject["total"] as! Int
-                
-                if (weakSelf.latestComments.count >= total) { // 全部加载完毕
-                    weakSelf.tableView.mj_footer.hidden = true
-                } else {
-                    // 结束刷新
-                    weakSelf.tableView.mj_footer.endRefreshing()
-
+                if (responseObject["total"])!!.isKindOfClass(NSNumber.self){
+                    
+                    
+                    let total:NSNumber? = responseObject["total"] as? NSNumber
+                    
+                    if (weakSelf.latestComments.count >= total!.integerValue) { // 全部加载完毕
+                        weakSelf.tableView.mj_footer.hidden = true
+                    }
+                }else if (responseObject["total"])!!.isKindOfClass(NSString.self){
+                    
+                    let total:String? = responseObject["total"] as? String
+                    
+                    if (weakSelf.latestComments.count >= total!.toInt()) { // 全部加载完毕
+                        weakSelf.tableView.mj_footer.hidden = true
+                    }
                 }
                 
                 // 刷新表格
@@ -162,7 +167,7 @@ class XMGCommentViewController: UIViewController {
     
     func loadNewComments(){
         // 结束之前的所有请求
-        manageR.tasks.forEach { $0.cancel() }
+        manager.tasks.forEach { $0.cancel() }
         // 1.定义URL路径
         let path = "api/api_open.php"
         // 2.封装参数
@@ -175,7 +180,7 @@ class XMGCommentViewController: UIViewController {
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
         weak var weakSelf = self
-        manageR.sendGET(path, params: params, successCallback: { (responseObject) -> () in
+        manager.sendGET(path, params: params, successCallback: { (responseObject) -> () in
             // 单个的cell就直接不加载数据
             // 如果是多个cell就先转成模型然后返回--不刷新数据
             
@@ -197,13 +202,27 @@ class XMGCommentViewController: UIViewController {
                 
                 // 结束刷新
                 weakSelf.tableView.mj_header.endRefreshing()
-                // 控制footer的状态
-                // 控制footer的状态
-                let total:Int = responseObject["total"] as! Int
                 
-                if (weakSelf.latestComments.count >= total) { // 全部加载完毕
-                    weakSelf.tableView.mj_footer.hidden = true
+                printLog("\(responseObject["total"])")
+                // 控制footer的状态
+                if (responseObject["total"])!!.isKindOfClass(NSNumber.self){
+                    
+                    
+                    let total:NSNumber? = responseObject["total"] as? NSNumber
+                    
+                    if (weakSelf.latestComments.count >= total!.integerValue) { // 全部加载完毕
+                        weakSelf.tableView.mj_footer.hidden = true
+                    }
+                }else if (responseObject["total"])!!.isKindOfClass(NSString.self){
+                    
+                    let total:String? = responseObject["total"] as? String
+                    
+                    if (weakSelf.latestComments.count >= total!.toInt()) { // 全部加载完毕
+                        weakSelf.tableView.mj_footer.hidden = true
+                    }
                 }
+                
+
             
             }
             }) { (error) -> () in
@@ -292,8 +311,10 @@ class XMGCommentViewController: UIViewController {
 //            self.topic.setValue(0, forKey: "cellHeighT")
 //
 //        }
-        //TODO:AFN 取消所有任务
-        self.manageR.invalidateSessionCancelingTasks(true)
+        self.manager.tasks.forEach { $0.cancel() }
+
+        //TODO:AFN 取消所有任务会报错
+        //self.manager.invalidateSessionCancelingTasks(true)
     }
     
     

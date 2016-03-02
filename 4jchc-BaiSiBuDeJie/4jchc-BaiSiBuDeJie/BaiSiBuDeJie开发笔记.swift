@@ -425,14 +425,22 @@ import UIKit
     */
 
     /*
-    评论的音频显示处理
+    MARK: 11. 评论的音频显示处理
     1.重写NSLayoutConstraint的--description.有错误会打印identifier
     */
 
 
     /*
-    💗上拉加载评论
+    MARK: 12. 💗上拉加载评论
     1.AFN的下载判断 取消所以下载
     2.添加下拉加载.控件的隐藏判断
     */
 
+    /*
+    MARK: 13.AFN 💗取消所有任务会报错
+    self.manager.invalidateSessionCancelingTasks(true)
+    1.使用这个
+     self.manager.tasks.forEach { $0.cancel() }
+    2.💗responseObject["total"]返回值有2种情况
+    3.(responseObject["total"])!!.isKindOfClass(NSNumber.self)判断
+    */

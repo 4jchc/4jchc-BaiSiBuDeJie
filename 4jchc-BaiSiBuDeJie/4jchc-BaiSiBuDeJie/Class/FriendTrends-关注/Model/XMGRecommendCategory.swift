@@ -22,7 +22,7 @@ class XMGRecommendCategory: NSObject {
     
     
     /** 总数 */
-    var total: Int = 0
+    var total: NSNumber = 0
     /** 当前页码 */
     var currentPage: Int = 0
     

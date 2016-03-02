@@ -26,6 +26,46 @@ class NetworkTools: AFHTTPSessionManager {
     class func shareNetworkTools() -> NetworkTools {
         return tools
     }
+
+    
+    /*
+    /** 管理者 */
+    static var _manager:NetworkTools?
+    static var manageR:NetworkTools {
+    get{
+    if _manager == nil {
+    _manager = NetworkTools.shareNetworkTools()
+    }
+    return _manager!
+    }
+    
+    }
+    
+    
+    static var _manager:AFHTTPSessionManager?
+    static var manageR:AFHTTPSessionManager {
+    get{
+    if _manager == nil {
+    _manager = NetworkTools.shareNetworkTools()
+    }
+    return _manager!
+    }
+    }
+    
+    class func invalidateInstance() {
+    
+    if _manager != nil {
+    _manager!.invalidateSessionCancelingTasks(true)
+    _manager = nil
+    }
+    }
+    */
+    override func invalidateSessionCancelingTasks(cancelPendingTasks: Bool) {
+        super.invalidateSessionCancelingTasks(cancelPendingTasks)
+    }
+
+   
+
     
     // NSURLSessionDataTask task
     func sendGET(url:String,params:AnyObject?,successCallback: (responseObject:AnyObject) -> (),errorCallback:(error:NSError) -> ()){
