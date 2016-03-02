@@ -90,16 +90,28 @@ extension UIView{
             return self.frame.origin
         }
     }
+    //MARK:  是否在主窗口上
+    ///  是否在主窗口上
+    func isShowingOnKeyWindow()->Bool{
+        
+        // 主窗口
+        let keyWindow:UIWindow = UIApplication.sharedApplication().keyWindow!
+        
+        // 以主窗口左上角为坐标原点, 计算self的矩形框
+        let newFrame:CGRect = keyWindow.convertRect(self.frame, fromView: self.superview)
+        
+        let winBounds:CGRect = keyWindow.bounds;
+        // 主窗口的bounds 和 self的矩形框 是否有重叠
+        /// 记录当前是否是
+        let intersects: Bool = CGRectIntersectsRect(newFrame, winBounds);
+        
+        return (self.hidden == false) && (self.alpha > 0.01) && (self.window == keyWindow) && (intersects == true)
+    }
 }
 
 
 
 
-//public extension CGPoint {
-//    func isFarFromPoint(point: CGPoint, minimumDistance: CGFloat = 0) -> Bool {
-//        return self.distanceTo(point) >= minimumDistance
-//    }
-//}
 
 extension CGSize {
     var area: CGFloat {

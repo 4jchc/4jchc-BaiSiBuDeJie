@@ -451,5 +451,13 @@ import UIKit
     1.自定义窗口
     2.转换坐标CGRectIntersectsRect(UIApplication.sharedApplication().keyWindow!.bounds, subview.frame)
     */
+//MARK: - 第七天
 
+
+/*修改状态栏
+Plist---View controller-based status bar appearance
+1.<#多行注释#>
+2.<#多行注释#>
+3.<#多行注释#>
+*/
 

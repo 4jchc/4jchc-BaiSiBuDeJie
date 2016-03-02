@@ -19,6 +19,12 @@ class XMGTopWindow: NSObject {
         window_.hidden = false
         
     }
+
+    
+    static func hide(){
+        
+        window_.hidden = true
+    }
     // 当第一次使用这个类的时候会调用一次
     override class func initialize(){
         

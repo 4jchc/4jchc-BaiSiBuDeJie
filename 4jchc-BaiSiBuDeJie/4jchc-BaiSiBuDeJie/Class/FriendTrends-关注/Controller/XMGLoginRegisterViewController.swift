@@ -18,18 +18,21 @@ class XMGLoginRegisterViewController: UIViewController {
 
 
     }
-    
 
 
-    
     /// 点击别的地方会结束编辑
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         self.view.endEditing(true)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+    }
     @IBAction func back(sender: AnyObject) {
         
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func showLoginOrRegister(sender: UIButton) {
