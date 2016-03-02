@@ -61,6 +61,7 @@ class NetworkTools: AFHTTPSessionManager {
     }
     */
     override func invalidateSessionCancelingTasks(cancelPendingTasks: Bool) {
+        
         super.invalidateSessionCancelingTasks(cancelPendingTasks)
     }
 

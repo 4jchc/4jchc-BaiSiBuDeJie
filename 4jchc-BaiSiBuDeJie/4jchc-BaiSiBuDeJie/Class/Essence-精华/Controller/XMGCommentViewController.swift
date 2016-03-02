@@ -203,7 +203,7 @@ class XMGCommentViewController: UIViewController {
                 // 结束刷新
                 weakSelf.tableView.mj_header.endRefreshing()
                 
-                printLog("\(responseObject["total"])")
+                printLog("打印了=\(responseObject["total"]!?.integerValue)")
                 // 控制footer的状态
                 if (responseObject["total"])!!.isKindOfClass(NSNumber.self){
                     

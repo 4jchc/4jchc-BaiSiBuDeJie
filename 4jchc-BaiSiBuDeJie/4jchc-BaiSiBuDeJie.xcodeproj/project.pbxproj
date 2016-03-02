@@ -69,6 +69,7 @@
 		96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DB5FE01C71CD8700B289EE /* LaunchScreen.storyboard */; };
 		96DB5FED1C71CD8800B289EE /* _jchc_BaiSiBuDeJieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FEC1C71CD8800B289EE /* _jchc_BaiSiBuDeJieTests.swift */; };
 		96DB5FF81C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB5FF71C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift */; };
+		96E1CF3F1C86994A0085FE49 /* XMGTopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1CF3E1C86994A0085FE49 /* XMGTopWindow.swift */; };
 		96ED7FAC1C796B8100ACC9E3 /* XMGTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */; };
 		96ED7FAF1C799D2F00ACC9E3 /* XMGTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED7FAD1C799D2F00ACC9E3 /* XMGTopicCell.swift */; };
 		96ED7FB01C799D2F00ACC9E3 /* XMGTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96ED7FAE1C799D2F00ACC9E3 /* XMGTopicCell.xib */; };
@@ -162,6 +163,7 @@
 		96DB5FF31C71CD8800B289EE /* 4jchc-BaiSiBuDeJieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "4jchc-BaiSiBuDeJieUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB5FF71C71CD8800B289EE /* _jchc_BaiSiBuDeJieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _jchc_BaiSiBuDeJieUITests.swift; sourceTree = "<group>"; };
 		96DB5FF91C71CD8800B289EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96E1CF3E1C86994A0085FE49 /* XMGTopWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopWindow.swift; sourceTree = "<group>"; };
 		96ED7FAB1C796B8100ACC9E3 /* XMGTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopic.swift; sourceTree = "<group>"; };
 		96ED7FAD1C799D2F00ACC9E3 /* XMGTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopicCell.swift; sourceTree = "<group>"; };
 		96ED7FAE1C799D2F00ACC9E3 /* XMGTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicCell.xib; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				961970731C72265800D67033 /* XMGTabBar.swift */,
+				96E1CF3E1C86994A0085FE49 /* XMGTopWindow.swift */,
 				9653366D1C7735D500CF91E0 /* XMGPushGuideView.swift */,
 				9653366F1C7735EC00CF91E0 /* XMGPushGuideView.xib */,
 			);
@@ -709,6 +712,7 @@
 				9690D9FD1C7334C20048E99B /* XMGRecommendUserCell.swift in Sources */,
 				96DB5FDA1C71CD8700B289EE /* ViewController.swift in Sources */,
 				96A8959C1C76BDF900D18324 /* XMGTextField.swift in Sources */,
+				96E1CF3F1C86994A0085FE49 /* XMGTopWindow.swift in Sources */,
 				9619707E1C72265800D67033 /* XMGTabBar.swift in Sources */,
 				9619707A1C72265800D67033 /* XMGFriendTrendsViewController.swift in Sources */,
 				961970801C72265800D67033 /* UIBarButtonItem+Extension.swift in Sources */,

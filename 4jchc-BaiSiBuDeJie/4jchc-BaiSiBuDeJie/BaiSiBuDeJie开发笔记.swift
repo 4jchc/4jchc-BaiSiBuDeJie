@@ -444,3 +444,12 @@ import UIKit
     2.💗responseObject["total"]返回值有2种情况
     3.(responseObject["total"])!!.isKindOfClass(NSNumber.self)判断
     */
+
+
+    /*
+    scrollview滚动处理
+    1.自定义窗口
+    2.转换坐标CGRectIntersectsRect(UIApplication.sharedApplication().keyWindow!.bounds, subview.frame)
+    */
+
+
