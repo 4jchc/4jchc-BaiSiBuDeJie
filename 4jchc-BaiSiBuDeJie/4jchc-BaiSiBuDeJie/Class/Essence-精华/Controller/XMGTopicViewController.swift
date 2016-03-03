@@ -28,14 +28,14 @@ class XMGTopicViewController: UITableViewController {
     var type: XMGTopicType?
     //pragma mark - a参数
     // 会不断访问
-
+    
     var a : String? {
         get{
             return self.parentViewController!.isKindOfClass(XMGNewViewController.self) ? "newlist" : "list"
         }
         
     }
-
+    
     
     
     /** 上次选中的索引(或者控制器) */
@@ -84,9 +84,9 @@ class XMGTopicViewController: UITableViewController {
         
         // 如果是连续选中2次, 直接刷新
         if (self.lastSelectedIndex == self.tabBarController!.selectedIndex
-                   //&& self.tabBarController!.selectedViewController == self.navigationController
-           && self.view.isShowingOnKeyWindow() == true ) {//
-            self.tableView.mj_header.beginRefreshing()
+            //&& self.tabBarController!.selectedViewController == self.navigationController
+            && self.view.isShowingOnKeyWindow() == true ) {//
+                self.tableView.mj_header.beginRefreshing()
         }
         
         // 记录这一次选中的索引
@@ -122,33 +122,48 @@ class XMGTopicViewController: UITableViewController {
         params["type"] = self.type?.rawValue
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
+        
+        weak var weakSelf = self
+        
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
-            if (self.params != params) {return}
-            (responseObject as! NSDictionary).writeToFile("/Users/jiangjin/Desktop/duanzi💗.plist", atomically: true)
             
-            // 存储maxtime
-            self.maxtime = (responseObject["info"] as! NSDictionary)["maxtime"] as? String
             
-            // 服务器返回的JSON数据- 字典数组 -> 模型数组
-            self.topics = XMGTopic.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+            if let weakSelf = weakSelf {
+                
+                if (self.params != params) {return}
+                (responseObject as! NSDictionary).writeToFile("/Users/jiangjin/Desktop/duanzi💗.plist", atomically: true)
+                
+                // 存储maxtime
+                weakSelf.maxtime = (responseObject["info"] as! NSDictionary)["maxtime"] as? String
+                
+                // 服务器返回的JSON数据- 字典数组 -> 模型数组
+                weakSelf.topics = XMGTopic.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+                
+                // 刷新表格
+                weakSelf.tableView.reloadData()
+                
+                // 结束刷新
+                weakSelf.tableView.mj_header.endRefreshing()
+                
+                // 清空页码
+                weakSelf.page = 0;
+            }
             
-            // 刷新表格
-            self.tableView.reloadData()
             
-            // 结束刷新
-            self.tableView.mj_header.endRefreshing()
             
-            // 清空页码
-            self.page = 0;
+            
             
             }) { (error) -> () in
                 
-                // 不是最后一次请求
-                if (self.params != params) {return}
-                // 显示失败信息
-                SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
-                // 让底部控件结束刷新
-                self.tableView.mj_header.endRefreshing()
+                if let weakSelf = weakSelf {
+                    
+                    // 不是最后一次请求
+                    if (weakSelf.params != params) {return}
+                    // 显示失败信息
+                    SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                    // 让底部控件结束刷新
+                    weakSelf.tableView.mj_footer.endRefreshing()
+                }
         }
     }
     
@@ -176,31 +191,47 @@ class XMGTopicViewController: UITableViewController {
         params["maxtime"] = self.maxtime;
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
         self.params = params
+        
+        weak var weakSelf = self
+        
         NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
             // 单个的cell就直接不加载数据
             // 如果是多个cell就先转成模型然后返回--不刷新数据
-            if (self.params != params) {return}
             
-            // 存储maxtime
-            self.maxtime = (responseObject["info"] as! NSDictionary)["maxtime"] as? String
             
-            // 服务器返回的JSON数据- 字典数组 -> 模型数组
-            let newTopics:NSArray = XMGTopic.mj_objectArrayWithKeyValuesArray(responseObject["list"])
-            self.topics.addObjectsFromArray(newTopics as [AnyObject])
-            // 刷新表格
-            self.tableView.reloadData()
-            
-            // 结束刷新
-            self.tableView.mj_footer.endRefreshing()
-            // 设置页码
-            self.page = page
-            }) { (error) -> () in
-                // 不是最后一次请求
+            if let weakSelf = weakSelf {
+                
                 if (self.params != params) {return}
-                // 显示失败信息
-                SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
-                // 让底部控件结束刷新
-                self.tableView.mj_footer.endRefreshing()
+                
+                // 存储maxtime
+                weakSelf.maxtime = (responseObject["info"] as! NSDictionary)["maxtime"] as? String
+                
+                // 服务器返回的JSON数据- 字典数组 -> 模型数组
+                let newTopics:NSArray = XMGTopic.mj_objectArrayWithKeyValuesArray(responseObject["list"])
+                weakSelf.topics.addObjectsFromArray(newTopics as [AnyObject])
+                // 刷新表格
+                weakSelf.tableView.reloadData()
+                
+                // 结束刷新
+                weakSelf.tableView.mj_footer.endRefreshing()
+                // 设置页码
+                weakSelf.page = page
+            }
+            
+            
+            }) { (error) -> () in
+                
+                if let weakSelf = weakSelf {
+                    
+                    // 不是最后一次请求
+                    if (weakSelf.params != params) {return}
+                    // 显示失败信息
+                    SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                    // 让底部控件结束刷新
+                    weakSelf.tableView.mj_footer.endRefreshing()
+                }
+                
+                
         }
     }
     

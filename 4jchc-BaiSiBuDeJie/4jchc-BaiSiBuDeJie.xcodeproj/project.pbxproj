@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9609B7401C75F1B400AC5E3C /* XMGVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */; };
+		960D81401C88198A00C6D475 /* XMGMeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D813F1C88198A00C6D475 /* XMGMeFooterView.swift */; };
 		96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */; };
 		96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */; };
 		96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */; };
@@ -37,6 +38,9 @@
 		966A53A9DDA3A93070480B18 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D05291C0ACBD0E881906816 /* Pods.framework */; };
 		966AC2141C87D0980035DB88 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AC2131C87D0980035DB88 /* UIImage+Extension.swift */; };
 		966AC2161C87D3BC0035DB88 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AC2151C87D3BC0035DB88 /* UIImageView+Extension.swift */; };
+		966AC2181C8811F40035DB88 /* XMGMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AC2171C8811F40035DB88 /* XMGMeCell.swift */; };
+		966AC21A1C8815270035DB88 /* XMGSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AC2191C8815270035DB88 /* XMGSquare.swift */; };
+		966AC21C1C8815710035DB88 /* XMGSqaureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AC21B1C8815710035DB88 /* XMGSqaureButton.swift */; };
 		966BB3EF1C7AA09E00CAD685 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */; };
 		966BB3F11C7ACD0D00CAD685 /* XMGTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BB3F01C7ACD0D00CAD685 /* XMGTopicViewController.swift */; };
 		968A6F0D1C7B081E009D337A /* XMG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A6F0C1C7B081E009D337A /* XMG.swift */; };
@@ -100,6 +104,7 @@
 		3B9F0C162C80641EEE3B6A9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5D05291C0ACBD0E881906816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGVerticalButton.swift; sourceTree = "<group>"; };
+		960D813F1C88198A00C6D475 /* XMGMeFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeFooterView.swift; sourceTree = "<group>"; };
 		96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGFriendTrendsViewController.xib; sourceTree = "<group>"; };
 		96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendViewController.swift; sourceTree = "<group>"; };
 		96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +133,9 @@
 		96632E7D1C7C54BF00E40F23 /* XMGProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGProgressView.swift; sourceTree = "<group>"; };
 		966AC2131C87D0980035DB88 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		966AC2151C87D3BC0035DB88 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		966AC2171C8811F40035DB88 /* XMGMeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeCell.swift; sourceTree = "<group>"; };
+		966AC2191C8815270035DB88 /* XMGSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGSquare.swift; sourceTree = "<group>"; };
+		966AC21B1C8815710035DB88 /* XMGSqaureButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGSqaureButton.swift; sourceTree = "<group>"; };
 		966BB3EE1C7AA09E00CAD685 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		966BB3F01C7ACD0D00CAD685 /* XMGTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTopicViewController.swift; sourceTree = "<group>"; };
 		968A6F0C1C7B081E009D337A /* XMG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMG.swift; sourceTree = "<group>"; };
@@ -338,6 +346,7 @@
 		961970671C72265800D67033 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				966AC2191C8815270035DB88 /* XMGSquare.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,6 +354,9 @@
 		961970681C72265800D67033 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				966AC2171C8811F40035DB88 /* XMGMeCell.swift */,
+				966AC21B1C8815710035DB88 /* XMGSqaureButton.swift */,
+				960D813F1C88198A00C6D475 /* XMGMeFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -728,9 +740,11 @@
 				968AA0611C84561B0022175C /* XMGUser.swift in Sources */,
 				968AA0631C8456800022175C /* XMGComment.swift in Sources */,
 				9609B7401C75F1B400AC5E3C /* XMGVerticalButton.swift in Sources */,
+				966AC21A1C8815270035DB88 /* XMGSquare.swift in Sources */,
 				96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */,
 				966AC2161C87D3BC0035DB88 /* UIImageView+Extension.swift in Sources */,
 				961970841C7227B900D67033 /* 常量.swift in Sources */,
+				960D81401C88198A00C6D475 /* XMGMeFooterView.swift in Sources */,
 				969C57D51C857B7F00CF8428 /* XMGCommentHeaderView.swift in Sources */,
 				965E74AB1C74990A008A8989 /* XMGRecommendTag.swift in Sources */,
 				9619707F1C72265800D67033 /* Frame+Extension.swift in Sources */,
@@ -749,6 +763,7 @@
 				964AAA6F1C74B2940011C842 /* XMGRecommendTagCell.swift in Sources */,
 				961970861C72287100D67033 /* UIColor+Extension.swift in Sources */,
 				96ED7FAC1C796B8100ACC9E3 /* XMGTopic.swift in Sources */,
+				966AC2181C8811F40035DB88 /* XMGMeCell.swift in Sources */,
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
 				961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */,
 				9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */,
@@ -760,6 +775,7 @@
 				96632E7E1C7C54BF00E40F23 /* XMGProgressView.swift in Sources */,
 				96DB5FD81C71CD8700B289EE /* AppDelegate.swift in Sources */,
 				961970811C72265800D67033 /* UIKit+Extension.swift in Sources */,
+				966AC21C1C8815710035DB88 /* XMGSqaureButton.swift in Sources */,
 				96E1CF7D1C86F9350085FE49 /* UiwindViewController.swift in Sources */,
 				9619707B1C72265800D67033 /* XMGMeViewController.swift in Sources */,
 			);

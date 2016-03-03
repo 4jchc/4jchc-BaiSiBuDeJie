@@ -49,7 +49,7 @@ class XMGTabBarController: UITabBarController {
         
         addChildVc("关注", image: "tabBar_friendTrends_icon", selectedImage: "tabBar_friendTrends_click_icon",childVc: XMGFriendTrendsViewController())
         
-        addChildVc("我", image: "tabBar_me_icon", selectedImage: "tabBar_me_click_icon",childVc: XMGMeViewController())
+        addChildVc("我", image: "tabBar_me_icon", selectedImage: "tabBar_me_click_icon",childVc: XMGMeViewController(style: UITableViewStyle.Grouped))
         //设置KVC设置-tabbar
         setValue(XMGTabBar(frame: tabBar.bounds), forKey: "tabBar")
     }
