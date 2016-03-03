@@ -463,12 +463,32 @@ import UIKit
 
 
     /*
-    图片圆角处理 .去除cell的左右间距
+    MARK: 2. 图片圆角处理 .去除cell的左右间距
     1.cell的高度-1形成分割线
     2.图片圆角处理的封装
     */
 
     /*
-    监听tabbar的选中
+    MARK: 3. 监听tabbar的选中
     1.让AppDelegate成为代理UITabBarControllerDelegate监听代理方法发出通知
     */
+
+    /*
+    MARK: 4. 监听tabbar的选中 添加taget
+    1.在遍历添加button的时候添加taget--添加重复标识
+    2.添加XMGTopWindow.show( )后 加号按钮的push会显示错误
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+

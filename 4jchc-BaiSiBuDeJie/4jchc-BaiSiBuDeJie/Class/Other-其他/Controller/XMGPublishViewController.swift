@@ -10,9 +10,6 @@ import UIKit
 import pop
 class XMGPublishViewController: UIViewController {
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,12 +85,15 @@ class XMGPublishViewController: UIViewController {
         anim.fromValue =  NSValue(CGPoint: CGPointMake(centerX, centerBeginY))
         anim.toValue = NSValue(CGPoint: CGPointMake(centerX, centerEndY))
         anim.beginTime = CACurrentMediaTime() + Double(XMGAnimationDelay * CGFloat(images.count))
-
-        anim.completionBlock = { [unowned self] (anim, finished) in
-            
+        
+        weak var weakSelf = self
+        
+        
+        anim.completionBlock = {(anim, finished) in
+        
             print("动画结束")
             // 标语动画执行完毕, 恢复点击事件
-            self.view.userInteractionEnabled = true
+            weakSelf?.view.userInteractionEnabled = true
         }
         sloganView.pop_addAnimation(anim, forKey: nil)
 

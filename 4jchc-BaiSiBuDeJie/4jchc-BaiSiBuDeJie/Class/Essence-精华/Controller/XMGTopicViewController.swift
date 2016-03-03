@@ -75,8 +75,8 @@ class XMGTopicViewController: UITableViewController {
         
         // 如果是连续选中2次, 直接刷新
         if (self.lastSelectedIndex == self.tabBarController!.selectedIndex
-                   && self.tabBarController!.selectedViewController == self.navigationController
-            ) {//&& self.view.isShowingOnKeyWindow() == true
+                   //&& self.tabBarController!.selectedViewController == self.navigationController
+           && self.view.isShowingOnKeyWindow() == true ) {//
             self.tableView.mj_header.beginRefreshing()
         }
         

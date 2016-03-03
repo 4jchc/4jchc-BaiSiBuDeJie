@@ -8,8 +8,8 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate {
+@UIApplicationMain //UITabBarControllerDelegate
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
         
         // 设置tabBarController代理
         let tabBarControlle:XMGTabBarController = XMGTabBarController()
-        tabBarControlle.delegate = self;
+        //tabBarControlle.delegate = self;
         window?.rootViewController = tabBarControlle//XMGTabBarController()
         // 3.显示窗口
         
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
         // 显示推送引导
         XMGPushGuideView.show()
         // 添加一个window, 点击这个window, 可以让屏幕上的scrollView滚到最顶部
-        XMGTopWindow.show( )
+        //XMGTopWindow.show( )
         
         return true
     }
