@@ -68,6 +68,8 @@ class XMGTopicCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.backgroundView = UIImageView(image: UIImage(named: "mainCellBackground"))
+        //    self.profileImageView.layer.cornerRadius = self.profileImageView.width * 0.5;
+        //    self.profileImageView.layer.masksToBounds = true;
         
     }
     
@@ -82,7 +84,10 @@ class XMGTopicCell: UITableViewCell {
         didSet{
             
             // 设置头像
-            self.profileImageView.sd_setImageWithURL(NSURL(string: topic!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
+            //self.profileImageView.sd_setImageWithURL(NSURL(string: topic!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
+            
+            self.profileImageView.setHeader(topic!.profile_image!)
+            
             // 设置名字
             self.nameLabel.text = topic!.name;
             // 新浪加V
@@ -164,7 +169,8 @@ class XMGTopicCell: UITableViewCell {
   
 
                 var frame = newValue
-                frame.origin.x = XMGTopicCellMargin;
+                //frame.origin.x = XMGTopicCellMargin;
+                
                 frame.size.width -= 2 * XMGTopicCellMargin;
                 
                 //frame.size.height -= XMGTopicCellMargin;

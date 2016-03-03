@@ -36,8 +36,9 @@ class XMGRecommendTagCell: UITableViewCell {
                 
             }
             self.subNumberLabel.text = subNumber;
+            self.imageListImageView.setHeader(recommendTag!.image_list!)
             
-            self.imageListImageView.sd_setImageWithURL(NSURL(string: (recommendTag!.image_list)!), placeholderImage: UIImage(named: "defaultUserIcon"))
+            //self.imageListImageView.sd_setImageWithURL(NSURL(string: (recommendTag!.image_list)!), placeholderImage: UIImage(named: "defaultUserIcon"))
             
         }
         
@@ -47,8 +48,9 @@ class XMGRecommendTagCell: UITableViewCell {
             set{
                 var frame = newValue
     
-                frame.origin.x = 5.0
-                frame.size.width -= 2 * frame.origin.x;
+               // frame.origin.x = 5.0
+               // frame.size.width -= 2 * frame.origin.x;
+                
                 frame.size.height -= 1;
                 super.frame=frame
             }

@@ -40,7 +40,9 @@ class XMGCommentHeaderView: UITableViewHeaderFooterView {
         // 创建label
         let label:UILabel = UILabel()
         label.width = 200;
-        label.x = XMGTopicCellMargin;
+        
+        //label.x = XMGTopicCellMargin;
+        
         label.autoresizingMask = UIViewAutoresizing.FlexibleHeight;
         label.textColor = UIColor.RGB(67, 67, 67)
         self.contentView.addSubview(label)

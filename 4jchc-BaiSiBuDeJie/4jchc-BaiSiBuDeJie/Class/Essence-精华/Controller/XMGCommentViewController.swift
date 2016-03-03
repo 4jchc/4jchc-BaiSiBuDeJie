@@ -429,20 +429,43 @@ extension XMGCommentViewController:UITableViewDelegate,UITableViewDataSource{
             // targetRect: MenuController需要指向的矩形框
             // targetView: targetRect会以targetView的左上角为坐标原点
             let rect:CGRect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
-            menu.setTargetRect(rect, inView: cell)
+            menu.setTargetRect(rect, inView: view)
             
             menu.setMenuVisible(true, animated: true)
              menu.update()
-            
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
+    
     
 }
 
 
 
 
-
+extension XMGCommentViewController:TableViewCellDelegate{
+    
+    func tableCellSelected(tableCell: UITableViewCell) {
+        let longprss : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("display:"))
+        tableCell.addGestureRecognizer(longprss)
+    }
+    
+    func display(gesture: UILongPressGestureRecognizer)
+    {
+        
+        gesture.view?.becomeFirstResponder()
+        
+        print("Is first responder")
+        let menu = UIMenuController.sharedMenuController()
+        let deleteItem = UIMenuItem(title: "Delete", action: Selector("deleteLine:"))
+        let editItems = UIMenuItem(title: "Edit", action: Selector("editRow:"))
+        menu.menuItems = [deleteItem ,editItems]
+        
+        menu.setTargetRect(CGRect(x: 30, y: 8, width: 100, height: 50), inView: gesture.view!)
+        menu.setMenuVisible(true, animated: true)
+        
+    }
+}
 
 
 

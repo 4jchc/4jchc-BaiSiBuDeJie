@@ -40,7 +40,8 @@ class XMGRecommendUserCell: UITableViewCell {
                 
             }
             self.fansCountLabel.text = subNumber
-            self.headerImageView.sd_setImageWithURL(NSURL(string: (user!.header)), placeholderImage: UIImage(named: "defaultUserIcon"))
+            self.headerImageView.setHeader(user!.header)
+            //self.headerImageView.sd_setImageWithURL(NSURL(string: (user!.header)), placeholderImage: UIImage(named: "defaultUserIcon"))
             
         }
         

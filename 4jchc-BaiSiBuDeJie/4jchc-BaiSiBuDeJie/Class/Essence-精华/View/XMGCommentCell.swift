@@ -7,6 +7,10 @@
 //
 
 import UIKit
+protocol TableViewCellDelegate
+{
+    func tableCellSelected( var tableCell : UITableViewCell)
+}
 
 class XMGCommentCell: UITableViewCell {
 
@@ -17,6 +21,21 @@ class XMGCommentCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var voiceButton: UIButton!
+    
+    var delegate : TableViewCellDelegate?
+    
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if((self.delegate) != nil)
+        {
+            delegate?.tableCellSelected(self);
+        }
+        // Configure the view for the selected state
+    }
+    
+    
+    
     
     
     /// 让label有资格成为第一响应者
@@ -37,21 +56,19 @@ class XMGCommentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.backgroundView = UIImageView(image: UIImage(named: "mainCellBackground"))
-        
+//            self.profileImageView.layer.cornerRadius = self.profileImageView.width * 0.5;
+//            self.profileImageView.layer.masksToBounds = true
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
     /** 评论 */
     var comment:XMGComment?{
         
         didSet{
             
-            self.profileImageView.sd_setImageWithURL(NSURL(string: comment!.user!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
-
+            //self.profileImageView.sd_setImageWithURL(NSURL(string: comment!.user!.profile_image!), placeholderImage: UIImage(named: "defaultUserIcon"))
+            
+            self.profileImageView.setHeader(comment!.user!.profile_image!)
             self.sexView.image = comment!.user!.sex?.isEqualToString(XMGUserSexMale) == true ? UIImage(named: "Profile_manIcon") : UIImage(named: "Profile_womanIcon")
             
             self.contentLabel.text = comment!.content;
@@ -68,19 +85,22 @@ class XMGCommentCell: UITableViewCell {
         }
         
     }
+
+
+    /*
     //MARK: 重写frame来设置cell的内嵌
     override var frame:CGRect{
-        set{
-            
-            var frame = newValue
-            frame.origin.x = XMGTopicCellMargin;
-            frame.size.width -= 2 * XMGTopicCellMargin;
-
-            super.frame=frame
-        }
-        get{
-            return super.frame
-        }
+    set{
+    
+    var frame = newValue
+    frame.origin.x = XMGTopicCellMargin;
+    frame.size.width -= 2 * XMGTopicCellMargin;
+    
+    super.frame=frame
     }
-
+    get{
+    return super.frame
+    }
+    }
+    */
 }
