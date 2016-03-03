@@ -50,12 +50,11 @@ class XMGTabBar: UITabBar {
         }*/
         
         
-        
-        
-    override func layoutSubviews() {
-        super.layoutSubviews()
         // 标记按钮是否已经添加过监听器
         var added: Bool = false
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
         let width:CGFloat = self.width;
         let height:CGFloat = self.height;
 

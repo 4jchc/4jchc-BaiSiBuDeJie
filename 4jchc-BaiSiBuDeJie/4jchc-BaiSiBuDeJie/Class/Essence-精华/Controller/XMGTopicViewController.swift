@@ -26,7 +26,16 @@ class XMGTopicViewController: UITableViewController {
     /** 帖子类型(交给子类去实现) */
     
     var type: XMGTopicType?
-    
+    //pragma mark - a参数
+    // 会不断访问
+
+    var a : String? {
+        get{
+            return self.parentViewController!.isKindOfClass(XMGNewViewController.self) ? "newlist" : "list"
+        }
+        
+    }
+
     
     
     /** 上次选中的索引(或者控制器) */
@@ -108,7 +117,7 @@ class XMGTopicViewController: UITableViewController {
         let path = "api/api_open.php"
         // 2.封装参数
         let params = NSMutableDictionary()
-        params["a"] = "list";
+        params["a"] = self.a
         params["c"] = "data";
         params["type"] = self.type?.rawValue
         //.存储请求参数.判断2次请求参数是否相同.不同就直接返回
@@ -158,7 +167,7 @@ class XMGTopicViewController: UITableViewController {
         let path = "api/api_open.php"
         // 2.封装参数
         let params = NSMutableDictionary()
-        params["a"] = "list";
+        params["a"] = self.a
         params["c"] = "data";
         params["type"] = self.type?.rawValue
         // 当前的索引

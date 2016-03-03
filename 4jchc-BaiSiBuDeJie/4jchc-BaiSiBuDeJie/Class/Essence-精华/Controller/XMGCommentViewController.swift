@@ -117,7 +117,14 @@ class XMGCommentViewController: UIViewController {
             // 单个的cell就直接不加载数据
             // 如果是多个cell就先转成模型然后返回--不刷新数据
             // 最新评论
+            // 没有数据
+            if responseObject.isKindOfClass(NSDictionary.self){
+                
+                weakSelf?.tableView.mj_footer.hidden = true
+                return
+            }
 
+            
             let newComments:NSArray = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["data"])
             self.latestComments.addObjectsFromArray(newComments as [AnyObject])
             // 页码
@@ -185,12 +192,19 @@ class XMGCommentViewController: UIViewController {
             // 如果是多个cell就先转成模型然后返回--不刷新数据
             
             if let weakSelf = weakSelf {
-            
+                
+                // 没有数据
+                if responseObject.isKindOfClass(NSDictionary.self){
+                    
+                    weakSelf.tableView.mj_footer.hidden = true
+                    return
+                }
+                
                 if (weakSelf.params != params) {return}
                 // 页码
                 weakSelf.page = 1;
                 // 最热评论
-                (responseObject as! NSDictionary).writeToFile("/Users/jiangjin/Desktop/duanzi💗.plist", atomically: true)
+                //(responseObject as? NSDictionary).writeToFile("/Users/jiangjin/Desktop/duanzi💗.plist", atomically: true)
                 
                 weakSelf.hotComments = XMGComment.mj_objectArrayWithKeyValuesArray(responseObject["hot"])
                 

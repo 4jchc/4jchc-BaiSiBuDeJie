@@ -8,7 +8,7 @@
 
 import UIKit
 
-class XMGNewViewController: UIViewController {
+class XMGNewViewController: XMGEssenceViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class XMGNewViewController: UIViewController {
         
     }
     
-    func tagClick()
+    override func tagClick()
     {
         printLog("")
     }
