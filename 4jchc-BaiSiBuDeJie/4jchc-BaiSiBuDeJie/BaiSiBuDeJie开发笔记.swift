@@ -467,3 +467,8 @@ import UIKit
     1.cell的高度-1形成分割线
     2.图片圆角处理的封装
     */
+
+    /*
+    监听tabbar的选中
+    1.让AppDelegate成为代理UITabBarControllerDelegate监听代理方法发出通知
+    */

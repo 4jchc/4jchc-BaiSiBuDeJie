@@ -43,8 +43,15 @@ let XMGUserSexFemale:String = "f";
 /** 精华-cell-最热评论标题的高度 */
 let XMGTopicCellTopCmtTitleH:CGFloat = 20
 
+/** tabBar被选中的通知名字 */
+let XMGTabBarDidSelectNotification = "XMGTabBarDidSelectNotification";
+/** tabBar被选中的通知 - 被选中的控制器的index key */
+let XMGSelectedControllerIndexKey = "XMGSelectedControllerIndexKey";
+/** tabBar被选中的通知 - 被选中的控制器 key */
+let XMGSelectedControllerKey = "XMGSelectedControllerKey";
 
 
+let XMGNoteCenter = NSNotificationCenter.defaultCenter()
 var IS_IPAD: Bool {
 get {
     if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {

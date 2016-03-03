@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -20,11 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         // 2.设置窗口的根控制器
-        window?.rootViewController = XMGTabBarController()
+        
+        // 设置tabBarController代理
+        let tabBarControlle:XMGTabBarController = XMGTabBarController()
+        tabBarControlle.delegate = self;
+        window?.rootViewController = tabBarControlle//XMGTabBarController()
         // 3.显示窗口
         
         window?.makeKeyAndVisible()
-        
+
         // 显示推送引导
         XMGPushGuideView.show()
         // 添加一个window, 点击这个window, 可以让屏幕上的scrollView滚到最顶部
@@ -32,7 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+        printLog("发出通知")
+        // 发出一个通知
+        XMGNoteCenter.postNotificationName(XMGTabBarDidSelectNotification, object: self, userInfo: nil)
 
+    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -22,14 +22,15 @@ enum XMGTopicType:Int {
 
 class XMGTopicViewController: UITableViewController {
     
-
+    
     /** 帖子类型(交给子类去实现) */
-
+    
     var type: XMGTopicType?
-        
-
-        
-
+    
+    
+    
+    /** 上次选中的索引(或者控制器) */
+    var lastSelectedIndex: Int = 0
     
     let XMGTopicCellId:String = "topic"
     /** 当前页码 */
@@ -65,8 +66,24 @@ class XMGTopicViewController: UITableViewController {
         // 注册cell
         self.tableView.registerNib(UINib(nibName: "XMGTopicCell", bundle: nil), forCellReuseIdentifier: XMGTopicCellId)
         
+        // 监听tabbar点击的通知
+        
+        XMGNoteCenter.addObserver(self, selector: "tabBarSelect", name: XMGTabBarDidSelectNotification, object: nil)
         
     }
+    func tabBarSelect(){
+        
+        // 如果是连续选中2次, 直接刷新
+        if (self.lastSelectedIndex == self.tabBarController!.selectedIndex
+                   && self.tabBarController!.selectedViewController == self.navigationController
+            ) {//&& self.view.isShowingOnKeyWindow() == true
+            self.tableView.mj_header.beginRefreshing()
+        }
+        
+        // 记录这一次选中的索引
+        self.lastSelectedIndex = self.tabBarController!.selectedIndex;
+    }
+    
     //MARK:  添加刷新控件
     ///  添加刷新控件
     func setupRefresh(){
@@ -202,9 +219,9 @@ class XMGTopicViewController: UITableViewController {
         /*
         // 文字的最大尺寸
         let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
-
+        
         let textH:CGFloat = (topic.text! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14)], context: nil).size.height
-
+        
         // cell的高度
         let cellH:CGFloat = XMGTopicCellTextY + textH + XMGTopicCellBottomBarH + 2 * XMGTopicCellMargin;
         */
@@ -214,10 +231,10 @@ class XMGTopicViewController: UITableViewController {
         
         // 弹出带Nav
         let commentVc = XMGCommentViewController()
-
+        
         commentVc.topic = self.topics[indexPath.row] as! XMGTopic;
         self.navigationController?.pushViewController(commentVc, animated: true)
         
     }
-
+    
 }
