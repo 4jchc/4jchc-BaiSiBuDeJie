@@ -55,6 +55,23 @@ class XMGMeCell: UITableViewCell {
     //    frame.origin.y -= (35 - XMGTopicCellMargin);
     //    [super setFrame:frame];
     //}
+    //MARK: 重写frame来设置cell的内嵌
+    /*
+    override var frame:CGRect{
+    set{
+    
+    var frame = newValue
+    frame.origin.x = XMGTopicCellMargin;
+    frame.size.width -= 2 * XMGTopicCellMargin;
+    frame.size.height -= XMGTopicCellMargin;
+    frame.origin.y += XMGTopicCellMargin;
+    super.frame=frame
+    }
+    get{
+    return super.frame
+    }
+    }    */
+
     
     
     

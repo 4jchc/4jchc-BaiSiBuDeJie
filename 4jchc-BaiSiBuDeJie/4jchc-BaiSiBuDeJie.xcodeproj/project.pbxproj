@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9609B7401C75F1B400AC5E3C /* XMGVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */; };
 		960D81401C88198A00C6D475 /* XMGMeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D813F1C88198A00C6D475 /* XMGMeFooterView.swift */; };
+		960D81431C883F4C00C6D475 /* XMGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960D81411C883F4C00C6D475 /* XMGWebViewController.swift */; };
+		960D81441C883F4C00C6D475 /* XMGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960D81421C883F4C00C6D475 /* XMGWebViewController.xib */; };
 		96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */; };
 		96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */; };
 		96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */; };
@@ -105,6 +107,8 @@
 		5D05291C0ACBD0E881906816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609B73F1C75F1B400AC5E3C /* XMGVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGVerticalButton.swift; sourceTree = "<group>"; };
 		960D813F1C88198A00C6D475 /* XMGMeFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeFooterView.swift; sourceTree = "<group>"; };
+		960D81411C883F4C00C6D475 /* XMGWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGWebViewController.swift; sourceTree = "<group>"; };
+		960D81421C883F4C00C6D475 /* XMGWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGWebViewController.xib; sourceTree = "<group>"; };
 		96106A691C72E9E1009090A0 /* XMGFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGFriendTrendsViewController.xib; sourceTree = "<group>"; };
 		96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendViewController.swift; sourceTree = "<group>"; };
 		96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendViewController.xib; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				961970661C72265800D67033 /* XMGMeViewController.swift */,
+				960D81411C883F4C00C6D475 /* XMGWebViewController.swift */,
+				960D81421C883F4C00C6D475 /* XMGWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -648,6 +654,7 @@
 				96DB5FE21C71CD8700B289EE /* LaunchScreen.storyboard in Resources */,
 				964C4D431C75C9D600705349 /* XMGLoginRegisterViewController.xib in Resources */,
 				968A6F111C7B0DD7009D337A /* XMGTopicPictureView.xib in Resources */,
+				960D81441C883F4C00C6D475 /* XMGWebViewController.xib in Resources */,
 				968AA0671C847A710022175C /* XMGCommentViewController.xib in Resources */,
 				96106A6A1C72E9E1009090A0 /* XMGFriendTrendsViewController.xib in Resources */,
 				9690D9FE1C7334C20048E99B /* XMGRecommendUserCell.xib in Resources */,
@@ -767,6 +774,7 @@
 				961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */,
 				961970821C72265800D67033 /* UITabBarController+Extension.swift in Sources */,
 				9690D9F61C7316070048E99B /* XMGRecommendCategory.swift in Sources */,
+				960D81431C883F4C00C6D475 /* XMGWebViewController.swift in Sources */,
 				969C57D81C85ADB400CF8428 /* XMGCommentCell.swift in Sources */,
 				96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */,
 				96ED7FAF1C799D2F00ACC9E3 /* XMGTopicCell.swift in Sources */,

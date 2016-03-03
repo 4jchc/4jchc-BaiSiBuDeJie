@@ -171,9 +171,9 @@ class XMGTopicCell: UITableViewCell {
                 var frame = newValue
                 //frame.origin.x = XMGTopicCellMargin;
                 
-                frame.size.width -= 2 * XMGTopicCellMargin;
+                //frame.size.width -= 2 * XMGTopicCellMargin;
                 
-                //frame.size.height -= XMGTopicCellMargin;
+                frame.size.height -= XMGTopicCellMargin;
                 frame.size.height = self.topic!.cellHeight! - XMGTopicCellMargin;
                 
                 frame.origin.y += XMGTopicCellMargin

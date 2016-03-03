@@ -28,16 +28,30 @@ class XMGMeViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None;
         // 设置背景色
         self.view.backgroundColor = XMGGlobalBg;
-
-        // 调整inset
-        self.tableView.contentInset = UIEdgeInsetsMake(XMGTopicCellMargin - 35, 0, 0, 0);
-        
-        // 设置footerView
-        self.tableView.tableFooterView = XMGMeFooterView()
-
         // 调整header和footer
         self.tableView.sectionHeaderHeight = 0;
         self.tableView.sectionFooterHeight = XMGTopicCellMargin;
+        
+//        //底部空间
+//        let footer                         = UIView();
+//        footer.backgroundColor = UIColor.redColor()
+//        footer.frame                       = CGRectMake(0, 0, 0, 600);
+//        self.tableView.tableFooterView     = footer;
+        //                // 调整insetXMGTopicCellMargin
+        self.tableView.contentInset = UIEdgeInsetsMake(XMGTopicCellMargin-35, 0, 0, 0);
+        
+        
+        let footer:XMGMeFooterView = XMGMeFooterView()
+        footer.frame = CGRectMake(0, 0, XMGScreenW, XMGMeFooterView.foothight)
+        // 设置footerView
+        //footer.frame = CGRectMake(0, 0, XMGScreenW, f)
+        self.tableView.tableFooterView = footer
+        
+        
+        //self.automaticallyAdjustsScrollViewInsets = false
+
+
+
     }
     
     func setupNav(){

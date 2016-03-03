@@ -12,9 +12,32 @@ import SVProgressHUD
 
 class XMGMeFooterView: UIView {
 
+    static var foothight:CGFloat=CGFloat()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadpics()
+        //loadpics()
+        // 1.定义URL路径
+        let path = "api/api_open.php"
+        // 2.封装参数
+        let params = NSMutableDictionary()
+        params["a"] = "square";
+        params["c"] = "topic";
+        
+        NetworkTools.shareNetworkTools().sendGET(path, params: params, successCallback: { (responseObject) -> () in
+            
+            // 服务器返回的JSON数据- 字典数组 -> 模型数组
+            let sqaures:NSArray = XMGSquare.mj_objectArrayWithKeyValuesArray(responseObject["square_list"])
+            
+            self.createSquares(sqaures)
+            
+            }) { (error) -> () in
+                // 显示失败信息
+                SVProgressHUD.showErrorWithStatus("加载推荐信息失败!")
+                
+                
+                
+                
+        }
         self.backgroundColor = UIColor.clearColor()
 
     }
@@ -50,7 +73,7 @@ class XMGMeFooterView: UIView {
         let maxCols:Int = 4
         // 宽度和高度
         let buttonW:CGFloat = XMGScreenW / CGFloat(maxCols)
-         let buttonH:CGFloat = buttonW
+        let buttonH:CGFloat = buttonW
         for var i:Int = 0; i < sqaures.count; i++ {
 
             // 创建按钮
@@ -84,8 +107,10 @@ class XMGMeFooterView: UIView {
         let rows:Int = (sqaures.count + maxCols - 1) / maxCols;
 
         // 计算footer的高度
-        self.height = CGFloat(rows) * buttonH;
-        
+        printLog("rows\(rows)-buttonW\(buttonW)")
+        //self.height = CGFloat(rows) * buttonH //+ CGFloat(200)
+        printLog("height\(self.height)")
+        XMGMeFooterView.foothight = CGFloat(rows) * buttonH
         // 重绘
         self.setNeedsDisplay()
     }
@@ -94,23 +119,20 @@ class XMGMeFooterView: UIView {
         if !button.square!.url!.hasPrefix("http") || button.square?.url == nil {
             return
         }
-//
-//        XMGWebViewController *web = [[XMGWebViewController alloc] init];
-//        web.url = button.square.url;
-//        web.title = button.square.name;
+        let web:XMGWebViewController = XMGWebViewController()
+        web.url = button.square!.url;
+        web.title = button.square!.name;
         
         // 取出当前的导航控制器
         let window:UIWindow = UIApplication.sharedApplication().keyWindow!
         let tabBarVc:UITabBarController = window.rootViewController as! UITabBarController
         let nav:UINavigationController = tabBarVc.selectedViewController as! UINavigationController
         
-        //nav.pushViewController(web, animated: true)
+        nav.pushViewController(web, animated: true)
 
         
     }
 
-    
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
