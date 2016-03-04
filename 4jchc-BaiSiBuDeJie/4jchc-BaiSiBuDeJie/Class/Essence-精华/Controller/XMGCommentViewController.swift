@@ -71,7 +71,7 @@ class XMGCommentViewController: UIViewController {
         */
         
         
-        let cell:XMGTopicCell = XMGTopicCell.cell()
+        let cell:XMGTopicCell = XMGTopicCell.viewFromXIB() 
         cell.topic = self.topic
         cell.size = CGSizeMake(XMGScreenW, self.topic.cellHeight!);
         header.addSubview(cell)
@@ -312,7 +312,7 @@ class XMGCommentViewController: UIViewController {
         return commentsInSection(indexPath.section)[indexPath.row]  as! XMGComment
         
     }
-    
+
     
     deinit
     {

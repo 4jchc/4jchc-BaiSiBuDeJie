@@ -66,21 +66,27 @@ class XMGPlaceholderTextView: UITextView {
         XMGNoteCenter.removeObserver(self)
     }
     
-    /// 更新占位文字的尺寸
-    func updatePlaceholderLabelSize(){
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.placeholderLabel.width = self.width - 2 * self.placeholderLabel.x;
         
-        printLog("self.placeholder=\(self.placeholder)")
-        if self.placeholder == nil{
-            return
-        }
-        // 文字的最大尺寸
-        let maxSize:CGSize = CGSizeMake(XMGScreenW - 2 * self.placeholderLabel.x, CGFloat(MAXFLOAT))
-        self.placeholderLabel.size = (self.placeholder! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:self.font!], context: nil).size
-        self.placeholderLabel.backgroundColor = UIColor.redColor()
-        
+        self.placeholderLabel.sizeToFit()
     }
     
-    
+    /*
+    /// 更新占位文字的尺寸
+    func updatePlaceholderLabelSize(){
+    if self.placeholder == nil{
+    return
+    }
+    // 文字的最大尺寸
+    let maxSize:CGSize = CGSizeMake(XMGScreenW - 2 * self.placeholderLabel.x, CGFloat(MAXFLOAT))
+    self.placeholderLabel.size = (self.placeholder! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:self.font!], context: nil).size
+    self.placeholderLabel.backgroundColor = UIColor.redColor()
+    }
+    */
+
     ///: 监听文字改变
     func textDidChange(){
         // 只要有文字, 就隐藏占位文字label
@@ -95,22 +101,11 @@ class XMGPlaceholderTextView: UITextView {
             setNeedsDisplay()
         }
     }
-    
-//    var placeholder:String?{
-//        
-//        get{
-//            return self.placeholderLabel.text
-//        }
-//        set{
-//            self.placeholderLabel.text = newValue
-//            updatePlaceholderLabelSize()
-//        }
-//    }
 
     var placeholder:String?{
         didSet{
             self.placeholderLabel.text = placeholder
-            updatePlaceholderLabelSize()
+            setNeedsLayout()
         }
     }
     
@@ -119,7 +114,7 @@ class XMGPlaceholderTextView: UITextView {
         didSet{
             super.font = font
             self.placeholderLabel.font = font
-            updatePlaceholderLabelSize()
+            setNeedsLayout()
         }
     }
     
@@ -139,6 +134,9 @@ class XMGPlaceholderTextView: UITextView {
             textDidChange()
         }
     }
-    
+    /**
+    * setNeedsDisplay方法 : 会在恰当的时刻自动调用drawRect:方法
+    * setNeedsLayout方法 : 会在恰当的时刻调用layoutSubviews方法
+    */
 }
 

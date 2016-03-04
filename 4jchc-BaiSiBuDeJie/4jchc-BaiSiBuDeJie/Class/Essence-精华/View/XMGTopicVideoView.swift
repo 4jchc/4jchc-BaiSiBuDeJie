@@ -16,13 +16,7 @@ class XMGTopicVideoView: UIView {
     
     
     
-    /// 加载XIB
-    static func videoView()->XMGTopicVideoView {
-        
-        return NSBundle.mainBundle().loadNibNamed("XMGTopicVideoView", owner: nil, options: nil).first as! XMGTopicVideoView
-        
-        
-    }
+
     
     override func awakeFromNib() {
         // 取消自动调整伸缩

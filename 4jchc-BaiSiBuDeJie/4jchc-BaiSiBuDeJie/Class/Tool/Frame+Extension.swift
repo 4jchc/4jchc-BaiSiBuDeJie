@@ -107,6 +107,36 @@ extension UIView{
         
         return (self.hidden == false) && (self.alpha > 0.01) && (self.window == keyWindow) && (intersects == true)
     }
+    //MARK:  从xib中初始化view
+    ///  从xib中初始化view
+    class func viewFromXIB<T: UIView>() -> T{
+        
+        let className:String = self.getClassName()
+        let mainBundle = NSBundle.mainBundle()
+        if let objects = mainBundle.loadNibNamed(className, owner: self, options: nil) {
+            if let view = objects.last as? T {
+                return view
+            }
+            fatalError("\(__FUNCTION__): Cannot cast view object to \(T.classForCoder())")
+        }
+        fatalError("\(__FUNCTION__): No nib named \'\(className)\'")
+        
+    }
+    //MARK:  获得类名
+    ///  获得类名
+    class func getClassName() -> String{
+        
+        let selfName:String = NSStringFromClass(self)
+        let range:Range<String.Index>? = selfName.rangeOfString(".")
+        
+        if range != nil{
+            
+            return selfName.substringFromIndex(range!.endIndex)
+        }
+        
+        return selfName
+    }
+
 }
 
 

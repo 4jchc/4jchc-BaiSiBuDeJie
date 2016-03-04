@@ -23,18 +23,14 @@ class XMGTopicPictureView: UIView {
     @IBOutlet weak var progressView: XMGProgressView!
     
     /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-    // Drawing code
-    }
-    */
     /// 加载XIB
     static func pictureView()->XMGTopicPictureView {
-        
-        return NSBundle.mainBundle().loadNibNamed("XMGTopicPictureView", owner: nil, options: nil).first as! XMGTopicPictureView
-        
+    
+    return NSBundle.mainBundle().loadNibNamed("XMGTopicPictureView", owner: nil, options: nil).first as! XMGTopicPictureView
+    
     }
+    */
+
     
     
     override func awakeFromNib() {

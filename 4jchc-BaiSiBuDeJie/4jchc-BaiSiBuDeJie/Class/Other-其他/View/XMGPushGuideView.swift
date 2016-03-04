@@ -15,7 +15,7 @@ class XMGPushGuideView: UIView {
         if isNewupdate() == true{
             
             let window:UIWindow = UIApplication.sharedApplication().keyWindow!
-            let guideview:XMGPushGuideView = XMGPushGuideView.guideView()
+            let guideview = XMGPushGuideView.viewFromXIB()
             guideview.frame = window.bounds
             window.addSubview(guideview)
             
@@ -45,12 +45,14 @@ class XMGPushGuideView: UIView {
         return false
     }
     
-    
+    /*
     class func guideView()->XMGPushGuideView{
-        
-        return NSBundle.mainBundle().loadNibNamed("XMGPushGuideView", owner: nil, options: nil).last as! XMGPushGuideView
-       
+    
+    return NSBundle.mainBundle().loadNibNamed("XMGPushGuideView", owner: nil, options: nil).last as! XMGPushGuideView
+    
     }
+    */
+
     
     @IBAction func close(sender: UIButton) {
         

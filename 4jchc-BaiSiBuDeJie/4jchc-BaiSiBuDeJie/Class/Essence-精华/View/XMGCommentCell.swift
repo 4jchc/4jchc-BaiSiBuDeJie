@@ -59,7 +59,7 @@ class XMGCommentCell: UITableViewCell {
 //            self.profileImageView.layer.cornerRadius = self.profileImageView.width * 0.5;
 //            self.profileImageView.layer.masksToBounds = true
     }
-
+    
 
     /** 评论 */
     var comment:XMGComment?{

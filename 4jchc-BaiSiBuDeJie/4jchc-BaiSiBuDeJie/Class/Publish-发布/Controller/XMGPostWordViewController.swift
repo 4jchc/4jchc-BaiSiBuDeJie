@@ -12,6 +12,8 @@ class XMGPostWordViewController: UIViewController {
     
     /** 文本输入控件 */
     var textView:XMGPlaceholderTextView?
+    /** 工具条 */
+    var toolbar:XMGAddTagToolbar?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
@@ -30,6 +32,7 @@ class XMGPostWordViewController: UIViewController {
         
         textView.frame = self.view.bounds;
         textView.placeholder = "把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
+        textView.delegate = self;
         self.view.addSubview(textView)
         self.textView = textView;
     }
@@ -55,6 +58,28 @@ class XMGPostWordViewController: UIViewController {
         
     }
     
+    func setupToolbar(){
+        
+        let toolbar:XMGAddTagToolbar = XMGAddTagToolbar.viewFromXIB()
+        toolbar.width = self.view.width;
+        toolbar.y = self.view.height - toolbar.height;
+        self.view.addSubview(toolbar)
+        self.toolbar = toolbar;
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+    }
+    func keyboardWillChangeFrame(note: NSNotification){
+        
+        // 键盘显示\隐藏完毕的frame
+        let keyboardF:CGRect = note.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue
+        // 动画时间
+        let duration:Double = note.userInfo![UIKeyboardAnimationDurationUserInfoKey]!.doubleValue
+        
+        // 动画 及时刷新
+        UIView.animateWithDuration(duration) { () -> Void in
+            self.toolbar!.transform = CGAffineTransformMakeTranslation(0,  keyboardF.origin.y - XMGScreenH)
+
+        }
+    }
     
     func cancel(){
         
@@ -67,4 +92,19 @@ class XMGPostWordViewController: UIViewController {
         
     }
     
+}
+extension  XMGPostWordViewController:UITextViewDelegate{
+    
+    // MARK: - UITextViewDelegate
+    func textViewDidChange(textView: UITextView) {
+        
+        self.navigationItem.rightBarButtonItem!.enabled = textView.hasText()
+
+    }
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        
+        self.view.endEditing(true)
+
+    }
+
 }

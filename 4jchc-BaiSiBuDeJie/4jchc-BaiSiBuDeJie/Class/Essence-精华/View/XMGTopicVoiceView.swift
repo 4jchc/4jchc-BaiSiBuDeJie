@@ -17,13 +17,7 @@ class XMGTopicVoiceView: UIView {
     
     
     
-    /// 加载XIB
-    static func voiceView()->XMGTopicVoiceView {
 
-        return NSBundle.mainBundle().loadNibNamed("XMGTopicVoiceView", owner: nil, options: nil).first as! XMGTopicVoiceView
-        
-        
-    }
     
     override func awakeFromNib() {
         // 取消自动调整伸缩

@@ -36,40 +36,44 @@ class XMGTopicCell: UITableViewCell {
     /** 最热评论的整体 */
     
     @IBOutlet weak var topCmtView: UIView!
+    
+    
+    /*
     /** 加载XIB */
     static func cell()->XMGTopicCell {
-        
-        return NSBundle.mainBundle().loadNibNamed("XMGTopicCell", owner: nil, options: nil).first as! XMGTopicCell
-        
+    
+    return NSBundle.mainBundle().loadNibNamed("XMGTopicCell", owner: nil, options: nil).first as! XMGTopicCell
+    
     }
+    */
     /** 图片帖子中间的内容 */
     lazy var pictureView:XMGTopicPictureView = {
-        let ani = XMGTopicPictureView.pictureView()
+        let ani:XMGTopicPictureView = XMGTopicPictureView.viewFromXIB()
         self.contentView.addSubview(ani)
         return ani
     }()
     /** 声音帖子中间的内容 */
     lazy var voiceView:XMGTopicVoiceView = {
         
-        let ani = XMGTopicVoiceView.voiceView()
+        let ani = XMGTopicVoiceView.viewFromXIB()
         self.contentView.addSubview(ani)
-        return ani
+        return ani as! XMGTopicVoiceView
     }()
     
     /** 视频帖子中间的内容 */
     lazy var videoView:XMGTopicVideoView = {
-        
-        let ani = XMGTopicVideoView.videoView()
+    
+        let ani = XMGTopicVideoView.viewFromXIB()
         self.contentView.addSubview(ani)
-        return ani
+        return ani as! XMGTopicVideoView
     }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+     
         self.backgroundView = UIImageView(image: UIImage(named: "mainCellBackground"))
-        //    self.profileImageView.layer.cornerRadius = self.profileImageView.width * 0.5;
-        //    self.profileImageView.layer.masksToBounds = true;
+        //self.profileImageView.layer.cornerRadius = self.profileImageView.width * 0.5;
+        //self.profileImageView.layer.masksToBounds = true;
         
     }
     
