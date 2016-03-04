@@ -106,9 +106,8 @@ class XMGTopic: NSObject {
             if self.cellHeighT == 0{
                 
                 
-                
                 // 文字的最大尺寸
-                let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 4 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
+                let maxSize:CGSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width - 2 * XMGTopicCellMargin, CGFloat(MAXFLOAT))
                 
                 let textH:CGFloat = (self.text! as NSString).boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14)], context: nil).size.height
                 

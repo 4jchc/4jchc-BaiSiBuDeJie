@@ -101,11 +101,15 @@ class XMGPublishViewController: UIViewController {
     func buttonClick(button:UIButton){
         
         cancelWithCompletionBlock { () -> () in
-            if (button.tag == 0) {
+            if (button.tag == 2) {
                 
-                print("发视频");
-            } else if (button.tag == 1) {
-                print("发图片");
+                let postWord = XMGPostWordViewController()
+                let nav = XMGNavigationController(rootViewController:postWord)
+                // 这里不能使用self来弹出其他控制器, 因为self执行了dismiss操作
+                let root:UIViewController = UIApplication.sharedApplication().keyWindow!.rootViewController!
+                root.presentViewController(nav, animated: true, completion: nil)
+                
+
             }
         }
 

@@ -14,14 +14,45 @@ class XMGNavigationController: UINavigationController {
 
     // 当第一次使用这个类的时候会调用一次
     override class func initialize(){
-        
-        let bar:UINavigationBar = UINavigationBar.appearance()
-        bar.setBackgroundImage(UIImage(named: "navigationbarBackgroundWhite"), forBarMetrics: UIBarMetrics.Default)
-        
+        /*
+        let navibar = UINavigationBar.appearance()
+        navibar.tintColor = UIColor.whiteColor()
+        let navBarBg = "NavBar64"
+        navibar.setBackgroundImage(UIImage(named: navBarBg), forBarMetrics: UIBarMetrics.Default)
+        */
+        // 正常状态
+        var normalAttrs = [String:AnyObject]()
+        normalAttrs[NSForegroundColorAttributeName] = UIColor.blackColor()
+        normalAttrs[NSFontAttributeName] = UIFont.systemFontOfSize(17)
+
+        // Disabled残废的状态
+        var disabledAttrs = [String:AnyObject]()
+        disabledAttrs[NSForegroundColorAttributeName] = UIColor.lightGrayColor()
+
+        let navBar:UINavigationBar = UINavigationBar.appearance()
+        navBar.setBackgroundImage(UIImage(named: "navigationbarBackgroundWhite"), forBarMetrics: UIBarMetrics.Default)
+        navBar.setTitleVerticalPositionAdjustment(11, forBarMetrics: UIBarMetrics.Default)
+        // 当导航栏用在XMGNavigationController中, appearance设置才会生效
+        //    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
+        // 设置tabbarItem的字体选中的颜色
+        let item = UIBarButtonItem.appearance()
+        // UIControlStateNormal
+        item.setTitleTextAttributes(normalAttrs, forState: .Normal)
+        // UIControlStateDisabled
+        item.setTitleTextAttributes(disabledAttrs, forState: .Disabled)
+      
+  
     }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*
+        //使用kvc，替换掉系统的navigationBar（系统的navigationBar是readOnly的）
+        self.setValue(ZYNavigationBar(), forKeyPath: "navigationBar")
+        */
     }
     
     
@@ -55,7 +86,7 @@ class XMGNavigationController: UINavigationController {
         
 
     }
-    
+
     
     @objc private func back(){
         popViewControllerAnimated(true)
