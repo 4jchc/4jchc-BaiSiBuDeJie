@@ -42,7 +42,7 @@ class XMGPostWordViewController: UIViewController {
         
         self.title = "发表文字";
         // 设置导航栏标题
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "MainTitle"))
+        //self.navigationItem.titleView = UIImageView(image: UIImage(named: "MainTitle"))
         
         // 设置导航栏左的按钮
         //self.navigationItem.leftBarButtonItem = UIBarButtonItem.ItemWithBarButtonItem("MainTagSubIcon", target: self, action: "tagClick")

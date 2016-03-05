@@ -493,8 +493,8 @@
 			children = (
 				96ADD9A01C89521E0017C617 /* XMGPlaceholderTextView.swift */,
 				961676561C8AC16B00CE8915 /* XMGTagTextField.swift */,
-				96CC438C1C89CAC300C8237D /* XMGAddTagToolbar.swift */,
 				961676541C8A9EB000CE8915 /* XMGTagButton.swift */,
+				96CC438C1C89CAC300C8237D /* XMGAddTagToolbar.swift */,
 				96CC43901C89CAD700C8237D /* XMGAddTagToolbar.xib */,
 			);
 			path = View;

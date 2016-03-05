@@ -534,3 +534,11 @@ import UIKit
     1.闭包回调来重写UITextField---deleteBackward()
     判断文本是否有文字没有的话执行自定义的删除
     */
+
+
+    /*
+    MARK: 7. 添加标签--标签的显示
+    1.闭包回调传参数 闭包是自己调用的会促发调用者
+    2.KVC--valueForKeyPath的使用
+    3.
+    */

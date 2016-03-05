@@ -57,6 +57,8 @@ let XMGTagMargin:CGFloat = 5;
 /** 标签-高度 */
 let XMGTagH:CGFloat = 25;
 
+let XMGTagFont:UIFont = UIFont.systemFontOfSize(14)
+
 
 let XMGNoteCenter = NSNotificationCenter.defaultCenter()
 var IS_IPAD: Bool {

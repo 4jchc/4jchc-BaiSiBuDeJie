@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3u2-V8-1z1" userLabel="顶部">
-                    <rect key="frame" x="0.0" y="0.0" width="405" height="94"/>
+                    <rect key="frame" x="5" y="0.0" width="395" height="94"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTs-Zy-FcQ" userLabel="底部">
@@ -50,12 +50,12 @@
             <constraints>
                 <constraint firstItem="oJ5-7k-YXd" firstAttribute="top" secondItem="3u2-V8-1z1" secondAttribute="bottom" id="4Ae-N1-vgH"/>
                 <constraint firstItem="oJ5-7k-YXd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FFy-VW-9b6"/>
-                <constraint firstAttribute="trailing" secondItem="3u2-V8-1z1" secondAttribute="trailing" id="Owi-E8-a0h"/>
+                <constraint firstAttribute="trailing" secondItem="3u2-V8-1z1" secondAttribute="trailing" constant="5" id="Owi-E8-a0h"/>
                 <constraint firstAttribute="bottom" secondItem="iTs-Zy-FcQ" secondAttribute="bottom" id="R1P-OW-tio"/>
                 <constraint firstItem="iTs-Zy-FcQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SoO-Bo-gYv"/>
                 <constraint firstAttribute="trailing" secondItem="iTs-Zy-FcQ" secondAttribute="trailing" id="h0Z-YK-BkY"/>
                 <constraint firstItem="3u2-V8-1z1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hPl-pp-Qrz"/>
-                <constraint firstItem="3u2-V8-1z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hlU-ac-K4S"/>
+                <constraint firstItem="3u2-V8-1z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="hlU-ac-K4S"/>
                 <constraint firstAttribute="bottom" secondItem="oJ5-7k-YXd" secondAttribute="bottom" id="uB2-Ps-tHl"/>
                 <constraint firstItem="iTs-Zy-FcQ" firstAttribute="top" secondItem="3u2-V8-1z1" secondAttribute="bottom" id="wRf-XT-sGi"/>
             </constraints>
@@ -64,7 +64,7 @@
             <connections>
                 <outlet property="topView" destination="3u2-V8-1z1" id="TK0-r4-4Vf"/>
             </connections>
-            <point key="canvasLocation" x="278.5" y="265.5"/>
+            <point key="canvasLocation" x="113.5" y="270.5"/>
         </view>
     </objects>
     <resources>

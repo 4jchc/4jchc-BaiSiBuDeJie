@@ -14,7 +14,7 @@ class XMGTagButton: UIButton {
         super.init(frame: frame)
         self.setImage(UIImage(named:"chose_tag_close_icon"), forState: UIControlState.Normal)
         self.backgroundColor = XMGTagBg;
-        self.titleLabel!.font = UIFont.systemFontOfSize(14)
+        self.titleLabel!.font = XMGTagFont
     }
     
     required init?(coder aDecoder: NSCoder) {

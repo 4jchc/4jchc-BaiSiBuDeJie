@@ -7,7 +7,6 @@
 //
 
 import UIKit
-public typealias DeleteBlock = () -> Void
 
 class XMGTagTextField: UITextField {
 
@@ -27,7 +26,7 @@ class XMGTagTextField: UITextField {
     /** 按了删除键后的回调 */
     //var deleteBlock: (() -> Void)
 
-    var deleteBlock:DeleteBlock?
+    var deleteBlock:(() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

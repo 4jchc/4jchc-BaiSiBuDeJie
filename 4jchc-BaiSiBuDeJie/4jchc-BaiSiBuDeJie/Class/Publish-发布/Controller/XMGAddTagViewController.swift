@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+
 class XMGAddTagViewController: UIViewController {
     
     /** 内容 */
@@ -16,6 +17,12 @@ class XMGAddTagViewController: UIViewController {
     var textField:UITextField?
     /** 所有的标签按钮 */
     lazy var tagButtons = NSMutableArray()
+    /** 获取tags的block */
+    var tagsBlock: ((tags:NSArray) -> Void)?
+    
+    /** 所有的标签 */
+    lazy var tags = NSArray()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,7 @@ class XMGAddTagViewController: UIViewController {
         setupNav()
         setupContentView()
         setupTextFiled()
+        setupTags()
         
         // Do any additional setup after loading the view.
     }
@@ -81,17 +89,23 @@ class XMGAddTagViewController: UIViewController {
     
     //MARK: 设置导航栏
     func setupNav() {
-        
-        self.title = "添加标签";
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: UIBarButtonItemStyle.Done, target: self, action: "cancel")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Done, target: self, action: "done")
         // 设置背景色
-        self.view.backgroundColor = XMGGlobalBg;
-        // 默认不能点击
-        self.navigationItem.rightBarButtonItem!.enabled = false
-        
-        
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.title = "添加标签";
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Done, target: self, action: "done")
+
+
     }
+    //MARK: 设置标签内容
+    func setupTags(){
+        for attrs in self.tags{
+            let attrs = attrs as! String
+            self.textField!.text = attrs
+            self.addButtonClick()
+        }
+
+    }
+
     ///  监听文字改变
     func textDidChange(){
 
@@ -131,8 +145,21 @@ class XMGAddTagViewController: UIViewController {
     
     
     func done(){
+        // 传递数据给上一个控制器
+//        let tags:NSMutableArray=NSMutableArray()
+//        for attrs in self.tagButtons{
+//            let attrs = attrs as! XMGTagButton
+//            tags.addObject(attrs.currentTitle!)
+//        }
+        
+        // 传递tags给这个block
+        let tags:NSArray = self.tagButtons.valueForKeyPath("currentTitle") as! NSArray
         
         
+        self.tagsBlock?(tags: tags)
+        
+        // pop
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
@@ -141,7 +168,7 @@ class XMGAddTagViewController: UIViewController {
         btn.width = self.contentView!.width;
         btn.height = 35;
         btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(14)
+        btn.titleLabel?.font = XMGTagFont
         btn.contentEdgeInsets = UIEdgeInsetsMake(0, XMGTagMargin, 0, XMGTagMargin);
         // 让按钮内部的文字和图片都左对齐
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
@@ -232,7 +259,7 @@ class XMGAddTagViewController: UIViewController {
         if (self.tagButtons.lastObject == nil) { // 最前面的标签按钮
             self.textField!.x = 0;
             self.textField!.y = XMGTagMargin;
-            printLog("self.tagButtons.lastObject--\(self.tagButtons.count)")
+    
         }else{
             // 最后一个标签按钮
             let lastTagButton:XMGTagButton = self.tagButtons.lastObject as! XMGTagButton;
