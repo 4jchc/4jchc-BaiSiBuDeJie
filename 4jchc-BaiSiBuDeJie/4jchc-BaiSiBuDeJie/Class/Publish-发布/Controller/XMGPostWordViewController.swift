@@ -18,6 +18,7 @@ class XMGPostWordViewController: UIViewController {
         super.viewDidLoad()
         setupNav()
         setupTextView()
+        setupToolbar()
         // Do any additional setup after loading the view.
     }
     
@@ -25,8 +26,8 @@ class XMGPostWordViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
+    //MARK: 设置单行文本
     func setupTextView(){
         let textView:XMGPlaceholderTextView = XMGPlaceholderTextView()
         
@@ -57,7 +58,7 @@ class XMGPostWordViewController: UIViewController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
     }
-    
+    //MARK: 设置键盘工具条
     func setupToolbar(){
         
         let toolbar:XMGAddTagToolbar = XMGAddTagToolbar.viewFromXIB()
@@ -67,6 +68,7 @@ class XMGPostWordViewController: UIViewController {
         self.toolbar = toolbar;
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
+    
     func keyboardWillChangeFrame(note: NSNotification){
         
         // 键盘显示\隐藏完毕的frame
@@ -90,6 +92,29 @@ class XMGPostWordViewController: UIViewController {
     func post(){
         
         
+    }
+
+    
+    
+    
+    /// 点击别的地方会结束编辑
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 主动召唤键盘
+        textView!.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // 主动隐藏键盘
+        textView!.resignFirstResponder()
     }
     
 }

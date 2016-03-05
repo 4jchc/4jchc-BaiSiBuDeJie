@@ -24,14 +24,12 @@ class XMGAddTagToolbar: UIView {
         
     }
     func addButtonClick(){
-        /*
+        
         let vc = XMGAddTagViewController()
         // 这里不能使用self来弹出其他控制器, 因为self执行了dismiss操作
-        let root:UIViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
+        let root:UIViewController = UIApplication.sharedApplication().keyWindow!.rootViewController!
         let nav = root.presentedViewController as? UINavigationController
         nav?.pushViewController(vc, animated: true)
-        */
-
 
     }
 

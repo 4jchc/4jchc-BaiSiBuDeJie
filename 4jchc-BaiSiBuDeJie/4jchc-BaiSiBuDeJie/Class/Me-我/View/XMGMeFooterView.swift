@@ -123,7 +123,7 @@ class XMGMeFooterView: UIView {
         web.url = button.square!.url;
         web.title = button.square!.name;
         
-        // 取出当前的导航控制器
+        // 取出当前UITabBarController所在的导航控制器
         let window:UIWindow = UIApplication.sharedApplication().keyWindow!
         let tabBarVc:UITabBarController = window.rootViewController as! UITabBarController
         let nav:UINavigationController = tabBarVc.selectedViewController as! UINavigationController

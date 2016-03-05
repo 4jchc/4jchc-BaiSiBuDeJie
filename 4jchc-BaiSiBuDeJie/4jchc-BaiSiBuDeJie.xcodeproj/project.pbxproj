@@ -15,6 +15,7 @@
 		96106A6D1C72F94F009090A0 /* XMGRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */; };
 		96106A6E1C72F950009090A0 /* XMGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */; };
 		96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6F1C7300A8009090A0 /* NetworkTools.swift */; };
+		961676531C8A733B00CE8915 /* XMGAddTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961676521C8A733B00CE8915 /* XMGAddTagViewController.swift */; };
 		961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619705C1C72265800D67033 /* XMGEssenceViewController.swift */; };
 		9619707A1C72265800D67033 /* XMGFriendTrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */; };
 		9619707B1C72265800D67033 /* XMGMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970661C72265800D67033 /* XMGMeViewController.swift */; };
@@ -117,6 +118,7 @@
 		96106A6B1C72F94F009090A0 /* XMGRecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGRecommendViewController.swift; sourceTree = "<group>"; };
 		96106A6C1C72F94F009090A0 /* XMGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendViewController.xib; sourceTree = "<group>"; };
 		96106A6F1C7300A8009090A0 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		961676521C8A733B00CE8915 /* XMGAddTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGAddTagViewController.swift; sourceTree = "<group>"; };
 		9619705C1C72265800D67033 /* XMGEssenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGEssenceViewController.swift; sourceTree = "<group>"; };
 		961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGFriendTrendsViewController.swift; sourceTree = "<group>"; };
 		961970661C72265800D67033 /* XMGMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeViewController.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				96ADD9991C892AC90017C617 /* XMGPublishViewController.swift */,
 				96ADD99E1C892B8B0017C617 /* XMGPostWordViewController.swift */,
 				96ADD99A1C892AC90017C617 /* XMGPublishViewController.xib */,
+				961676521C8A733B00CE8915 /* XMGAddTagViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				96591C9A1C71D3D5008DE4BB /* BaiSiBuDeJie开发笔记.swift in Sources */,
 				968AA0591C83D4C30022175C /* XMGTopicVoiceView.swift in Sources */,
 				966AC2141C87D0980035DB88 /* UIImage+Extension.swift in Sources */,
+				961676531C8A733B00CE8915 /* XMGAddTagViewController.swift in Sources */,
 				968AA05F1C840A1F0022175C /* XMGTopicVideoView.swift in Sources */,
 				968A6F0D1C7B081E009D337A /* XMG.swift in Sources */,
 				966BB3F11C7ACD0D00CAD685 /* XMGTopicViewController.swift in Sources */,

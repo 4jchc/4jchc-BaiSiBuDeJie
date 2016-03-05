@@ -516,3 +516,11 @@ import UIKit
     1.添加标签-工具条
     2.封装加载XIB
     */
+    /*
+    MARK: 4. 发段子-输入标签文字
+    1.添加若干个快捷键
+    2.让按钮内部的文字和图片都左对齐
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
+    */
+
+
