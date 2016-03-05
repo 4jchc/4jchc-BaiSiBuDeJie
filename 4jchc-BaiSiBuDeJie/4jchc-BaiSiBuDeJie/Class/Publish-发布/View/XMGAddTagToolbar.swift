@@ -19,7 +19,7 @@ class XMGAddTagToolbar: UIView {
         button.addTarget(self, action: "addButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
         button.setImage(UIImage(named: "tag_add_icon"), forState: .Normal)
         button.size = button.currentImage!.size;
-        button.x = XMGTopicCellMargin;
+        button.x = XMGTagMargin;
         self.topView.addSubview(button)
         
     }

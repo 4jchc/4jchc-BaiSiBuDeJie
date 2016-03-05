@@ -10,6 +10,7 @@ import UIKit
 
 
 let XMGGlobalBg:UIColor = UIColor.RGB(223, 223, 223)
+let XMGTagBg:UIColor = UIColor.RGB(74, 139, 209)
 
 /** 精华-顶部标题的高度 */
 let XMGTitilesViewH:CGFloat = 35;
@@ -49,6 +50,10 @@ let XMGTabBarDidSelectNotification = "XMGTabBarDidSelectNotification";
 let XMGSelectedControllerIndexKey = "XMGSelectedControllerIndexKey";
 /** tabBar被选中的通知 - 被选中的控制器 key */
 let XMGSelectedControllerKey = "XMGSelectedControllerKey";
+
+
+/** 标签-间距 */
+let XMGTagMargin:CGFloat = 5;
 
 
 let XMGNoteCenter = NSNotificationCenter.defaultCenter()

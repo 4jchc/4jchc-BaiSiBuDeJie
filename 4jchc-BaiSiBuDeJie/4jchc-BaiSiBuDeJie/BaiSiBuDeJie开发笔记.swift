@@ -523,4 +523,9 @@ import UIKit
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
     */
 
+    /*
+    MARK: 5. 发段子-添加和删除标签
+    1.变量使用懒加载初始化
+    2.添加按钮的布局.把新添加的按钮保存到懒加载数组里.拿出最后一个按钮设置前一个按钮的最大X值.拿出倒数第二个按钮设置最后一个按钮的X值和判断要不要换行
+    */
 
