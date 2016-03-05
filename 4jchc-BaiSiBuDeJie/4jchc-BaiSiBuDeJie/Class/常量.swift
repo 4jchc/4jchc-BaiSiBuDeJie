@@ -54,6 +54,8 @@ let XMGSelectedControllerKey = "XMGSelectedControllerKey";
 
 /** 标签-间距 */
 let XMGTagMargin:CGFloat = 5;
+/** 标签-高度 */
+let XMGTagH:CGFloat = 25;
 
 
 let XMGNoteCenter = NSNotificationCenter.defaultCenter()

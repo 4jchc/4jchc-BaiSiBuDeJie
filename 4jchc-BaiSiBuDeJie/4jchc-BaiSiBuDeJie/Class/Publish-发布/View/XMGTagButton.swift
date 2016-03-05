@@ -24,6 +24,7 @@ class XMGTagButton: UIButton {
         super.setTitle(title, forState: state)
         self.sizeToFit()
         self.width += 3 * XMGTagMargin;
+        self.height = XMGTagH;
     }
   
     override func layoutSubviews() {

@@ -17,6 +17,7 @@
 		96106A701C7300A8009090A0 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96106A6F1C7300A8009090A0 /* NetworkTools.swift */; };
 		961676531C8A733B00CE8915 /* XMGAddTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961676521C8A733B00CE8915 /* XMGAddTagViewController.swift */; };
 		961676551C8A9EB000CE8915 /* XMGTagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961676541C8A9EB000CE8915 /* XMGTagButton.swift */; };
+		961676571C8AC16B00CE8915 /* XMGTagTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961676561C8AC16B00CE8915 /* XMGTagTextField.swift */; };
 		961970791C72265800D67033 /* XMGEssenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619705C1C72265800D67033 /* XMGEssenceViewController.swift */; };
 		9619707A1C72265800D67033 /* XMGFriendTrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */; };
 		9619707B1C72265800D67033 /* XMGMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961970661C72265800D67033 /* XMGMeViewController.swift */; };
@@ -121,6 +122,7 @@
 		96106A6F1C7300A8009090A0 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		961676521C8A733B00CE8915 /* XMGAddTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGAddTagViewController.swift; sourceTree = "<group>"; };
 		961676541C8A9EB000CE8915 /* XMGTagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTagButton.swift; sourceTree = "<group>"; };
+		961676561C8AC16B00CE8915 /* XMGTagTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGTagTextField.swift; sourceTree = "<group>"; };
 		9619705C1C72265800D67033 /* XMGEssenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGEssenceViewController.swift; sourceTree = "<group>"; };
 		961970611C72265800D67033 /* XMGFriendTrendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGFriendTrendsViewController.swift; sourceTree = "<group>"; };
 		961970661C72265800D67033 /* XMGMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMGMeViewController.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				96ADD9A01C89521E0017C617 /* XMGPlaceholderTextView.swift */,
+				961676561C8AC16B00CE8915 /* XMGTagTextField.swift */,
 				96CC438C1C89CAC300C8237D /* XMGAddTagToolbar.swift */,
 				961676541C8A9EB000CE8915 /* XMGTagButton.swift */,
 				96CC43901C89CAD700C8237D /* XMGAddTagToolbar.xib */,
@@ -776,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9690DA001C73426A0048E99B /* XMGRecommendUser.swift in Sources */,
+				961676571C8AC16B00CE8915 /* XMGTagTextField.swift in Sources */,
 				9619707D1C72265800D67033 /* XMGTabBarController.swift in Sources */,
 				964C4D421C75C9D600705349 /* XMGLoginRegisterViewController.swift in Sources */,
 				96B7AA8E1C7EA28F007AC158 /* XMGShowPictureViewController.swift in Sources */,
